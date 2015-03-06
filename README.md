@@ -1,24 +1,25 @@
-# Flux-capacitr
+# Code Genius
 
 [Heroku link][heroku]
 
-[heroku]: http://flux-capacitr.herokuapp.com
+[heroku]: http://.herokuapp.com
 
 ## Minimum Viable Product
-Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
+Code Genius is a clone of Rap Genius built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create blogs
-- [x] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
-- [ ] Search for blogs by title
-- [ ] Search for posts by tag
+- [ ] Create accounts
+- [ ] Create sessions (log in)
+- [ ] Add files
+- [ ] Create annotations of files
+- [ ] View other files / annotations
+- [ ] Follow other users
+- [ ] Get notifications of annotations added to their files
+- [ ] Get notifications when their followed users post files / annotations
+- [ ] Search for users by email
+- [ ] Tag files
+- [ ] Search for files by tag
 
 ## Design Docs
 * [View Wireframes][views]
@@ -73,14 +74,14 @@ collections, but they will fetch from the new `search` routes.
 [Details][phase-five]
 
 ### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
-- [ ] Custom blog urls
+- [ ] "Like" button for annotations
+- [ ] General comments on files
 - [ ] Pagination/infinite scroll
 - [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Reblogging
+- [ ] Annotate with different MIME types
+- [ ] Annotate in markdown
 - [ ] Multiple sessions/session management
-- [ ] User avatars
+- [ ] Support syntax highlighting
 - [ ] Typeahead search bar
 
 [phase-one]: ./docs/phases/phase1.md
@@ -88,4 +89,3 @@ collections, but they will fetch from the new `search` routes.
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
-
