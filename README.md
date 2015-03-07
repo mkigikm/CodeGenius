@@ -11,13 +11,12 @@ Code Genius is a clone of Rap Genius built on Rails and Backbone. Users can:
 
 - [ ] Create accounts
 - [ ] Create sessions (log in)
-- [ ] Upload files
-- [ ] Create annotations of files
+- [ ] Upload files / Link to file
+- [ ] Create annotations of files in Markdown
 - [ ] View other files / annotations
 - [ ] Follow other users
 - [ ] Get notifications of annotations added to their files
 - [ ] Get notifications when their followed users post files / annotations
-- [ ] Leave general comments on files
 - [ ] Search for users by email
 - [ ] Tag files
 - [ ] Search for files by tag
@@ -33,56 +32,34 @@ Code Genius is a clone of Rap Genius built on Rails and Backbone. Users can:
 
 ### Phase 0: User Authentication, File Upload (~1 day)
 I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to see their profiles, upload files or input them via text in a Rails view. They will be able to view annotations, but not update them, since that really needs to go through backbone to be done smoothly (Rap Genius doesn't allow adding/editing without javascript on, only viewing on a separate page).
+App Academy. By the end of this phase, users will be able to see their profiles, upload files or input them via text in a Rails view. They will be able to view annotations, but not update them, since that really needs to go through backbone to be done smoothly (Rap Genius doesn't allow adding/editing without javascript on, only viewing on a separate page). They will also be able to follow other users from profile pages.
 
 [Details][phase-zero]
 
 ### Phase 1: Viewing and Annotating Files (~2 days)
-I will add API routes to serve files and annotation data as JSON, then add Backbone models and collections that fetch data from those routes. By the end of this phase, users will be able to add/delete files on a single page, then navigate them and view/annotate them on a single page.
+I will add API routes to serve files and annotation data as JSON, then add Backbone models and collections that fetch data from those routes. By the end of this phase, users will be able to add/delete files on a single page, then navigate them and view/annotate them on a single page. I will also add markdown to the annotations.
 
 [Details][phase-one]
 
-### Phase 2: Editing and Displaying Annotations (~2 days)
-I plan to use third-party libraries to add functionality to the `PostForm` and
-`PostShow` views in this phase. First I'll need to add a Markdown editor to the
-`PostForm`, and make sure that the Markdown is properly escaped and formatted in
-the `PostShow` view. I also plan to integrate Filepicker for file upload so
-users can add images to blog posts.
+### Phase 2: Layout Design (~2 days)
+I will make the layout for the profile and file pages look like my wireframes using css. By the end of this phase, everything on the users profile page will be in the right position, and on the files pages, annotations will popup beside the text they are annotating.
 
 [Details][phase-two]
 
-### Phase 4: User Feeds (~1-2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s
-`subscribed_blogs` association to serve a list of blog posts ordered
-chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
-collection fetches from the new route.  Ultimately, this will be the page users
-see after logging in.
+### Phase 3: User Profiles (~1 day)
 
 [Details][phase-three]
 
-### Phase 5: Searching for Blogs and Posts (~2 days)
-I'll need to add `search` routes to both the Blogs and Posts controllers. On the
-Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
-and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
-collections, but they will fetch from the new `search` routes.
-
-[Details][phase-four]
-
 ### Bonus Features (TBD)
-- [ ] Link to files
+- [ ] Leave general comments on files
 - [ ] "Like" button for annotations
-- [ ] General comments on files
-- [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Annotate with different MIME types
-- [ ] Annotate in markdown
-- [ ] Multiple sessions/session management
+- [ ] Activity history (e.g. likes, annotations, uploads, comments)
 - [ ] Support syntax highlighting
-- [ ] Typeahead search bar
 - [ ] Sign up with Google+
+- [ ] Typeahead search bar
+- [ ] Multiple sessions/session management
 
 [phase-zero]: ./docs/phases/phase0.md
+[phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md

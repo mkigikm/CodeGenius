@@ -24,4 +24,8 @@ Api::AnnotationsController (create, destroy, show, update)
 * FileIndex
 * FileForm
 * FileShow (composite view, contains AnnotationShow subview)
-* AnnotationShow 
+* AnnotationShow
+
+## Gems/Libraries
+* Markdown-js
+* Bootstrap Markdown

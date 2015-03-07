@@ -1,4 +1,4 @@
-# Phase 4: User Feeds
+# Phase 3: Editing and Displaying Posts
 
 ## Rails
 ### Models
@@ -13,5 +13,7 @@
 ### Collections
 
 ### Views
+* PostForm
 
 ## Gems/Libraries
+* Filepicker
