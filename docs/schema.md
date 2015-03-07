@@ -1,26 +1,29 @@
 # Schema Information
 
-## blogs
+## files
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 owner_id    | integer   | not null, foreign key (references users)
-title       | string    | not null
+name        | string    | not null
+body        | text      |
+url         | string    |
 
-## followings
+## annotations
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-blog_id     | integer   | not null, foreign key (references blogs)
-follower_id | integer   | not null, foreign key (references users)
+file_id     | integer   | not null, foreign key (references files)
+start       | integer   | not null,
+span        | integer   | not null
 
-## posts
+## comments
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users)
-title       | string    | not null
-body        | string    |
+file_id     | integer   | not null, foreign key (references files)
+body        | text      | not null
 
 ## tags
 column name | data type | details
@@ -32,8 +35,15 @@ label       | string    | not null, unique
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-post_id     | integer   | not null, foreign key (references posts)
+file_id     | integer   | not null, foreign key (references files)
 tag_id      | integer   | not null, foreign key (references tags)
+
+## followings
+column name | data type | details
+------------------------------------------------
+id          | integer   | not null, primary key
+user_id     | integer   | not null, foreign key (references users)
+followed_id | integer   | not null, foreign key (references users)
 
 ## users
 column name     | data type | details
@@ -42,4 +52,3 @@ id              | integer   | not null, primary key
 email           | string    | not null, unique
 password_digest | string    | not null
 session_token   | string    | not null, unique
-

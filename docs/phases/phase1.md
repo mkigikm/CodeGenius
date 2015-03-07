@@ -1,28 +1,27 @@
-# Phase 1: User Authentication, Basic Blogs and Posts
+# Phase 1: Viewing Files and Annotations
 
 ## Rails
 ### Models
-* User
-* Blog
-* Post
 
 ### Controllers
-* UsersController (create, new)
-* SessionsController (create, new, destroy)
-* BlogsController (create, new, show)
-* PostsController (create, new, show)
+Api::FilesController (index, create, destroy, show)
+Api::AnnotationsController (create, destroy, show, update)
 
 ### Views
-* users/new.html.erb
-* session/new.html.erb
-* blogs/new.html.erb
-* blogs/show.html.erb
+* files/index.json.jbuilder
+* files/show.json.jbuilder
 
 ## Backbone
 ### Models
+* File (parses nested `annotations` association)
+* Annotation
 
 ### Collections
+* Files
+* Annotations
 
 ### Views
-
-## Gems/Libraries
+* FileIndex
+* FileForm
+* FileShow (composite view, contains AnnotationShow subview)
+* AnnotationShow 

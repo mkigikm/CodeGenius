@@ -17,6 +17,7 @@ Code Genius is a clone of Rap Genius built on Rails and Backbone. Users can:
 - [ ] Follow other users
 - [ ] Get notifications of annotations added to their files
 - [ ] Get notifications when their followed users post files / annotations
+- [ ] Leave general comments on files
 - [ ] Search for users by email
 - [ ] Tag files
 - [ ] Search for files by tag
@@ -32,20 +33,16 @@ Code Genius is a clone of Rap Genius built on Rails and Backbone. Users can:
 
 ### Phase 0: User Authentication, File Upload (~1 day)
 I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to upload files or
-input them via text in a Rails view. The most important part of this phase will
-be pushing the app to Heroku and ensuring that everything works before moving on
-to phase 2.
+App Academy. By the end of this phase, users will be able to see their profiles, upload files or input them via text in a Rails view. They will be able to view annotations, but not update them, since that really needs to go through backbone to be done smoothly (Rap Genius doesn't allow adding/editing without javascript on, only viewing on a separate page).
 
 [Details][phase-zero]
 
 ### Phase 1: Viewing and Annotating Files (~2 days)
-I will add API routes to serve files and annotation data as JSON, then add Backbone models and collections that fetch data from those routes. By the end of this phase, users will be able to upload files and annotate them in a single
-Backbone page.
+I will add API routes to serve files and annotation data as JSON, then add Backbone models and collections that fetch data from those routes. By the end of this phase, users will be able to add/delete files on a single page, then navigate them and view/annotate them on a single page.
 
 [Details][phase-one]
 
-### Phase 2: Editing and Displaying Posts (~2 days)
+### Phase 2: Editing and Displaying Annotations (~2 days)
 I plan to use third-party libraries to add functionality to the `PostForm` and
 `PostShow` views in this phase. First I'll need to add a Markdown editor to the
 `PostForm`, and make sure that the Markdown is properly escaped and formatted in
@@ -84,7 +81,7 @@ collections, but they will fetch from the new `search` routes.
 - [ ] Typeahead search bar
 - [ ] Sign up with Google+
 
-[phase-one]: ./docs/phases/phase1.md
+[phase-zero]: ./docs/phases/phase0.md
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
