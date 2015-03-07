@@ -1,19 +1,26 @@
-# Phase 3: Editing and Displaying Posts
+# Phase 1: Viewing Files and Annotations
 
 ## Rails
-### Models
-
 ### Controllers
+Api::FilesController (index, create, destroy, show)
+Api::AnnotationsController (create, destroy, show, update)
 
 ### Views
+* files/index.json.jbuilder
+* files/show.json.jbuilder
 
 ## Backbone
 ### Models
+* File (parses nested `annotations` association)
+* Annotation
 
 ### Collections
+* Annotations
 
 ### Views
-* PostForm
+* FileShow (composite view, contains AnnotationShow subview)
+* AnnotationShow
 
 ## Gems/Libraries
-* Filepicker
+* Markdown-js
+* Bootstrap Markdown

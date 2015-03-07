@@ -1,14 +1,13 @@
-# Phase 0: User Authentication, Basic Files and Annotations
+# Phase 0: User Authentication, File Upload
 
 ## Rails
 ### Models
 * User
 * File
 * Annotation
-* Follow
 
 ### Controllers
-* UsersController (create, new, follow, unfollow)
+* UsersController (create, new)
 * SessionsController (create, new, destroy)
 * FilesController (create, new, show, destroy)
 * AnnotationsController (show)

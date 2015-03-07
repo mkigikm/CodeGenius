@@ -48,7 +48,7 @@ I will make the layout for the profile and file pages look like my wireframes us
 
 [Details][phase-three]
 
-### Phase 4: User profiles in Backbone (~1 day)
+### Phase 4: User profiles with Backbone (~1 day)
 I will switch the user profile page to use backbone. Users will be able to follow and upload a file without reloading the page. They will also be to follow on the file page without reloading.
 
 [Details][phase-four]

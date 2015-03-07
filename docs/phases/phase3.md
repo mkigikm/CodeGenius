@@ -1,17 +1,7 @@
-# Phase 4: User Feeds
+# Phase 3: Layout Design
 
-## Rails
-### Models
-
-### Controllers
-
-### Views
-
-## Backbone
-### Models
-
-### Collections
-
-### Views
-
-## Gems/Libraries
+## css
+* application.css
+* user.css
+* file.css
+* annotation.css
