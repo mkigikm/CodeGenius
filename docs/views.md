@@ -24,7 +24,6 @@
 ## Edit Annotations
 ![edit-annotation]
 
-
 [signin]:               ./wireframes/signin.png
 [profile]:              ./wireframes/profile-files.png
 [profile-files-dialog]: ./wireframes/profile-files-dialog.png
