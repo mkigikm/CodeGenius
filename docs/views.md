@@ -19,10 +19,10 @@
 ![file]
 
 ## View Annotations
-!view-annotations]
+![view-annotation]
 
 ## Edit Annotations
-![edit-annotations]
+![edit-annotation]
 
 
 [signin]:               ./wireframes/signin.png
@@ -31,5 +31,5 @@
 [follows]:              ./wireframes/profile-follows.png
 [feed]:                 ./wireframes/profile-feed.png
 [file]:                 ./wireframes/file.png
-[view-annotations]:     ./wireframes/file-view-annotations.png
-[edit-annotations]:     ./wireframes/file-edit-annotations.png
+[view-annotations]:     ./wireframes/file-view-annotation.png
+[edit-annotations]:     ./wireframes/file-edit-annotation.png
