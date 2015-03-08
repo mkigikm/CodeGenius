@@ -30,5 +30,5 @@
 [follows]:              ./wireframes/profile-follows.png
 [feed]:                 ./wireframes/profile-feed.png
 [file]:                 ./wireframes/file.png
-[view-annotations]:     ./wireframes/file-view-annotation.png
-[edit-annotations]:     ./wireframes/file-edit-annotation.png
+[view-annotation]:     ./wireframes/file-view-annotation.png
+[edit-annotation]:     ./wireframes/file-edit-annotation.png
