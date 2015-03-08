@@ -1,26 +1,35 @@
 # View Wireframes
 
-## New Session
-![new-session]
+## Sign In
+![signin]
 
-## Feed Show (landing page)
-![feed-show]
+## Profile (landing page)
+![profile]
 
-## Blog Show
-![blog-show]
+## File Upload
+![profile-files-dialog]
 
-## Post Show
-![post-show]
+## Follows
+![follows]
 
-## Post Form
-![post-form]
+## Feed
+![feed]
 
-## Search Results
-![search-results]
+## File
+![file]
 
-[new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
-[search-results]: ./wireframes/search_results.png
+## View Annotations
+!view-annotations]
+
+## Edit Annotations
+![edit-annotations]
+
+
+[signin]:               ./wireframes/signin.png
+[profile]:              ./wireframes/profile-files.png
+[profile-files-dialog]: ./wireframes/profile-files-dialog.png
+[follows]:              ./wireframes/profile-follows.png
+[feed]:                 ./wireframes/profile-feed.png
+[file]:                 ./wireframes/file.png
+[view-annotations]:     ./wireframes/file-view-annotations.png
+[edit-annotations]:     ./wireframes/file-edit-annotations.png
