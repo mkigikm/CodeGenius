@@ -16,4 +16,18 @@
       <li><a href="#feeds">Feed</a></li>
     </ul>
   </nav>
+  <section id="#files" class="file-panel">
+    <ul>
+      <% @user.philes.each do |phile| %>
+        <li>
+          <a href="<%= phile_url(phile) %>"><%= phile.name %></a>
+        </li>
+      <% end %>
+    </ul>
+    <form action="<%= philes_url %>" method="post" enctype="multipart/form-data">
+      <%= auth_token %>
+      <input type="file" name="phile">
+      <button>Upload a file</button>
+    </form>
+  </section>
 </main>

@@ -1,11 +1,11 @@
-class CreateFiles < ActiveRecord::Migration
+class CreatePhiles < ActiveRecord::Migration
   def change
-    create_table :files do |t|
+    create_table :philes do |t|
       t.integer :owner_id, null: false
       t.string  :name, null: false
       t.text    :body, null: false
     end
 
-    add_index :files, :owner_id
+    add_index :philes, :owner_id
   end
 end

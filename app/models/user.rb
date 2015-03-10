@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
 
   has_many(
-    :files,
-    class_name: "File",
+    :philes,
+    class_name: "Phile",
     foreign_key: :owner_id,
     inverse_of: :owner
   )
