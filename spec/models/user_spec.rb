@@ -3,38 +3,38 @@ describe User, type: :model do
 
   describe "account creation" do
     it "requires an email address" do
-      u = User.new(password: "password")
-      u.valid?
+      user = User.new(password: "password")
+      user.valid?
 
-      expect(u.errors.keys).to include :email
+      expect(user.errors.keys).to include :email
     end
 
     it "requires a password of at least length 6" do
-      u = User.new(email: email, password: "passw")
-      u.valid?
+      user = User.new(email: email, password: "passw")
+      user.valid?
 
-      expect(u.errors.keys).to include :password
+      expect(user.errors.keys).to include :password
     end
 
     it "creates a session token" do
-      u = User.new(email: email, password: "password")
+      user = User.new(email: email, password: "password")
 
-      expect(u.session_token).to_not be_nil
+      expect(user.session_token).to_not be_nil
     end
 
     it "doesn't save the password to the database" do
       User.create(email: email, password: "password")
-      u = User.find_by(email: email)
+      user = User.find_by(email: email)
 
-      expect(u.password).to be_nil
+      expect(user.password).to be_nil
     end
 
     it "requires unique email addresses" do
-      u0 = User.create(email: email, password: "password")
-      u1 = User.new(email: email, password: "password")
-      u1.valid?
+      user0 = User.create(email: email, password: "password")
+      user1 = User.new(email: email, password: "password")
+      user1.valid?
 
-      expect(u1.errors.keys).to include :email
+      expect(user1.errors.keys).to include :email
     end
   end
 
@@ -44,12 +44,21 @@ describe User, type: :model do
     end
 
     it "finds no account if the email doesn't exist in the database" do
-      u = User.find_by_credentials("matt@bogo.com", "password")
+      user = User.find_by_credentials("matt@bogo.com", "password")
 
-      expect(u).to be_nil
+      expect(user).to be_nil
     end
 
-    it "finds no account if the password doesn't match"
-    it "finds accounts that match the credentials"
+    it "finds no account if the password doesn't match" do
+      user = User.find_by_credentials(email, "passwrod")
+
+      expect(user).to be_nil
+    end
+
+    it "finds accounts that match the credentials" do
+      user = User.find_by_credentials(email, "password")
+
+      expect(user.email).to eq email
+    end
   end
 end
