@@ -1,7 +1,13 @@
+<%
+errors = @user.errors.map do |field|
+  [field, @user.errors.full_messages_for(field)]
+end.to_h
+%>
+
 <form action="<%= users_url %>" method="post">
   <%= auth_token %>
 
-  <%= render "fields", user: @user %>
+  <%= render "fields", user: @user, errors: errors %>
 
   <button>Sign up for Code Genius</button>
 </form>

@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :auth_token, :error_messages, :current_user, :signed_in?
+  helper_method :auth_token, :signup_error_messages, :current_user, :signed_in?
 
   def auth_token
     <<-HTML.html_safe
@@ -12,10 +12,10 @@ class ApplicationController < ActionController::Base
     HTML
   end
 
-  def error_messages(model, key)
-    if model.errors.keys.include?(key)
+  def signup_error_messages(messages)
+    if messages
       <<-HTML.html_safe
-      <strong>#{model.errors.full_messages_for(key).join(" ")}</strong>
+      <strong>#{messages.join(" ")}</strong>
       HTML
     end
   end
