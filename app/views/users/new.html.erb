@@ -1,7 +1,7 @@
-<form class="" action="<%= new_user" method="post">
+<form action="<%= new_user_url %>" method="post">
   <%= auth_token %>
 
-  
+  <%= render "fields", user: @user %>
 
   <button>Sign up for Code Genius</button>
 </form>
