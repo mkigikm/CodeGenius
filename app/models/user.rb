@@ -7,6 +7,13 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  has_many(
+    :files,
+    class_name: "File",
+    foreign_key: :owner_id,
+    inverse_of: :owner
+  )
+
   def self.find_by_credentials(email, password)
     u = User.find_by(email: email)
 
