@@ -19,4 +19,7 @@ class ApplicationController < ActionController::Base
       HTML
     end
   end
+
+  def sign_in!(user)
+
 end

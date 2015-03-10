@@ -61,4 +61,11 @@ describe User, type: :model do
       expect(user.email).to eq email
     end
   end
+
+  describe "#reset_session_token" do
+    it "changes the session token" do
+      user = User.create(email: email, password: "password")
+      expect { user.reset_session_token! }.to change { user.session_token }
+    end
+  end
 end
