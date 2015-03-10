@@ -25,6 +25,7 @@ file_id     | integer   | not null, foreign key (references files)
 start       | integer   | not null,
 span        | integer   | not null
 author_id   | integer   | not null, foreign key (references users)
+body        | text      | not null
 
 ## followings
 column name | data type | details
