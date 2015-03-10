@@ -1,9 +1,7 @@
-<% errors ||= {} %>
-
 <label for="user[email]">Email</label>
 <input type="text" name="user[email]" value="<%= user.email %>">
-<%= signup_error_messages errors[:email] %>
+<%= error_messages user.errors, :email %>
 
 <label for="user[password]">Password</label>
 <input type="password" name="user[password]">
-<%= signup_error_messages errors[:password] %>
+<%= error_messages user.errors, :password %>
