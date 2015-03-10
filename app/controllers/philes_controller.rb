@@ -1,6 +1,7 @@
 class PhilesController < ApplicationController
   def show
-    @phile = find_phile
+    @phile = Phile.find(params[:id])
+    render :show
   end
 
   def create
