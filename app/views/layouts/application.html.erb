@@ -13,7 +13,13 @@
   <h1>Code Genius</h1>
   <ul>
     <li><a href="<%= user_url(current_user) %>"><%= current_user.email %></a></li>
-    <li><form><button>Sign Out</button></form></li>
+    <li>
+      <form action="<%= session_url %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <%= auth_token %>
+        <button>Sign Out</button>
+      </form>
+    </li>
   </ul>
 </header>
 <% end %>

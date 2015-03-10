@@ -1,0 +1,7 @@
+<form action="<%= session_url %>" method="post">
+  <%= auth_token %>
+
+  <%= render "users/fields", user: @user %>
+
+  <button>Sign into Code Genius</button>
+</form>
