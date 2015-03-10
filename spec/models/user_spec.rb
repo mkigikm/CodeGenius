@@ -1,17 +1,19 @@
 describe User, type: :model do
   describe "account creation" do
     it "requires an email address" do
-      u = User.create(password: "password")
-      expect(u.valid?).to be false
+      u = User.new(password: "password")
+      u.valid?
+      expect(u.errors.keys).to include :email
     end
 
     it "requires a password of at least length 6" do
-      u = User.create(email: "matt@example.com", password: "passw")
-      expect(u.valid?).to be false
+      u = User.new(email: "matt@example.com", password: "passw")
+      u.valid?
+      expect(u.errors.keys).to include :password
     end
 
     it "creates a session token" do
-      u = User.create(email: "matt@example.com", password: "password")
+      u = User.new(email: "matt@example.com", password: "password")
       expect(u.session_token).to_not be_nil
     end
 
