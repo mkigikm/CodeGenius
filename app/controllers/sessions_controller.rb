@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
       redirect_to user_url(@user)
     else
       @user = User.new(credentials)
+      @error = "Incorrect email or password"
       render :new
     end
   end

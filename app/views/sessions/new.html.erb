@@ -1,7 +1,8 @@
+<strong><%= @error %></strong>
 <form action="<%= session_url %>" method="post">
   <%= auth_token %>
 
-  <%= render "users/fields", user: @user %>
+  <%= render "users/fields", user: @user, errors: {} %>
 
   <button>Sign into Code Genius</button>
 </form>
