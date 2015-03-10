@@ -22,5 +22,11 @@ describe User, type: :model do
       u = User.find_by(email: "matt@example.com")
       expect(u.password).to be_nil
     end
+
+    it "requires unique email addresses" do
+      u0 = User.create(email: "matt@example.com", password: "password")
+      u1 = User.create(email: "matt@example.com", password: "password")
+      expect(u1.errors.keys).to include :email
+    end
   end
 end
