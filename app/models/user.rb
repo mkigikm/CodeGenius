@@ -7,9 +7,19 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  def self.find_by_credentials(email, password)
+    u = User.find_by(email: email)
+
+    u && u.is_password?(password) ? u : nil
+  end
+
   def password=(new_password)
     @password = new_password
     self.password_digest = BCrypt::Password.create(@password)
+  end
+
+  def is_password?(password)
+    BCrypt::Password.new(password_digest).is_password?(password)
   end
 
   private
