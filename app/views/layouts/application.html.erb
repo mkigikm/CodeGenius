@@ -8,6 +8,15 @@
 </head>
 <body>
 
+<% if signed_in? %>
+<header>
+  <h1>Code Genius</h1>
+  <ul>
+    <li><a href="<%= user_url(current_user) %>"><%= current_user.email %></a></li>
+    <li><form><button>Sign Out</button></form></li>
+  </ul>
+</header>
+<% end %>
 <%= yield %>
 
 </body>
