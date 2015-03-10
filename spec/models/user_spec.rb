@@ -1,14 +1,11 @@
 describe User, type: :model do
   let (:email) { "matt@example.com" }
 
+  it { should validate_presence_of :email }
+
+  it { should have_many :philes }
+
   describe "account creation" do
-    it "requires an email address" do
-      user = User.new(password: "password")
-      user.valid?
-
-      expect(user.errors.keys).to include :email
-    end
-
     it "requires a password of at least length 6" do
       user = User.new(email: email, password: "passw")
       user.valid?

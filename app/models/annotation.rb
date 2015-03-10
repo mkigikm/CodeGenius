@@ -1,6 +1,6 @@
 class Annotation < ActiveRecord::Base
   validates :phile, :start, :finish, :author, :body, null: false
-  validate :annotations_cannot_overlap, :start_before_end
+  validate :annotations_cannot_overlap, :start_before_finish
 
   belongs_to(
     :author,
@@ -27,18 +27,18 @@ class Annotation < ActiveRecord::Base
     errors.add(:start, "annotation cannot overlap") if overlaps > 0
   end
 
-  def start_before_end
+  def start_before_finish
     errors.add(:start, "must come before end") if start >= finish
   end
 
   def start_in_phile
-    unless (0...phile.body.length).include?(start)
+    unless (0...phile.length).include?(start)
       errors.add(:start, "must start in file")
     end
   end
 
   def finish_in_phile
-    unless (0...phile.body.length).include?(finish)
+    unless (0...phile.length).include?(finish)
       errors.add(:finish, "must finish in file")
     end
   end

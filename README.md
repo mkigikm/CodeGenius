@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: http://.herokuapp.com
+[heroku]: https://codegeniuses.herokuapp.com/
 
 ## Minimum Viable Product
 Code Genius is a clone of Rap Genius built on Rails and Backbone. Users can:

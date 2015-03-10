@@ -14,4 +14,8 @@ class Phile < ActiveRecord::Base
     foreign_key: :phile_id,
     inverse_of: :phile
   )
+
+  def length
+    body.length
+  end
 end
