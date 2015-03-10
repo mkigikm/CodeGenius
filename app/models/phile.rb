@@ -7,4 +7,11 @@ class Phile < ActiveRecord::Base
     foreign_key: :owner_id,
     inverse_of: :philes
   )
+
+  has_many(
+    :annotations,
+    class_name: "Annotation",
+    foreign_key: :phile_id,
+    inverse_of: :phile
+  )
 end

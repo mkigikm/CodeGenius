@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150310210110) do
   create_table "annotations", force: true do |t|
     t.integer "phile_id",  null: false
     t.integer "start",     null: false
-    t.integer "length",    null: false
+    t.integer "finish",    null: false
     t.integer "author_id", null: false
     t.text    "body",      null: false
   end

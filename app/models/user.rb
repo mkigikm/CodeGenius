@@ -14,10 +14,17 @@ class User < ActiveRecord::Base
     inverse_of: :owner
   )
 
-  def self.find_by_credentials(email, password)
-    u = User.find_by(email: email)
+  has_many(
+    :annotations,
+    class_name: "Annotation",
+    foreign_key: :author_id,
+    inverse_of: :author
+  )
 
-    u && u.is_password?(password) ? u : nil
+  def self.find_by_credentials(email, password)
+    user = User.find_by(email: email)
+
+    user && user.is_password?(password) ? user : nil
   end
 
   def password=(new_password)

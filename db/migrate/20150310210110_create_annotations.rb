@@ -3,7 +3,7 @@ class CreateAnnotations < ActiveRecord::Migration
     create_table :annotations do |t|
       t.integer :phile_id,  null: false
       t.integer :start,     null: false
-      t.integer :length,    null: false
+      t.integer :finish,    null: false
       t.integer :author_id, null: false
       t.text    :body,      null: false
     end
