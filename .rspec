@@ -1,3 +1,4 @@
 --color
 --format documentation
 --order default
+--require rails_helper
