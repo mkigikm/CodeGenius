@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+
+html, body, section, nav, main, header, pre, h1, ul, li,
+form, input, textarea {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.site-header {
+  border: 1px solid red;
+  width: 1200px;
+}
+
+.site-header > h1 {
+  font-size: 40px;
+  float: left;
+}
+
+.site-header > ul {
+  float: right;
+}

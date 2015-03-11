@@ -9,7 +9,7 @@
 <body>
 
 <% if signed_in? %>
-<header>
+<header class="site-header clearfix">
   <h1>Code Genius</h1>
   <ul>
     <li><a href="<%= user_url(current_user) %>"><%= current_user.email %></a></li>
