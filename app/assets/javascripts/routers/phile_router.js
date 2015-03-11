@@ -2,6 +2,7 @@ CodeGenius.Routers.PhileRouter = Backbone.Router.extend({
   routes: {
     "": "show",
     "notes/new/:start/:finish": "newNote",
+    "notes/:id/edit": "editNote",
     "notes/:id": "showNote"
   },
 
@@ -35,7 +36,24 @@ CodeGenius.Routers.PhileRouter = Backbone.Router.extend({
   },
 
   newNote: function (start, finish) {
-    debugger
+    var note, noteView;
+
+    note = new CodeGenius.Models.Note({
+      phile_id: this.phile.id,
+      start: start,
+      finish: finish
+    });
+
+    noteView = new CodeGenius.Views.NoteEdit({model: note});
+    this._swapNoteView(noteView);
+  },
+
+  editNote: function (id) {
+    var noteView = new CodeGenius.Views.NoteEdit({
+      model: this.phile.notes().getOrFetch(id),
+    });
+
+    this._swapNoteView(noteView);
   },
 
   _swapNoteView: function (newView) {

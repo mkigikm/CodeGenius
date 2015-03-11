@@ -16,6 +16,8 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
     var selection = window.getSelection(),
         start, finish;
 
+    if (selection.toString().length === 0) return;
+
     start = this.findTextNodeOffset(selection.anchorNode) +
         selection.anchorOffset;
     finish = start + selection.toString().length - 1;

@@ -1,5 +1,5 @@
-CodeGenius.Views.NoteShow = Backbone.View.extend({
-  template: JST["notes/note_show"],
+CodeGenius.Views.NoteEdit = Backbone.View.extend({
+  template: JST["notes/note_edit"],
 
   render: function () {
     this.$el.html(this.template({note: this.model}));
