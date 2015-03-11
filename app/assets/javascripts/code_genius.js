@@ -3,11 +3,7 @@ window.CodeGenius = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function() {
-    alert('Hello from Backbone!');
+  initializePhile: function() {
+    CodeGenius.router = new CodeGenius.Routers.PhileRouter();
   }
 };
-
-$(document).ready(function(){
-  CodeGenius.initialize();
-});
