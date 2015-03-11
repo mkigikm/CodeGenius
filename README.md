@@ -9,11 +9,11 @@ Code Genius is a clone of Rap Genius built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Upload files
-- [x] View annotations
-- [ ] Create annotations of files in Markdown
+- [X] Create accounts
+- [X] Create sessions (log in)
+- [X] Upload files
+- [X] View annotations
+- [X] Create annotations of files in Markdown
 - [X] View other user's files / annotations
 - [X] Follow other users
 - [ ] Get notifications of annotations added to their files
