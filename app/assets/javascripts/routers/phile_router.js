@@ -17,7 +17,6 @@ CodeGenius.Routers.PhileRouter = Backbone.Router.extend({
   },
 
   show: function () {
-    console.log("called show")
     this.showView = new CodeGenius.Views.PhileShow({
       model: this.phile,
       el: $(".file-body")
@@ -37,6 +36,8 @@ CodeGenius.Routers.PhileRouter = Backbone.Router.extend({
   },
 
   newNote: function (start, finish) {
+    this.showView || this.show();
+
     var note, noteView;
 
     note = new CodeGenius.Models.Note({
@@ -53,6 +54,8 @@ CodeGenius.Routers.PhileRouter = Backbone.Router.extend({
   },
 
   editNote: function (id) {
+    this.showView || this.show();
+
     var noteView = new CodeGenius.Views.NoteEdit({
       model: this.phile.notes().getOrAdd(id),
       collection: this.phile.notes()
