@@ -21,6 +21,32 @@ class User < ActiveRecord::Base
     inverse_of: :author
   )
 
+  has_many(
+    :follower_follows,
+    class_name: "Follow",
+    foreign_key: :follower_id,
+    inverse_of: :follower
+  )
+
+  has_many(
+    :follows,
+    through: :follower_follows,
+    source: :target
+  )
+
+  has_many(
+    :target_follows,
+    class_name: "Follow",
+    foreign_key: :target_id,
+    inverse_of: :target
+  )
+
+  has_many(
+    :followers,
+    through: :target_follows,
+    source: :follower
+  )
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
 
