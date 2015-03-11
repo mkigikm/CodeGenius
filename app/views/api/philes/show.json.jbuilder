@@ -1,5 +1,5 @@
-json.extract! @phile, :name, :body, :length
+json.extract! @phile, :id, :name, :body, :length
 
 json.notes do
-  json.array! @phile.notes, :start, :finish, :body
+  json.array! @phile.notes, :id, :start, :finish, :body
 end
