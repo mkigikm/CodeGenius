@@ -19,8 +19,11 @@ CodeGenius.Views.NoteEdit = Backbone.View.extend({
 
   save: function (event) {
     event.preventDefault();
-    this.model.save({body: $("textarea").val()}, {
+    this.model.set("body", $("textarea").val());
+    debugger
+    this.model.save({}, {
       success: function () {
+        this.collection.add(this.model, {merge: true});
         Backbone.history.navigate(
           "/notes/" + this.model.id,
           {trigger: true}

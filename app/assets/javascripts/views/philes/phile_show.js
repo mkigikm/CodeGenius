@@ -11,7 +11,6 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
   },
 
   render: function () {
-    debugger
     this.$el.html(this.template({phile: this.model}));
     return this;
   },

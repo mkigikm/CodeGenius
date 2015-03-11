@@ -30,7 +30,7 @@ CodeGenius.Routers.PhileRouter = Backbone.Router.extend({
     this.showView || this.show();
 
     var noteView = new CodeGenius.Views.NoteShow({
-      model: this.phile.notes().getOrAdd(id),
+      model: this.phile.notes().getOrAdd(id)
     });
 
     this._swapNoteView(noteView);
@@ -45,13 +45,17 @@ CodeGenius.Routers.PhileRouter = Backbone.Router.extend({
       finish: finish
     });
 
-    noteView = new CodeGenius.Views.NoteEdit({model: note});
+    noteView = new CodeGenius.Views.NoteEdit({
+      model: note,
+      collection: this.phile.notes()
+    });
     this._swapNoteView(noteView);
   },
 
   editNote: function (id) {
     var noteView = new CodeGenius.Views.NoteEdit({
-      model: this.phile.notes().getOrFetch(id),
+      model: this.phile.notes().getOrAdd(id),
+      collection: this.phile.notes()
     });
 
     this._swapNoteView(noteView);
