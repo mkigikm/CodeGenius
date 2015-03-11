@@ -28,8 +28,10 @@ class Annotation < ActiveRecord::Base
     NOT (finish < :start OR start > :finish)
     SQL
 
-    overlaps = Annotation.where(phile_id: phile)
-      .where(overlap_query, {start: start, finish: finish}).count
+    overlaps = Annotation
+      .where(phile_id: phile_id)
+      .where(overlap_query, {start: start, finish: finish})
+      .count
 
     errors.add(:start, "annotation cannot overlap") if overlaps > 0
   end
