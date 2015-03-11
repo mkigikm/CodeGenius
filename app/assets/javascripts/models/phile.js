@@ -16,5 +16,17 @@ CodeGenius.Models.Phile = Backbone.Model.extend({
     }
 
     return payload;
+  },
+
+  getOrFetch: function (id) {
+    var note = this.notes().get(id);
+
+    if (!note) {
+      note = new CodeGenius.Models.Note({id: id});
+      this.notes().add(note);
+      note.fetch();
+    }
+
+    return note;
   }
 });

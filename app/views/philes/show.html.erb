@@ -7,11 +7,12 @@
   <pre><%= notate_phile(@phile) %></pre>
 </section>
 
-<section class="file-annotations">
+<section class="file-annotation">
 </section>
 
 <script type="text/javascript">
 $(document).ready(function () {
   CodeGenius.initializePhile();
+  Backbone.history.start();
 });
 </script>
