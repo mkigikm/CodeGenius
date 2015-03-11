@@ -12,7 +12,7 @@ Code Genius is a clone of Rap Genius built on Rails and Backbone. Users can:
 - [x] Create accounts
 - [x] Create sessions (log in)
 - [x] Upload files
-- [ ] View annotations
+- [x] View annotations
 - [ ] Create annotations of files in Markdown
 - [ ] View other user's files / annotations
 - [ ] Follow other users

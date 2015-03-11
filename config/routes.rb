@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resources :philes, only: [:create, :show]
   resources :annotations, only: [:show]
+  
+  root to: "users#new"
 end
