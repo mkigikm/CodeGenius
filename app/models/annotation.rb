@@ -7,6 +7,7 @@ class Annotation < ActiveRecord::Base
   validates :finish, numericality: {
     less_than: ->(annotation) { annotation.phile ? annotation.phile.length : 0 }
   }
+  validate :annotations_cannot_overlap
 
   belongs_to(
     :author,
@@ -24,10 +25,10 @@ class Annotation < ActiveRecord::Base
 
   def annotations_cannot_overlap
     overlap_query = <<-SQL
-    NOT (annotation.finish < :start OR annotation.start > :finish
+    NOT (finish < :start OR start > :finish)
     SQL
 
-    overlaps = Annotations.where(phile_id: phile)
+    overlaps = Annotation.where(phile_id: phile)
       .where(overlap_query, {start: start, finish: finish}).count
 
     errors.add(:start, "annotation cannot overlap") if overlaps > 0

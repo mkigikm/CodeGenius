@@ -68,6 +68,7 @@ describe Annotation, type: :model do
   end
 
   describe "Annotation#annotations_cannot_overlap" do
+    it "allows annotations that don't overlap anything"
     it "finds overlaps that start before the annotation"
     it "finds overlaps that start after the annotation"
     it "finds overlaps that start in the annotation"
