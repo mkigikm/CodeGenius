@@ -12,4 +12,19 @@ module ApplicationHelper
 
     (notated_body + h(phile.body[offset..-1])).html_safe
   end
+
+  def auth_token
+    <<-HTML.html_safe
+    <input type="hidden" name="authenticity_token"
+      value="#{form_authenticity_token}">
+    HTML
+  end
+
+  def error_messages(errors, field)
+    if errors.has_key?(field)
+      <<-HTML.html_safe
+      <strong>#{errors.full_messages_for(field).join(" ")}</strong>
+      HTML
+    end
+  end
 end

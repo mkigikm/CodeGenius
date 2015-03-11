@@ -67,6 +67,10 @@ class User < ActiveRecord::Base
     save!
   end
 
+  def following?(user)
+    Follow.where(target_id: user.id).where(follower_id: id).count > 0
+  end
+
   private
   def self.used_token?(session_token)
     !!User.find_by(session_token: session_token)

@@ -4,7 +4,7 @@
   <p>Avatar goes here</p>
 
   <% if current_user != @user %>
-  <button>Follow</button>
+    <%= render "follows/form", user: @user %>
   <% end %>
 </section>
 

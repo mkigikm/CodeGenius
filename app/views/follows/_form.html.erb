@@ -1,0 +1,12 @@
+<% if current_user.following?(user) %>
+  <form method="post">
+    <%= auth_token %>
+    <input type="hidden" name="_method" value="delete">
+    <button>Unfollow</button>
+  </form>
+<% else %>
+  <form method="post">
+    <%= auth_token %>
+    <button>Follow</button>
+  </form>
+<% end %>
