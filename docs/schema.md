@@ -17,7 +17,7 @@ name        | string    | not null
 body        | text      |
 url         | string    |
 
-## annotations
+## notes
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
