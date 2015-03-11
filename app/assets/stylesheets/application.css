@@ -14,7 +14,7 @@
  *= require_self
  */
 
-html, body, section, nav, main, header, pre, h1, ul, li,
+/*html, body, section, nav, main, header, pre, h1, ul, li,
 form, input, textarea {
   border: 0;
   margin: 0;
@@ -48,4 +48,4 @@ ul {
 
 .site-header > ul {
   float: right;
-}
+}*/
