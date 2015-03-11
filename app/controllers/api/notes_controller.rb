@@ -11,8 +11,7 @@ module Api
     end
 
     def create
-      @phile = Phile.find(params[:phile_id])
-      @note = @phile.notes.new(note_params)
+      @note = current_user.notes.new(note_params)
 
       if @note.save
         render json: @note
@@ -23,7 +22,7 @@ module Api
 
     private
     def note_params
-      params.require(:note).permit(:body)
+      params.require(:note).permit(:body, :phile_id, :start, :finish)
     end
   end
 end

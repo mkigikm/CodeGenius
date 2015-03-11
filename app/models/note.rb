@@ -9,6 +9,8 @@ class Note < ActiveRecord::Base
   }
   validate :notes_cannot_overlap
 
+  default_scope { order(:start) }
+
   belongs_to(
     :author,
     class_name: "User",
