@@ -30,12 +30,12 @@ describe Note, type: :model do
       expect(annotation.errors.keys).to include :start
     end
 
-    it "doesn't allow start == finish" do
+    it "allows start == finish" do
       annotation = Note.new(start: 10, finish: 10)
       allow(annotation).to receive(:phile).and_return phile
       annotation.valid?
 
-      expect(annotation.errors.keys).to include :start
+      expect(annotation.errors.keys).to_not include :start
     end
   end
 

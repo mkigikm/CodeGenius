@@ -1,7 +1,7 @@
 class Note < ActiveRecord::Base
   validates :phile, :start, :finish, :author, :body, presence: true
   validates :start, numericality: {
-    less_than: ->(note) { note.finish }
+    less_than_or_equal_to: ->(note) { note.finish }
   }
   validates :start, numericality: {greater_than_or_equal_to: 0}
   validates :finish, numericality: {
