@@ -1,0 +1,20 @@
+<%
+notatedBody = phile.escape("body");
+var offset = 0, notatedBody = "", body = phile.get("body"),
+    start, finish;
+
+if (body) {
+  phile.notes().each(function (note) {
+    start = note.get("start"), finish = parseInt(note.get("finish")) + 1;
+
+    notatedBody += _.escape(body.slice(offset, start)) +
+    "<a href='#notes/" + note.id + "'>" + 
+        _.escape(body.slice(start, finish)) + "</a>";
+
+    offset = finish;
+  });
+
+  notatedBody += _.escape(body.slice(offset));
+}
+%>
+<pre><%= notatedBody %></pre>

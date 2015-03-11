@@ -5,7 +5,7 @@ module ApplicationHelper
     phile.notes.each do |note|
       notated_body += h(phile.body[offset...note.start])
       notated_body += "<a href='#{note_url(note)}'>" +
-        h(phile.body[note.start..note.finish]) + "</a>"
+          h(phile.body[note.start..note.finish]) + "</a>"
 
       offset = note.finish + 1
     end

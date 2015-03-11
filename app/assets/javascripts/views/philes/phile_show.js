@@ -1,15 +1,19 @@
 CodeGenius.Views.PhileShow = Backbone.View.extend({
+  template: JST["philes/phile_show"],
+
   events: {
     "click pre": "newNote"
   },
 
-  render: function () {
-    this.$el.find("a").each(function () {
-      var $this = $(this),
-          noteId = _.last($this.attr("href").split("/"))
+  initialize: function () {
+    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model.notes(), "add", this.render);
+  },
 
-      $this.attr("href", "#/notes/" + noteId);
-    });
+  render: function () {
+    debugger
+    this.$el.html(this.template({phile: this.model}));
+    return this;
   },
 
   newNote: function (event) {

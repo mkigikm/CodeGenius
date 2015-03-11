@@ -8,9 +8,9 @@ CodeGenius.Models.Phile = Backbone.Model.extend({
 
   parse: function (payload) {
     if (payload.notes) {
-      payload.notes.forEach(function (note) {
-        this.notes().add(new CodeGenius.Models.Note(note), {merge: true});
-      }, this);
+      this.notes().add(payload.notes.map(function (note) {
+        return new CodeGenius.Models.Note(note)
+      }), {merge: true});
 
       delete payload.notes;
     }
