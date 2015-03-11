@@ -65,29 +65,5 @@ CodeGenius.Routers.PhileRouter = Backbone.Router.extend({
     this._noteView && this._noteView.remove();
     this._noteView = newView;
     $(".file-annotation").html(newView.render().$el);
-  },
-
-  findTextNodeOffset: function (node, nodeList) {
-    var offset = 0;
-
-    _.find(this.findTextNodes(), function (curNode) {
-      offset += curNode.length;
-      return curNode === node;
-    });
-
-    return offset - node.length;
-  },
-
-  findTextNodes: function ($el, nodeList) {
-    $el      || ($el = $(this.$el.find("pre")));
-    nodeList || (nodeList = []);
-
-    _.each($el.contents(), function (node) {
-      //text nodes have a nodeType === 3
-      node.nodeType === 3 ? nodeList.push(node) :
-          this.findTextNodes($(node), nodeList);
-    }, this);
-
-    return nodeList;
   }
-})
+});
