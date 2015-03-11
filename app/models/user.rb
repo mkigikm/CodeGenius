@@ -15,8 +15,8 @@ class User < ActiveRecord::Base
   )
 
   has_many(
-    :annotations,
-    class_name: "Annotation",
+    :notes,
+    class_name: "Notes",
     foreign_key: :author_id,
     inverse_of: :author
   )
