@@ -20,7 +20,6 @@ CodeGenius.Views.NoteEdit = Backbone.View.extend({
   save: function (event) {
     event.preventDefault();
     this.model.set("body", $("textarea").val());
-    debugger
     this.model.save({}, {
       success: function () {
         this.collection.add(this.model, {merge: true});
