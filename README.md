@@ -34,7 +34,7 @@ I will implement user authentication and file uploading in Rails. By the end of 
 
 [Details][phase-zero]
 
-### Phase 1: Following (~0.5 day)
+### Phase 1: Following (~0.5 days)
 I will add controllers and views for following users from their profile pages. They will have a feed which notifies them of activity on their account, and their followed accounts.
 
 [Details][phase-one]
