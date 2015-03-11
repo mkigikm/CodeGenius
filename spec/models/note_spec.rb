@@ -1,4 +1,4 @@
-describe Annotation, type: :model do
+describe Note, type: :model do
   it { should validate_presence_of :start }
   it { should validate_presence_of :finish }
   it { should validate_presence_of :body }
@@ -15,7 +15,7 @@ describe Annotation, type: :model do
 
   describe "start < finish" do
     it "allows start < finish" do
-      annotation = Annotation.new(start: 0, finish: 10)
+      annotation = Note.new(start: 0, finish: 10)
       allow(annotation).to receive(:phile).and_return phile
       annotation.valid?
 
@@ -23,7 +23,7 @@ describe Annotation, type: :model do
     end
 
     it "doesn't allow start > finish" do
-      annotation = Annotation.new(start: 20, finish: 10)
+      annotation = Note.new(start: 20, finish: 10)
       allow(annotation).to receive(:phile).and_return phile
       annotation.valid?
 
@@ -31,7 +31,7 @@ describe Annotation, type: :model do
     end
 
     it "doesn't allow start == finish" do
-      annotation = Annotation.new(start: 10, finish: 10)
+      annotation = Note.new(start: 10, finish: 10)
       allow(annotation).to receive(:phile).and_return phile
       annotation.valid?
 
@@ -42,7 +42,7 @@ describe Annotation, type: :model do
 
   describe "validates annotations are in the phile" do
     it "passes when start and finish are in the file" do
-      annotation = Annotation.new(start: 0, finish: 127)
+      annotation = Note.new(start: 0, finish: 127)
       allow(annotation).to receive(:phile).and_return phile
       annotation.valid?
 
@@ -51,7 +51,7 @@ describe Annotation, type: :model do
     end
 
     it "fails when start is less than 0" do
-      annotation = Annotation.new(start: -1, finish: 127)
+      annotation = Note.new(start: -1, finish: 127)
       allow(annotation).to receive(:phile).and_return phile
       annotation.valid?
 
@@ -59,7 +59,7 @@ describe Annotation, type: :model do
     end
 
     it "fails when finish is out of the phile" do
-      annotation = Annotation.new(start: 0, finish: 128)
+      annotation = Note.new(start: 0, finish: 128)
       allow(annotation).to receive(:phile).and_return phile
       annotation.valid?
 
@@ -67,11 +67,11 @@ describe Annotation, type: :model do
     end
   end
 
-  describe "Annotation#annotations_cannot_overlap" do
-    it "allows annotations that don't overlap anything"
-    it "finds overlaps that start before the annotation"
-    it "finds overlaps that start after the annotation"
-    it "finds overlaps that start in the annotation"
-    it "finds overlaps that contain the annotation"
+  describe "Note#notes_cannot_overlap" do
+    it "allows notes that don't overlap anything"
+    it "finds overlaps that start before the note"
+    it "finds overlaps that start after the note"
+    it "finds overlaps that start in the note"
+    it "finds overlaps that contain the note"
   end
 end

@@ -4,7 +4,7 @@ describe User, type: :model do
   it { should validate_presence_of :email }
 
   it { should have_many :philes }
-  it { should have_many :annotations }
+  it { should have_many :notes }
 
   describe "account creation" do
     it "requires a password of at least length 6" do
