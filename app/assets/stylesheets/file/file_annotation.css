@@ -1,5 +1,6 @@
 .file-annotation {
   float: left;
+  position: relative;
 }
 
 .annotation-edit > textarea {
@@ -20,11 +21,39 @@
   padding-left: 20px;
   width: 300px;
   color: #cccccc;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
 }
 
-.annotation-show a:last-child {
+.annotation-show p {
+  margin: 1em 0;
+}
+
+.annotation-show em {
+  font-style: italic;
+}
+
+.annotation-show strong {
+  font-weight: 700;
+}
+
+.annotation-show a {
+  color: #ffc31c;
+}
+
+.annotation-show ul {
+  list-style: disc;
+}
+
+.annotation-show h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.annotation-show > .annotation-edit-link {
   display: block;
   padding: 5px 0;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
+  color: #cccccc;
 }
