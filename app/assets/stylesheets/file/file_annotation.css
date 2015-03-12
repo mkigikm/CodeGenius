@@ -3,6 +3,10 @@
   position: relative;
 }
 
+.annotation-edit {
+  position: relative;  
+}
+
 .annotation-edit > textarea {
   display: block;
   background: #404040;
@@ -14,6 +18,8 @@
   margin-bottom: 5px;
   resize: none;
   outline: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
 }
 
 .annotation-show {
@@ -23,6 +29,7 @@
   color: #cccccc;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
+  position: relative;
 }
 
 .annotation-show p {

@@ -11,7 +11,15 @@ CodeGenius.Views.NoteEdit = Backbone.View.extend({
   },
 
   render: function () {
+    var el, url;
     this.$el.html(this.template({note: this.model}));
+
+    url = "#notes/" + this.model.id;
+    el = _.find($("a"), function (a) {
+      return $(a).attr("href") === url
+    });
+    el && this.$el.css("top", el.offsetTop - $("pre").offset().top);
+    debugger
     return this;
   },
 
