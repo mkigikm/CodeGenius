@@ -37,3 +37,8 @@ ul {
   display: block;
   clear: both;
 }
+
+body {
+  background: #000000;
+  color: #ffffff;
+}
