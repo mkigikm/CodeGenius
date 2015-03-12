@@ -50,3 +50,10 @@ body {
   background: #222222;
   color: #ffffff;
 }
+
+.site-footer {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  padding: 10px;
+}
