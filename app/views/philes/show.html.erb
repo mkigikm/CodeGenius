@@ -1,6 +1,12 @@
 <header class="file-header">
-  <h1><%= @phile.name %></h1>
-  <h2><%= @phile.owner.email %></h2>
+  <h1>
+    <strong class="filename"><%= @phile.name %></strong>
+  </h1>
+  <h2>
+    <a class="author" href="<%= user_url(@phile.owner) %>">
+      <%= @phile.owner.email %>
+    </a>
+  </h2>
 </header>
 
 <section class="file-body">

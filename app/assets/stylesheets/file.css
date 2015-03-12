@@ -1,0 +1,24 @@
+.file-header {
+  font-size: 20px;
+  padding-top: 20px;
+}
+
+.file-header > h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.file-header .filename {
+  background: #ffc31c;
+  color: #000000;
+  padding: 15px 10px 2px;
+}
+
+.file-header > h2 {
+  padding-top: 18px;
+}
+
+.file-header .author {
+  background: #404040;
+  padding: 15px 10px 2px;
+}

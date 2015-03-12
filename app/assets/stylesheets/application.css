@@ -14,7 +14,7 @@
  *= require_self
  */
 
-html, body, section, nav, main, header, pre, h1, ul, li,
+html, body, section, nav, main, header, pre, h1, h2, ul, li,
 form, input, textarea, a {
   border: 0;
   margin: 0;
@@ -39,6 +39,6 @@ ul {
 }
 
 body {
-  background: #000000;
+  background: #151515;
   color: #ffffff;
 }
