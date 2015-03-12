@@ -69,3 +69,4 @@ I will switch the user profile page to use backbone. Users will be able to follo
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
+[phase-four]: ./docs/phases/phase4.md
