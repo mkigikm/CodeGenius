@@ -27,7 +27,7 @@ form, input, textarea, a, button, pre, p, strong {
   font: inherit;
 }
 
-button {
+button, .button {
   font-family: sans-serif;
   border: 1px solid grey;
   font-size: 12px;

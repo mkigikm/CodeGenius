@@ -1,8 +1,9 @@
-<form action="<%= users_url %>" method="post">
+<form class="signin" action="<%= users_url %>" method="post">
+  <h1>Sign Up</h1>
   <%= auth_token %>
 
   <%= render "fields", user: @user %>
 
   <button>Sign up for Code Genius</button>
+  <strong>Already signed up? <a href="<%= new_session_url %>">Go here</a></strong>
 </form>
-Already signed up? Go <a href="<%= new_session_url %>">here</a>.

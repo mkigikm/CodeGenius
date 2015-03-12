@@ -1,8 +1,10 @@
 <strong><%= @error %></strong>
-<form action="<%= session_url %>" method="post">
+<form class="signin" action="<%= session_url %>" method="post">
+  <h1>Sign In</h1>
   <%= auth_token %>
 
   <%= render "users/fields", user: @user, errors: {} %>
 
   <button>Sign into Code Genius</button>
+  <strong>Not signed up? <a href="<%= new_user_url %>">Go here</a></stro
 </form>

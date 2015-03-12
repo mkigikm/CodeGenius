@@ -1,0 +1,28 @@
+.signin {
+  width: 402px;
+  margin: 100px auto;
+  font-family: 'Roboto', sans-serif;
+  background: #404040;
+  border: 1px solid white;
+  padding: 10px 20px;
+}
+
+.signin > h1 {
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+.signin > input {
+  border: 1px solid white;
+  display: block;
+  margin-bottom: 10px;
+  width: 400px;
+}
+
+.signin > strong {
+  font-size: 14px;
+}
+
+.signin a {
+  color: #ffc31c;
+}

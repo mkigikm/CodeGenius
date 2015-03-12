@@ -10,24 +10,28 @@
 </head>
 <body>
 
-<% if signed_in? %>
 <header class="site-header">
   <nav class="clearfix">
     <h1 class="site-header-logo">Code Genius</h1>
 
     <ul class="site-header-links clearfix">
-      <li><a href="<%= user_url(current_user) %>"><%= current_user.email %></a></li>
-      <li>
-        <form action="<%= session_url %>" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <%= auth_token %>
-          <button>Sign Out</button>
-        </form>
-      </li>
+      <% if signed_in? %>
+        <li><a href="<%= user_url(current_user) %>"><%= current_user.email %></a></li>
+        <li>
+          <form action="<%= session_url %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <%= auth_token %>
+            <button>Sign Out</button>
+          </form>
+        </li>
+      <% else %>
+        <li>
+          <a class="button" href="<%= new_session_url %>">Sign In</a>
+        </li>
+      <% end %>
     </ul>
   </nav>
 </header>
-<% end %>
 
 <main class="content">
 <%= yield %>
