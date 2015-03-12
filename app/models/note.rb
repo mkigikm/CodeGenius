@@ -29,11 +29,14 @@ class Note < ActiveRecord::Base
     overlap_query = <<-SQL
     NOT (finish < :start OR start > :finish)
     SQL
+    id_query = <<-SQL
+    :id IS NULL OR id <> :id
+    SQL
 
     overlaps = Note
       .where(phile_id: phile_id)
       .where(overlap_query, {start: start, finish: finish})
-      .where("id <> ?", id)
+      .where(id_query, {id: id})
       .count
 
     errors.add(:start, "notes cannot overlap") if overlaps > 0

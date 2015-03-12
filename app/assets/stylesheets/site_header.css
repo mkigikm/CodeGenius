@@ -2,7 +2,7 @@
   background: #333333;
   color: #bbbbbb;
   border-bottom: 1px solid white;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .site-header > nav {
@@ -23,7 +23,7 @@
 
 .site-header-links > li {
   float: left;
-  padding: 10px 0 10px;
+  padding-top: 15px;
 }
 
 .site-header-links > li:first-child {

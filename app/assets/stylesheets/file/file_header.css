@@ -2,25 +2,24 @@
   font-size: 20px;
   padding: 20px 20px;
   border-bottom: 1px solid white;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .file-header > h1 {
-  font-size: 20px;
   font-weight: 700;
 }
 
 .file-header .filename {
   background: #ffc31c;
   color: #000000;
-  padding: 15px 10px 2px;
+  padding: 5px 10px;
 }
 
 .file-header > h2 {
-  padding-top: 18px;
+  padding-top: 10px;
 }
 
 .file-header .author {
   background: #404040;
-  padding: 15px 10px 2px;
+  padding: 5px 10px;
 }

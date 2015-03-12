@@ -1,6 +1,10 @@
 CodeGenius.Views.NoteShow = Backbone.View.extend({
   template: JST["notes/note_show"],
 
+  tagName: "aside",
+
+  className: "annotation-show",
+
   initialize: function () {
     this.listenTo(this.model, "change", this.render);
   },

@@ -15,7 +15,7 @@
  */
 
 html, body, section, nav, main, header, pre, h1, h2, ul, li,
-form, input, textarea, a {
+form, input, textarea, a, button, pre, p, strong {
   border: 0;
   margin: 0;
   padding: 0;
@@ -25,6 +25,15 @@ form, input, textarea, a {
   text-align: inherit;
   text-decoration: inherit;
   font: inherit;
+}
+
+button {
+  font-family: sans-serif;
+  border: 1px solid grey;
+  font-size: 12px;
+  padding: 5px 8px;
+  background: #333333;
+  color: #bbbbbb;
 }
 
 ul {
