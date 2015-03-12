@@ -1,11 +1,12 @@
 .site-header {
   background: #252525;
   color: #bbbbbb;
+  border-bottom: 1px solid white;
 }
 
 .site-header > nav {
   width: 1200px;
-  padding: 10px 20px;
+  padding: 10px 0;
   margin: 0 auto;
 }
 
