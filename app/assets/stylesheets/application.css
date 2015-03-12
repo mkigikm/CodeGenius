@@ -14,8 +14,8 @@
  *= require_self
  */
 
-/*html, body, section, nav, main, header, pre, h1, ul, li,
-form, input, textarea {
+html, body, section, nav, main, header, pre, h1, ul, li,
+form, input, textarea, a {
   border: 0;
   margin: 0;
   padding: 0;
@@ -24,6 +24,8 @@ form, input, textarea {
   color: inherit;
   text-align: inherit;
   text-decoration: inherit;
+  font-size: 16px;
+  font-family: sans-serif;
 }
 
 ul {
@@ -35,17 +37,3 @@ ul {
   display: block;
   clear: both;
 }
-
-.site-header {
-  border: 1px solid red;
-  width: 1200px;
-}
-
-.site-header > h1 {
-  font-size: 40px;
-  float: left;
-}
-
-.site-header > ul {
-  float: right;
-}*/
