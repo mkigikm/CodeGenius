@@ -1,6 +1,10 @@
 CodeGenius.Views.NoteEdit = Backbone.View.extend({
   template: JST["notes/note_edit"],
 
+  tagName: "form",
+
+  className: "annotation-edit",
+
   events: {
     "click button.note-save": "save",
     "click button.note-cancel": "cancel"
