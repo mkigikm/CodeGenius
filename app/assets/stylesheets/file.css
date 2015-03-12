@@ -2,6 +2,7 @@
   font-size: 20px;
   padding: 20px 20px;
   border-bottom: 1px solid white;
+  font-family: sans-serif;
 }
 
 .file-header > h1 {
@@ -22,4 +23,27 @@
 .file-header .author {
   background: #404040;
   padding: 15px 10px 2px;
+}
+
+.file-body {
+  float: left;
+  padding: 20px;
+  line-height: 1.2em;
+  font-family: 'Droid Sans Mono', 'Courier New';
+  font-size: 16px;
+  max-width: 750px;
+  word-wrap: break-word;
+}
+
+.file-body a {
+  background:  #404040;
+}
+
+.file-body a:hover {
+  background: #ffc31c;
+  color: black;
+}
+
+.file-annotation {
+  float: left;
 }

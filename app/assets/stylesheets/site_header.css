@@ -1,7 +1,8 @@
 .site-header {
-  background: #252525;
+  background: #333333;
   color: #bbbbbb;
   border-bottom: 1px solid white;
+  font-family: sans-serif;
 }
 
 .site-header > nav {

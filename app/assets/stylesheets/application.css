@@ -24,8 +24,7 @@ form, input, textarea, a {
   color: inherit;
   text-align: inherit;
   text-decoration: inherit;
-  font-size: 16px;
-  font-family: sans-serif;
+  font: inherit;
 }
 
 ul {
@@ -39,6 +38,6 @@ ul {
 }
 
 body {
-  background: #151515;
+  background: #222222;
   color: #ffffff;
 }
