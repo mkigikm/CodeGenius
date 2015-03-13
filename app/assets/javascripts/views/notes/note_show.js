@@ -1,4 +1,4 @@
-CodeGenius.Views.NoteShow = CodeGenius.Views.NoteView.extend({
+CodeGenius.Views.NoteShow = Backbone.View.extend({
   template: JST["notes/note_show"],
 
   className: "annotation",
@@ -14,13 +14,13 @@ CodeGenius.Views.NoteShow = CodeGenius.Views.NoteView.extend({
 
     this.$placementEl = options.$placementEl;
     this.$placementEl.bind("contentchanged", this.render.bind(this));
+    this.fileHeight = options.fileHeight;
 
     this.editing = false;
   },
 
   render: function () {
     this.$el.html(this.template({note: this.model}));
-    this.positionNote();
 
     if (this.editing) {
       this.$("aside").addClass("hidden");
@@ -30,6 +30,7 @@ CodeGenius.Views.NoteShow = CodeGenius.Views.NoteView.extend({
       this.$("form").addClass("hidden");
     }
 
+    this.positionNote();
     return this;
   },
 
@@ -49,5 +50,27 @@ CodeGenius.Views.NoteShow = CodeGenius.Views.NoteView.extend({
         this.render();
       }.bind(this)
     });
+  },
+
+  positionNote: function () {
+    var noteEl = this.noteEl();
+    noteEl && this.$el.css("top", this.maxTop(noteEl));
+  },
+
+  noteEl: function () {
+    var url = this.model.isNew() ? "#" : "#notes/" + this.model.id;
+    return _.find(this.$placementEl.find("a"), function (a) {
+      return $(a).attr("href") === url;
+    });
+  },
+
+  abovePixels: function () {
+    return this.$placementEl.offset().top;
+  },
+
+  maxTop: function (noteEl) {
+    debugger
+    return Math.min(noteEl.offsetTop - this.abovePixels(),
+        $("pre").height() - this.$("> :not(.hidden)").height());
   }
 });

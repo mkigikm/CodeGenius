@@ -1,4 +1,4 @@
-CodeGenius.Views.NoteNew = CodeGenius.Views.NoteView.extend({
+CodeGenius.Views.NoteNew = Backbone.View.extend({
   template: JST["notes/note_new"],
 
   className: "annotation",
@@ -10,7 +10,6 @@ CodeGenius.Views.NoteNew = CodeGenius.Views.NoteView.extend({
   },
 
   initialize: function (options) {
-    this.$placementEl = options.$placementEl;
     this.top = options.top;
     this.fileHeight = options.fileHeight;
   },
@@ -42,16 +41,17 @@ CodeGenius.Views.NoteNew = CodeGenius.Views.NoteView.extend({
     }
   },
 
+  cancel: function (event) {
+    event.preventDefault();
+    this.remove();
+  },
+
   setTop: function () {
     this.$el.css("top", this.maxTop());
   },
 
   maxTop: function () {
-    return Math.min(this.top, this.fileHeight-this.$(":not(.hidden)").height());
-  },
-
-  cancel: function (event) {
-    event.preventDefault();
-    this.remove();
+    return Math.min(this.top, this.fileHeight -
+        this.$("> :not(.hidden)").height());
   }
 });

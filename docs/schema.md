@@ -23,7 +23,15 @@ column name | data type | details
 id          | integer   | not null, primary key
 file_id     | integer   | not null, foreign key (references files)
 start       | integer   | not null,
-span        | integer   | not null
+finish      | integer   | not null
+author_id   | integer   | not null, foreign key (references users)
+body        | text      | not null
+
+## note_text
+column name | data type | details
+----------------------------------------
+id          | integer   | not null, primary key
+note_id     | integer   | not null, foreign key (references notes)
 author_id   | integer   | not null, foreign key (references users)
 body        | text      | not null
 

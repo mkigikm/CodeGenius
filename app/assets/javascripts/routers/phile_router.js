@@ -39,5 +39,6 @@ CodeGenius.Routers.PhileRouter = Backbone.Router.extend({
     this._noteView && this._noteView.remove();
     this._noteView = newView;
     $(".file-annotation").html(newView.render().$el);
+    this._noteView.positionNote();
   }
 });
