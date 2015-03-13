@@ -1,6 +1,7 @@
 .file-annotation {
   float: left;
   position: relative;
+  padding: 20px 0;
 }
 
 .annotation {

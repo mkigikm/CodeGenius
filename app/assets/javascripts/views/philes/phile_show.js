@@ -34,12 +34,22 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
       phile_id: this.model.id
     });
 
-    this.$newNoteEl.html(new CodeGenius.Views.NoteNew({
+    this.newNoteView = new CodeGenius.Views.NoteNew({
       model: newNote,
-      collection: this.model.notes()
-    }).render().$el);
+      collection: this.model.notes(),
+      top: this.topOffset(selection),
+      fileHeight: this.$("pre").height()
+    });
+    this.$newNoteEl.html(this.newNoteView.render().$el);
+
+    this.newNoteView.setTop();
 
     Backbone.history.navigate("");
+  },
+
+  topOffset: function (selection) {
+    return selection.getRangeAt(0).getBoundingClientRect().top -
+        this.$("pre").offset().top;
   },
 
   invalidSelection: function (selection) {

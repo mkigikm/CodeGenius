@@ -10,10 +10,13 @@ CodeGenius.Views.NoteNew = CodeGenius.Views.NoteView.extend({
 
   initialize: function (options) {
     this.$placementEl = options.$placementEl;
+    this.top = options.top;
+    this.fileHeight = options.fileHeight;
   },
 
   render: function () {
     this.$el.html(this.template());
+    this.setTop();
     return this;
   },
 
@@ -26,6 +29,14 @@ CodeGenius.Views.NoteNew = CodeGenius.Views.NoteView.extend({
         Backbone.history.navigate("#notes/" + this.model.id, {trigger: true});
       }.bind(this)
     });
+  },
+
+  setTop: function () {
+    this.$el.css("top", this.maxTop());
+  },
+
+  maxTop: function () {
+    return Math.min(this.top, this.fileHeight-this.$("form").height());
   },
 
   cancel: function (event) {
