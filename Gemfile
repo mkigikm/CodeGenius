@@ -27,6 +27,6 @@ group :test do
   gem 'shoulda-matchers', require: false
 end
 
-group :production do
+group :production, :development do
   gem 'rails_12factor'
 end

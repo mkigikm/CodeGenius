@@ -1,4 +1,4 @@
-CodeGenius.Views.NoteShow = Backbone.View.extend({
+CodeGenius.Views.NoteShow = CodeGenius.Views.NoteView.extend({
   template: JST["notes/note_show"],
 
   className: "annotation",
@@ -19,11 +19,8 @@ CodeGenius.Views.NoteShow = Backbone.View.extend({
   },
 
   render: function () {
-    var noteEl;
     this.$el.html(this.template({note: this.model}));
-
-    noteEl = this.noteEl();
-    noteEl && this.$el.css("top", noteEl.offsetTop - this.abovePixels());
+    this.positionNote();
 
     if (this.editing) {
       this.$("aside").addClass("hidden");
@@ -43,13 +40,6 @@ CodeGenius.Views.NoteShow = Backbone.View.extend({
     this.render();
   },
 
-  noteEl: function () {
-    var url = "#notes/" + this.model.id;
-    return _.find(this.$placementEl.find("a"), function (a) {
-      return $(a).attr("href") === url;
-    });
-  },
-
   save: function (event) {
     event.preventDefault();
 
@@ -59,9 +49,5 @@ CodeGenius.Views.NoteShow = Backbone.View.extend({
         this.render();
       }.bind(this)
     });
-  },
-
-  abovePixels: function () {
-    return this.$placementEl.offset().top;
   }
 });

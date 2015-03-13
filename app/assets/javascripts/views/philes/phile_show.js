@@ -6,9 +6,10 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
     "mouseup pre *": "newNote"
   },
 
-  initialize: function () {
+  initialize: function (options) {
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.notes(), "add", this.render);
+    this.$newNoteEl = options.$newNoteEl;
   },
 
   render: function () {
@@ -20,17 +21,25 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
 
   newNote: function (event) {
     var selection = window.getSelection(),
-        start, finish;
+        start, finish, newNote;
 
     if (this.invalidSelection(selection)) return;
 
     start = this.findSelectionStart(selection);
     finish = start + selection.toString().length - 1;
 
-    Backbone.history.navigate(
-      "notes/new/" + start + "/" + finish,
-      {trigger: true}
-    );
+    newNote = new CodeGenius.Models.Note({
+      start: start,
+      finish: finish,
+      phile_id: this.model.id
+    });
+
+    this.$newNoteEl.html(new CodeGenius.Views.NoteNew({
+      model: newNote,
+      collection: this.model.notes()
+    }).render().$el);
+
+    Backbone.history.navigate("");
   },
 
   invalidSelection: function (selection) {

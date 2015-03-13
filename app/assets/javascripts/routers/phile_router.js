@@ -1,7 +1,6 @@
 CodeGenius.Routers.PhileRouter = Backbone.Router.extend({
   routes: {
     "": "show",
-    "notes/new/:start/:finish": "newNote",
     "notes/:id": "showNote"
   },
 
@@ -18,7 +17,8 @@ CodeGenius.Routers.PhileRouter = Backbone.Router.extend({
   show: function () {
     this.phileView = new CodeGenius.Views.PhileShow({
       model: this.phile,
-      el: $(".file-body")
+      el: $(".file-body"),
+      $newNoteEl: $(".file-annotation")
     });
 
     this.phileView.render();
@@ -32,24 +32,6 @@ CodeGenius.Routers.PhileRouter = Backbone.Router.extend({
       $placementEl: this.phileView.$el
     });
 
-    this._swapNoteView(noteView);
-  },
-
-  newNote: function (start, finish) {
-    var note, noteView;
-
-    this.phileView || this.show();
-
-    note = new CodeGenius.Models.Note({
-      phile_id: this.phile.id,
-      start: start,
-      finish: finish
-    });
-
-    noteView = new CodeGenius.Views.NoteShow({
-      model: note,
-      collection: this.phile.notes()
-    });
     this._swapNoteView(noteView);
   },
 
