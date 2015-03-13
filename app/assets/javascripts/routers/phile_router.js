@@ -29,7 +29,8 @@ CodeGenius.Routers.PhileRouter = Backbone.Router.extend({
     this.showView || this.show();
 
     var noteView = new CodeGenius.Views.NoteShow({
-      model: this.phile.notes().getOrAdd(id)
+      model: this.phile.notes().getOrAdd(id),
+      $placementEl: this.showView.$el
     });
 
     this._swapNoteView(noteView);

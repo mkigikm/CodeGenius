@@ -1,2 +1,9 @@
-<%= marked(note.escape("body")) %>
-<a class="annotation-edit-link" href="#/notes/<%= note.id %>/edit">propose an edit</a>
+<aside class="annotation-show">
+  <%= marked(note.escape("body")) %>
+  <a class="annotation-edit-link" href="#">propose an edit</a>
+</aside>
+<form class="annotation-edit hidden">
+  <textarea><%= note.escape("body") %></textarea>
+  <button class="note-save">Save</button>
+  <button class="note-cancel">Cancel</button>
+</form>
