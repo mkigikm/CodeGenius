@@ -1,9 +1,8 @@
 .signin {
   width: 402px;
   margin: 100px auto;
-  font-family: 'Roboto', sans-serif;
   background: #404040;
-  border: 1px solid white;
+  border: 1px solid #808080;
   padding: 10px 20px;
 }
 

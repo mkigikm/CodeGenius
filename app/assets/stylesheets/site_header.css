@@ -1,8 +1,6 @@
 .site-header {
   background: #333333;
-  color: #bbbbbb;
-  border-bottom: 1px solid white;
-  font-family: 'Roboto', sans-serif;
+  border-bottom: 2px solid #808080;
 }
 
 .site-header > nav {
@@ -28,6 +26,10 @@
 
 .site-header-links > li:first-child {
   padding-right: 20px;
+}
+
+.site-header-links a {
+  color: #bbbbbb;
 }
 
 .site-header-links a:hover {
