@@ -1,4 +1,4 @@
-<main class="content">
+<main class="content clearfix">
   <section class="sidebar">
     <h1><%= @user.email %></h1>
 
@@ -11,27 +11,30 @@
 
   <main class="main-panel">
     <nav>
-      <ul>
-        <li><a href="#files">Files</a></li>
+      <ul class="main-panel-tabs clearfix">
+        <li class="activated"><a href="#files">Files</a></li>
         <li><a href="#follows">Follows</a></li>
         <li><a href="#feeds">Feed</a></li>
       </ul>
     </nav>
 
     <section id="#files" class="file-panel">
-      <ul>
+      <form action="<%= philes_url %>" method="post" enctype="multipart/form-data">
+        <%= auth_token %>
+        <div class="file-input-button">
+          <label class="button" for="phile-input">Choose File</label>
+          <input type="file" name="phile" id="phile-input">
+        </div>
+        <button class="file-upload">Upload a file</button>
+      </form>
+
+      <ul class="file-list">
         <% @user.philes.each do |phile| %>
           <li>
             <a href="<%= phile_url(phile) %>"><%= phile.name %></a>
           </li>
         <% end %>
       </ul>
-
-      <form action="<%= philes_url %>" method="post" enctype="multipart/form-data">
-        <%= auth_token %>
-        <input type="file" name="phile">
-        <button>Upload a file</button>
-      </form>
     </section>
   </main>
 </main>

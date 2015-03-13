@@ -1,0 +1,18 @@
+.sidebar {
+  width: 399px;
+  float: left;
+  padding-top: 20px;
+}
+
+.sidebar > h1 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.sidebar > p {
+  text-align: center;
+  width: 120px;
+  height: 120px;
+  border: 1px solid red;
+  margin: 20px auto;
+}

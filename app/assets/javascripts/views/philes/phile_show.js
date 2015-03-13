@@ -23,7 +23,9 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
     var selection = window.getSelection(),
         start, finish, newNote;
 
-    if (this.invalidSelection(selection)) return;
+    if (this.invalidSelection(selection)) {
+      this.$newNoteEl.empty();
+    }
 
     start = this.findSelectionStart(selection);
     finish = start + selection.toString().length - 1;
