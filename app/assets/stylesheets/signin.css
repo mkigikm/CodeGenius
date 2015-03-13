@@ -13,16 +13,11 @@
 }
 
 .signin > input {
-  border: 1px solid white;
   display: block;
   margin-bottom: 10px;
-  width: 400px;
+  width: 390px;
 }
 
 .signin > strong {
   font-size: 14px;
-}
-
-.signin a {
-  color: #ffc31c;
 }

@@ -65,3 +65,12 @@ body {
 .hidden {
   display: none;
 }
+
+a {
+  color: #ffc31c;
+}
+
+input {
+  padding: 5px;
+  border: 1px solid white;
+}

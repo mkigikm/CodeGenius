@@ -43,10 +43,6 @@
   font-weight: 700;
 }
 
-.annotation-show a {
-  color: #ffc31c;
-}
-
 .annotation-show ul {
   list-style: disc;
 }
