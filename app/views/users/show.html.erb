@@ -1,35 +1,37 @@
-<section class="sidebar">
-  <h1><%= @user.email %></h1>
+<main class="content">
+  <section class="sidebar">
+    <h1><%= @user.email %></h1>
 
-  <p>Avatar goes here</p>
+    <p>Avatar goes here</p>
 
-  <% if current_user != @user %>
-    <%= render "follows/form", user: @user %>
-  <% end %>
-</section>
-
-<main class="main-panel">
-  <nav>
-    <ul>
-      <li><a href="#files">Files</a></li>
-      <li><a href="#follows">Follows</a></li>
-      <li><a href="#feeds">Feed</a></li>
-    </ul>
-  </nav>
-
-  <section id="#files" class="file-panel">
-    <ul>
-      <% @user.philes.each do |phile| %>
-        <li>
-          <a href="<%= phile_url(phile) %>"><%= phile.name %></a>
-        </li>
-      <% end %>
-    </ul>
-    
-    <form action="<%= philes_url %>" method="post" enctype="multipart/form-data">
-      <%= auth_token %>
-      <input type="file" name="phile">
-      <button>Upload a file</button>
-    </form>
+    <% if current_user != @user %>
+      <%= render "follows/form", user: @user %>
+    <% end %>
   </section>
+
+  <main class="main-panel">
+    <nav>
+      <ul>
+        <li><a href="#files">Files</a></li>
+        <li><a href="#follows">Follows</a></li>
+        <li><a href="#feeds">Feed</a></li>
+      </ul>
+    </nav>
+
+    <section id="#files" class="file-panel">
+      <ul>
+        <% @user.philes.each do |phile| %>
+          <li>
+            <a href="<%= phile_url(phile) %>"><%= phile.name %></a>
+          </li>
+        <% end %>
+      </ul>
+
+      <form action="<%= philes_url %>" method="post" enctype="multipart/form-data">
+        <%= auth_token %>
+        <input type="file" name="phile">
+        <button>Upload a file</button>
+      </form>
+    </section>
+  </main>
 </main>

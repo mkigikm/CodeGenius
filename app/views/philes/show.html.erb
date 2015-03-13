@@ -1,22 +1,26 @@
 <header class="file-header">
-  <h1>
-    <strong class="filename"><%= @phile.name %></strong>
-  </h1>
-  <h2>
-    <a class="author" href="<%= user_url(@phile.owner) %>">
-      <%= @phile.owner.email %>
-    </a>
-  </h2>
+  <nav>
+    <h1>
+      <strong class="filename"><%= @phile.name %></strong>
+    </h1>
+    <h2>
+      <a class="author" href="<%= user_url(@phile.owner) %>">
+        <%= @phile.owner.email %>
+      </a>
+    </h2>
+  </nav>
 </header>
 
-<article class="file clearfix">
-  <section class="file-body">
-    <pre><%= notate_phile(@phile) %></pre>
-  </section>
+<main class="content">
+  <article class="file clearfix">
+    <section class="file-body">
+      <pre><%= notate_phile(@phile) %></pre>
+    </section>
 
-  <section class="file-annotation">
-  </section>
-</article>
+    <section class="file-annotation">
+    </section>
+  </article>
+</main>
 
 <script type="text/javascript">
 $(document).ready(function () {
