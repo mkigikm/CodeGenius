@@ -6,6 +6,7 @@ CodeGenius.Views.NoteNew = CodeGenius.Views.NoteView.extend({
   events: {
     "click button.note-save": "save",
     "click button.note-cancel": "cancel",
+    "click .annotation-start > a": "startAnnotation"
   },
 
   initialize: function (options) {
@@ -31,12 +32,22 @@ CodeGenius.Views.NoteNew = CodeGenius.Views.NoteView.extend({
     });
   },
 
+  startAnnotation: function (event) {
+    event.preventDefault();
+    if (this.collection.overlaps(this.model)) {
+      alert("annotations cannot overlap");
+    } else {
+      this.$el.children().toggleClass("hidden");
+      this.setTop();
+    }
+  },
+
   setTop: function () {
     this.$el.css("top", this.maxTop());
   },
 
   maxTop: function () {
-    return Math.min(this.top, this.fileHeight-this.$("form").height());
+    return Math.min(this.top, this.fileHeight-this.$(":not(.hidden)").height());
   },
 
   cancel: function (event) {

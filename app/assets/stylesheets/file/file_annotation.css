@@ -59,3 +59,16 @@
   border-bottom: 1px solid white;
   color: #cccccc;
 }
+
+.annotation-start {
+  border-left: 1px solid #ffc31c;
+  padding: 10px 15px;
+  text-align: center;
+  width: 250px;
+}
+
+.annotation-start > a {
+  background: #404040;
+  padding: 5px 40px;
+  border: 1px solid #808080
+}

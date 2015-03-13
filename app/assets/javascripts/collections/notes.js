@@ -12,5 +12,9 @@ CodeGenius.Collections.Notes = Backbone.Collection.extend({
     }
 
     return note;
+  },
+
+  overlaps: function (newNote) {
+    return this.any(newNote.overlaps.bind(newNote));
   }
 });
