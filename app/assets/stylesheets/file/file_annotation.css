@@ -4,13 +4,14 @@
 }
 
 .annotation {
+  width: 350px;
   position: relative;
 }
 
 .annotation-edit > textarea {
   display: block;
   background: #404040;
-  width: 300px;
+  width: 100%;
   height: 200px;
   color: #ffffff;
   font: sans-serif;
@@ -24,7 +25,7 @@
 .annotation-show {
   border-left: 1px solid #ffc31c;
   padding-left: 20px;
-  width: 300px;
+  width: 100%;
   color: #cccccc;
   font-size: 14px;
 }
