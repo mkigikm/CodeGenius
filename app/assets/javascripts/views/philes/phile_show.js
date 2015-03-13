@@ -3,7 +3,7 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
 
   events: {
     "mouseup pre": "newNote",
-    "mouseup pre *": "newNote"
+    // "mouseup pre *": "newNote"
   },
 
   initialize: function (options) {
@@ -23,9 +23,10 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
     var selection = window.getSelection(),
         start, finish, newNote;
 
-    if (this.invalidSelection(selection)) {
-      this.$newNoteEl.empty();
+    if (this.invalidSelection(selection) || selection === this.selection) {
+      return;
     }
+    this.selection = selection;
 
     start = this.findSelectionStart(selection);
     finish = start + selection.toString().length - 1;
@@ -45,16 +46,15 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
     this.$newNoteEl.html(this.newNoteView.render().$el);
 
     this.newNoteView.setTop();
-
-    Backbone.history.navigate("");
   },
 
   topOffset: function (selection) {
     return selection.getRangeAt(0).getBoundingClientRect().top -
-        this.$("pre").offset().top;
+        this.$("pre").offset().top + $(window).scrollTop();
   },
 
   invalidSelection: function (selection) {
+    debugger
     return selection.toString().length === 0 ||
         this.textNodes().indexOf(selection.anchorNode) === -1 ||
         this.textNodes().indexOf(selection.focusNode ) === -1
@@ -68,7 +68,7 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
       return curNode === node;
     });
 
-    return offset - node.length;
+    return node ? offset - node.length : 0;
   },
 
   findSelectionStart: function (selection) {

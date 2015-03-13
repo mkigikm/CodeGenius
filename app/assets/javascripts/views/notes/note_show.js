@@ -69,7 +69,6 @@ CodeGenius.Views.NoteShow = Backbone.View.extend({
   },
 
   maxTop: function (noteEl) {
-    debugger
     return Math.min(noteEl.offsetTop - this.abovePixels(),
         $("pre").height() - this.$("> :not(.hidden)").height());
   }
