@@ -13,9 +13,9 @@ CodeGenius.Views.NoteShow = Backbone.View.extend({
     this.listenTo(this.model, "change", this.render);
 
     this.$placementEl = options.$placementEl;
-    this.$placementEl.bind("contentchanged", function () {
-      this.render();
-    }.bind(this));
+    this.$placementEl.bind("contentchanged", this.render.bind(this));
+
+    this.editing = false;
   },
 
   render: function () {
@@ -24,14 +24,23 @@ CodeGenius.Views.NoteShow = Backbone.View.extend({
 
     noteEl = this.noteEl();
     noteEl && this.$el.css("top", noteEl.offsetTop - this.abovePixels());
-    debugger
+
+    if (this.editing) {
+      this.$("aside").addClass("hidden");
+      this.$("form").removeClass("hidden");
+    } else {
+      this.$("aside").removeClass("hidden");
+      this.$("form").addClass("hidden");
+    }
+
     return this;
   },
 
   toggleEdit: function (event) {
     event.preventDefault();
     this.$("textarea").val(this.model.escape("body"));
-    this.$el.children().toggleClass("hidden");
+    this.editing = !this.editing;
+    this.render();
   },
 
   noteEl: function () {
@@ -43,14 +52,11 @@ CodeGenius.Views.NoteShow = Backbone.View.extend({
 
   save: function (event) {
     event.preventDefault();
-    this.model.set("body", this.$("textarea").val());
-    this.model.save({}, {
+
+    this.model.save({body: this.$("textarea").val()}, {
       success: function () {
-        this.collection.add(this.model, {merge: true});
-        Backbone.history.navigate(
-          "/notes/" + this.model.id,
-          {trigger: true}
-        );
+        this.editing = false;
+        this.render();
       }.bind(this)
     });
   },

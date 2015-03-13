@@ -2,7 +2,6 @@ CodeGenius.Routers.PhileRouter = Backbone.Router.extend({
   routes: {
     "": "show",
     "notes/new/:start/:finish": "newNote",
-    "notes/:id/edit": "editNote",
     "notes/:id": "showNote"
   },
 
@@ -17,29 +16,29 @@ CodeGenius.Routers.PhileRouter = Backbone.Router.extend({
   },
 
   show: function () {
-    this.showView = new CodeGenius.Views.PhileShow({
+    this.phileView = new CodeGenius.Views.PhileShow({
       model: this.phile,
       el: $(".file-body")
     });
 
-    this.showView.render();
+    this.phileView.render();
   },
 
   showNote: function (id) {
-    this.showView || this.show();
+    this.phileView || this.show();
 
     var noteView = new CodeGenius.Views.NoteShow({
       model: this.phile.notes().getOrAdd(id),
-      $placementEl: this.showView.$el
+      $placementEl: this.phileView.$el
     });
 
     this._swapNoteView(noteView);
   },
 
   newNote: function (start, finish) {
-    this.showView || this.show();
-
     var note, noteView;
+
+    this.phileView || this.show();
 
     note = new CodeGenius.Models.Note({
       phile_id: this.phile.id,
@@ -47,21 +46,10 @@ CodeGenius.Routers.PhileRouter = Backbone.Router.extend({
       finish: finish
     });
 
-    noteView = new CodeGenius.Views.NoteEdit({
+    noteView = new CodeGenius.Views.NoteShow({
       model: note,
       collection: this.phile.notes()
     });
-    this._swapNoteView(noteView);
-  },
-
-  editNote: function (id) {
-    this.showView || this.show();
-
-    var noteView = new CodeGenius.Views.NoteEdit({
-      model: this.phile.notes().getOrAdd(id),
-      collection: this.phile.notes()
-    });
-
     this._swapNoteView(noteView);
   },
 
