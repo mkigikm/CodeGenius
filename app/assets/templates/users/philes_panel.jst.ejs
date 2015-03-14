@@ -1,0 +1,20 @@
+<% if (user.get("is_current_user")) { %>
+  <form enctype="multipart/form-data">
+    <input type="hidden" name="matt" value="matt">
+    <div class="file-input-button">
+      <label class="button" for="phile-input">Choose File</label>
+      <input type="file" name="phile" id="phile-input">
+    </div>
+    <button class="file-upload">Upload a file</button>
+  </form>
+<% } %>
+
+<input class="file-search" type="text" placeholder="Find a file...">
+
+<ul class="file-list">
+  <% user.philes().each(function (phile) { %>
+  <li>
+    <a href="/philes/<%= phile.id %>"><%= phile.escape("name") %></a>
+  </li>
+  <% }) %>
+</ul>

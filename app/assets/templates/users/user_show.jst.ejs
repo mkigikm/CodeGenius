@@ -1,0 +1,19 @@
+<section class="sidebar">
+  <h1><%= user.escape("email") %></h1>
+
+  <p>Avatar goes here</p>
+
+  <% if (!user.get("is_current_user")) { %>
+    <button>Follow</button>
+  <% } %>
+</section>
+
+<main class="main-panel">
+  <nav>
+    <ul class="main-panel-tabs clearfix">
+      <li class="activated"><a data-tab="files">Files</a></li>
+      <li><a data-tab="follows">Follows</a></li>
+      <li><a data-tab="feed">Feed</a></li>
+    </ul>
+  </nav>
+</main>

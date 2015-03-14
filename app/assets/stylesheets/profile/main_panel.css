@@ -2,6 +2,7 @@
   width: 799px;
   float: right;
   padding-top: 20px;
+  margin-bottom: 20px;
 }
 
 .main-panel-tabs > li {
@@ -66,4 +67,10 @@
 .file-upload {
   margin-top: 3px;
   margin-left: 2px;
+}
+
+.file-search {
+  display: block;
+  clear: both;
+  margin-top: 20px;
 }

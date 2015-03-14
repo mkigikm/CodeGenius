@@ -11,42 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311121732) do
+ActiveRecord::Schema.define(version: 20150314152659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "follows", force: true do |t|
-    t.integer "follower_id", null: false
-    t.integer "target_id",   null: false
+    t.integer  "follower_id", null: false
+    t.integer  "target_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "follows", ["follower_id"], name: "index_follows_on_follower_id", using: :btree
   add_index "follows", ["target_id"], name: "index_follows_on_target_id", using: :btree
 
   create_table "notes", force: true do |t|
-    t.integer "phile_id",  null: false
-    t.integer "start",     null: false
-    t.integer "finish",    null: false
-    t.integer "author_id", null: false
-    t.text    "body",      null: false
+    t.integer  "phile_id",   null: false
+    t.integer  "start",      null: false
+    t.integer  "finish",     null: false
+    t.integer  "author_id",  null: false
+    t.text     "body",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "notes", ["author_id"], name: "index_notes_on_author_id", using: :btree
   add_index "notes", ["phile_id"], name: "index_notes_on_phile_id", using: :btree
 
   create_table "philes", force: true do |t|
-    t.integer "owner_id", null: false
-    t.string  "name",     null: false
-    t.text    "body",     null: false
+    t.integer  "owner_id",   null: false
+    t.string   "name",       null: false
+    t.text     "body",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "philes", ["owner_id"], name: "index_philes_on_owner_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string "email",           null: false
-    t.string "password_digest", null: false
-    t.string "session_token",   null: false
+    t.string   "email",           null: false
+    t.string   "password_digest", null: false
+    t.string   "session_token",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

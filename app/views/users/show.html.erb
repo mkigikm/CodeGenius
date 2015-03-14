@@ -36,5 +36,24 @@
         <% end %>
       </ul>
     </section>
+
+    <section id="#follows" class="follows-panel hidden">
+      <article>
+        <h1>Following</h1>
+        <ul>
+          <% @user.follows.each do |user| %>
+            <li><a href="<%= user_url(user) %>"><%= user.email %></a></li>
+          <% end %>
+        </ul>
+      </article>
+
+      <article>
+
   </main>
 </main>
+
+<script type="text/javascript">
+$(document).ready(function () {
+  CodeGenius.userProfile(<%= @user.id %>);
+});
+</script>
