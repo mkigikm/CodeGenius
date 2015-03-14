@@ -1,0 +1,5 @@
+<ul>
+<% user.follows().each(function (target) { %>
+  <li><%= target.get("email") %></li>
+<% }) %>
+</ul>
