@@ -15,10 +15,12 @@
   <% user.philes().each(function (phile) { %>
   <li class="clearfix">
     <a href="/philes/<%= phile.id %>"><%= phile.escape("name") %></a>
-    <ul class="file-controls clearfix">
-      <li><button class="phile-tag" data-phile-id="<%= phile.id %>">tag</button></li>
-      <li><button class="phile-delete" data-phile-id="<%= phile.id %>">delete</button></li>
-    </ul>
+    <% if (user.get("is_current_user")) { %>
+      <ul class="file-controls clearfix">
+        <li><button class="phile-tag" data-phile-id="<%= phile.id %>">tag</button></li>
+        <li><button class="phile-delete" data-phile-id="<%= phile.id %>">delete</button></li>
+      </ul>
+    <% } %>
   </li>
   <% }) %>
 </ul>

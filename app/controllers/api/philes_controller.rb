@@ -13,13 +13,9 @@ module Api
 
     def destroy
       @phile = Phile.find(params[:id])
-
-      if @phile.owner == current_user
-        @phile.destroy!
-        render json: @phile
-      else
-        render json: "you don't have permission to delete this", status: 401
-      end
+      authorize! :destroy, @phile
+      @phile.destroy!
+      render json: @phile
     end
 
     private

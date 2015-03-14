@@ -13,6 +13,7 @@ gem 'spring',        group: :development
 ######## My gems
 gem 'bcrypt', require: 'bcrypt'
 gem 'backbone-on-rails'
+gem 'cancan'
 
 group :development do
   gem 'better_errors'

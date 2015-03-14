@@ -36,7 +36,6 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
 
       phile.save({}, {
         success: function (data) {
-          debugger
           philes.add(phile);
         }
       })
@@ -51,6 +50,7 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
     phile = this.model.philes().get($(event.currentTarget).data("phile-id"));
     phile.destroy({
       success: function () {
+        debugger
         this.model.philes().remove(phile);
       }.bind(this)
     });
