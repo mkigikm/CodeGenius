@@ -18,13 +18,14 @@
 
 .main-panel-tabs > li a {
   display: block;
+  cursor: pointer;
 }
 
 .main-panel-tabs > li:last-child {
   border-right: 1px solid #808080;
 }
 
-.file-panel {
+.main-panel > section {
   border: 1px solid #808080;
   min-height: 400px;
   width: 700px;

@@ -11,6 +11,7 @@ CodeGenius.Views.UserShow = Backbone.View.extend({
 
     this.philesView = new CodeGenius.Views.PhilesPanel({model: this.model});
     this.followsView = new CodeGenius.Views.FollowsPanel({model: this.model});
+    this.activePanel = ".file-panel";
   },
 
   render: function () {
@@ -19,6 +20,7 @@ CodeGenius.Views.UserShow = Backbone.View.extend({
     this.$tabs = this.$(".main-panel");
     this.$tabs.append(this.philesView.render().$el);
     this.$tabs.append(this.followsView.render().$el);
+    this.makeActive(this.activePanel);
 
     return this;
   },
@@ -43,7 +45,10 @@ CodeGenius.Views.UserShow = Backbone.View.extend({
   },
 
   makeActive: function (panel) {
+    this.activePanel = panel;
     this.$(".main-panel > section").addClass("hidden");
     this.$(panel).removeClass("hidden");
+    this.$(".main-panel-tabs > li").removeClass("activated");
+    this.$(panel + "-tab").addClass("activated");
   }
 });
