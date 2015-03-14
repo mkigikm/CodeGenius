@@ -16,6 +16,7 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
     this.$el.html(this.template({phile: this.model, newNote: this.newNote}));
     this._textNodes = null;
     this.$el.trigger("contentchanged");
+    prettyPrint();
     return this;
   },
 
