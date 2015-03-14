@@ -1,5 +1,14 @@
-<ul>
+<ul class="follows-list display-list">
 <% user.follows().each(function (target) { %>
-  <li><%= target.get("email") %></li>
+  <li class="clearfix">
+    <a href="/users/<%= target.id %>"><%= target.get("email") %></a>
+    <% if (!target.get("is_current_user")) { %>
+      <% if (target.get("following")) { %>
+        <button data-user-id="<%= target.id %>" class="follow-user">Unfollow</button>
+      <% } else { %>
+        <button data-user-id="<%= target.id %>" class="follow-user">Follow</button>
+      <% } %>
+    <% } %>
+  </li>
 <% }) %>
 </ul>

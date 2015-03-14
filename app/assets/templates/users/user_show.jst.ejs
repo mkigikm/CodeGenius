@@ -5,9 +5,9 @@
 
   <% if (!user.get("is_current_user")) { %>
     <% if (user.get("following")) { %>
-      <button class="follow-user">Unfollow</button>
+      <button class="follow-user" data-user-id="<%= user.id %>">Unfollow</button>
     <% } else { %>
-      <button class="follow-user">Follow</button>
+      <button class="follow-user" data-user-id="<%= user.id %>">Follow</button>
     <% } %>
   <% } %>
 </section>

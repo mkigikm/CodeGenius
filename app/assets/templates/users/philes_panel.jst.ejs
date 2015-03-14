@@ -10,7 +10,7 @@
 
 <input class="file-search" type="text" placeholder="Find a file...">
 
-<ul class="file-list">
+<ul class="file-list display-list">
   <% user.philes().each(function (phile) { %>
   <li class="clearfix">
     <a href="/philes/<%= phile.id %>"><%= phile.escape("name") %></a>

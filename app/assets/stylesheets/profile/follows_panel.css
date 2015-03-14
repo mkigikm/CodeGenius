@@ -1,0 +1,10 @@
+.follows-list a {
+  display: block;
+  float: left;
+}
+
+.follows-list button {
+  display: block;
+  float: right;
+  margin-top: -3px;
+}

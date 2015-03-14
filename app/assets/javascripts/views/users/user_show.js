@@ -2,7 +2,7 @@ CodeGenius.Views.UserShow = Backbone.View.extend({
   template: JST["users/user_show"],
 
   events: {
-    "click button.follow-user": "followUser",
+    "click .sidebar > button.follow-user": "followUser",
     "click .main-panel-tabs a": "changePanel"
   },
 
