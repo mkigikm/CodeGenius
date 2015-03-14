@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :notes, only: [:show]
 
   namespace :api, defaults: { format: :json } do
-    resources :philes, only: [:show, :create]
+    resources :philes, only: [:show, :create, :destroy]
     resources :notes, only: [:create, :update]
     resources :users, only: :show
   end

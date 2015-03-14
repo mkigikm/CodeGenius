@@ -74,3 +74,23 @@
   clear: both;
   margin-top: 20px;
 }
+
+.file-list li a {
+  display: block;
+  float: left;
+}
+
+.file-controls {
+  display: block;
+  float: right;
+}
+
+.file-controls > li {
+  float: left;
+  margin-left: 5px;
+}
+
+.file-controls > li > button {
+  font-size: 10px;
+  padding: 5px;
+}

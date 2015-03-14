@@ -6,11 +6,13 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
   className: "file-panel",
 
   events: {
-    "click button.file-upload": "createPhile"
+    "click button.file-upload": "createPhile",
+    "click button.phile-delete": "deletePhile"
   },
 
   initialize: function () {
     this.listenTo(this.model.philes(), "add", this.render);
+    this.listenTo(this.model.philes(), "remove", this.render);
   },
 
   render: function () {
@@ -40,5 +42,17 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
       })
     }
     reader.readAsText(file);
+  },
+
+  deletePhile: function (event) {
+    var phile;
+    event.preventDefault();
+
+    phile = this.model.philes().get($(event.currentTarget).data("phile-id"));
+    phile.destroy({
+      success: function () {
+        this.model.philes().remove(phile);
+      }.bind(this)
+    });
   }
 });
