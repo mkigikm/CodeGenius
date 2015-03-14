@@ -3,7 +3,7 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
 
   events: {
     "mouseup pre": "newNote",
-    // "mouseup pre *": "newNote"
+    "click a.annotation": "toggleAnnotation"
   },
 
   initialize: function (options) {
@@ -23,10 +23,8 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
     var selection = window.getSelection(),
         start, finish, newNote;
 
-    if (this.invalidSelection(selection) || selection.getRangeAt(0) === this.range) {
-      return;
-    }
-    this.range = selection.getRangeAt(0);
+    if (this.invalidSelection(selection)) return;
+    this.oldSelection = selection.toString();
 
     start = this.findSelectionStart(selection);
     finish = start + selection.toString().length - 1;
@@ -46,6 +44,7 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
     this.$newNoteEl.html(this.newNoteView.render().$el);
 
     this.newNoteView.setTop();
+    Backbone.history.navigate(this.model.escape("name"));
   },
 
   topOffset: function (selection) {
@@ -54,10 +53,10 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
   },
 
   invalidSelection: function (selection) {
-    debugger
     return selection.toString().length === 0 ||
         this.textNodes().indexOf(selection.anchorNode) === -1 ||
-        this.textNodes().indexOf(selection.focusNode ) === -1
+        this.textNodes().indexOf(selection.focusNode ) === -1 ||
+        selection.toString() === this.oldSelection;
   },
 
   findTextNodeOffset: function (node, nodeList) {
@@ -98,5 +97,19 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
     }, this);
 
     this._textNodes = nodeList;
+  },
+
+  toggleAnnotation: function (event) {
+    event.preventDefault();
+    var href = $(event.currentTarget).attr("href");
+
+    if (href === window.location.hash) {
+      Backbone.history.navigate(this.model.escape("name"));
+      this.$newNoteEl.empty();
+    } else {
+      Backbone.history.navigate(href, {trigger: true});
+    }
+
+    this.oldSelection = "";
   }
 });

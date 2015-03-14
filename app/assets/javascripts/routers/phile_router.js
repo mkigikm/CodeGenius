@@ -1,6 +1,7 @@
 CodeGenius.Routers.PhileRouter = Backbone.Router.extend({
   routes: {
     "": "show",
+    ":name": "show",
     "notes/:id": "showNote"
   },
 
@@ -14,7 +15,7 @@ CodeGenius.Routers.PhileRouter = Backbone.Router.extend({
     this.phile.fetch();
   },
 
-  show: function () {
+  show: function (id) {
     this.phileView = new CodeGenius.Views.PhileShow({
       model: this.phile,
       el: $(".file-body"),

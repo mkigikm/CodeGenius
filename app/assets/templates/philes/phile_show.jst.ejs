@@ -8,7 +8,7 @@ if (body) {
     start = note.get("start"), finish = parseInt(note.get("finish")) + 1;
 
     notatedBody += _.escape(body.slice(offset, start)) +
-    "<a href='#notes/" + note.id + "'>" +
+    "<a class='annotation' href='#notes/" + note.id + "'>" +
         _.escape(body.slice(start, finish)) + "</a>";
 
     offset = finish;
