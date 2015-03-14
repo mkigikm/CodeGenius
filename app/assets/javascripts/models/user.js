@@ -6,6 +6,11 @@ CodeGenius.Models.User = Backbone.Model.extend({
     return this._philes;
   },
 
+  follows: function () {
+    this._follows || (this._follows = new CodeGenius.Collections.Users());
+    return this._follows;
+  },
+
   parse: function (payload) {
     if (payload.philes) {
       this.philes().add(payload.philes.map(function (phile) {
@@ -13,6 +18,14 @@ CodeGenius.Models.User = Backbone.Model.extend({
       }), {merge: true});
 
       delete payload.philes;
+    }
+
+    if (payload.follows) {
+      this.follows().add(payload.follows.map(function (user) {
+        return new CodeGenius.Models.User(user)
+      }), {merge: true});
+
+      delete payload.followings;
     }
 
     return payload;

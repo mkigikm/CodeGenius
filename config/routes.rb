@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :philes, only: [:show, :create, :destroy]
     resources :notes, only: [:create, :update]
-    resources :users, only: :show
+    resources :users, only: :show do
+      resource :follow, only: [:create, :destroy]
+    end
   end
 
   root to: "users#new"

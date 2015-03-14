@@ -4,7 +4,11 @@
   <p>Avatar goes here</p>
 
   <% if (!user.get("is_current_user")) { %>
-    <button>Follow</button>
+    <% if (user.get("following")) { %>
+      <button class="follow-user">Unfollow</button>
+    <% } else { %>
+      <button class="follow-user">Follow</button>
+    <% } %>
   <% } %>
 </section>
 

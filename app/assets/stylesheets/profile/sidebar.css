@@ -16,3 +16,8 @@
   border: 1px solid red;
   margin: 20px auto;
 }
+
+.sidebar > button {
+  display: block;
+  margin: 0 auto;
+}
