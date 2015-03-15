@@ -55,15 +55,12 @@ I will switch the user profile page to use backbone. Users will be able to follo
 [Details][phase-four]
 
 ### Bonus Features (TBD)
-- [ ] Tag files
-- [ ] Search for files by tag
+- [ ] Directory structure
 - [ ] Linking to files in addition to uploading them
 - [ ] Leave general comments on files
-- [ ] "Like" button for annotations
-- [ ] Support syntax highlighting
+- [X] Support syntax highlighting
 - [ ] Sign up with Google+
 - [ ] Typeahead search bar for tags
-- [ ] Multiple sessions/session management
 
 [phase-zero]: ./docs/phases/phase0.md
 [phase-one]: ./docs/phases/phase1.md

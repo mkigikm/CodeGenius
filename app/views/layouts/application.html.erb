@@ -16,7 +16,7 @@
 
     <ul class="site-header-links clearfix">
       <% if signed_in? %>
-        <li><a href="<%= user_url(current_user) %>"><%= current_user.email %></a></li>
+        <li><a href="<%= user_url(current_user) %>"><%= current_user.name %></a></li>
         <li>
           <form action="<%= session_url %>" method="post">
             <input type="hidden" name="_method" value="delete">

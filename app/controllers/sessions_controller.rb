@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   def create
     credentials = user_params
     @user = User.find_by_credentials(
-      credentials[:email],
+      credentials[:name],
       credentials[:password]
     )
 
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
       redirect_to user_url(@user)
     else
       @user = User.new(credentials)
-      @error = "Incorrect email or password"
+      @error = "Incorrect name or password"
       render :new
     end
   end
@@ -30,6 +30,6 @@ class SessionsController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:name, :password)
   end
 end

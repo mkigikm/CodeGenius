@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  validates :email, :session_token, :password_digest, presence: true
-  validates :email, :session_token, uniqueness: true
+  validates :name, :session_token, :password_digest, presence: true
+  validates :name, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
   attr_reader :password
@@ -47,8 +47,8 @@ class User < ActiveRecord::Base
     source: :follower
   )
 
-  def self.find_by_credentials(email, password)
-    user = User.find_by(email: email)
+  def self.find_by_credentials(name, password)
+    user = User.find_by(name: name)
 
     user && user.is_password?(password) ? user : nil
   end

@@ -1,4 +1,4 @@
-json.extract! @user, :id, :email
+json.extract! @user, :id, :name
 
 json.is_current_user current_user == @user
 
@@ -8,7 +8,7 @@ end
 
 json.follows do
   json.array!(@user.follows) do |user|
-    json.extract! user, :id, :email
+    json.extract! user, :id, :name
     json.following current_user.follows.include?(user)
     json.is_current_user current_user == user
   end
