@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require prettify
  */
 
 html, body, section, nav, main, header, pre, h1, h2, ul, li,

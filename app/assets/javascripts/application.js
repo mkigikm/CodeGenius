@@ -22,4 +22,4 @@
 //= require_tree ./routers
 //= require_tree .
 //= require marked
-//= require_tree ./google_prettify
+//= require prettify
