@@ -63,6 +63,24 @@ button, .button {
   padding: 5px 8px;
   background: #333333;
   color: #bbbbbb;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: #bbbbbb;
+}
+
+.button-alt {
+  border: 1px solid #808080;
+  font-size: 12px;
+  padding: 5px 8px;
+  color: #333333;
+  background: #bbbbbb;
+  cursor: pointer;
+}
+
+.button-alt:hover {
+  color: #333333;
 }
 
 .site-footer {
