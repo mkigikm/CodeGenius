@@ -14,9 +14,11 @@
   <div class="site-header-content clearfix">
     <h1 class="site-header-logo">Code Genius</h1>
 
-    <form class="search">
-      <input type="text" placeholder="Search Code Genius..." name="search">
-    </form>
+    <% if !@no_search %>
+      <form class="search" method="get" action="<%= search_url %>">
+        <input type="text" placeholder="Search Code Genius..." name="query">
+      </form>
+    <% end %>
 
     <nav class="site-header-links clearfix">
 

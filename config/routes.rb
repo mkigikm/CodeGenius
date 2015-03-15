@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resources :philes, only: [:create, :show]
   resources :notes, only: [:show]
+  get "search", to: "searches#index"
 
   namespace :api, defaults: { format: :json } do
     resources :philes, only: [:show, :create, :destroy]
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
     resources :users, only: :show do
       resource :follow, only: [:create, :destroy]
     end
+    get "search", to: "searches#index"
   end
 
   root to: "users#new"

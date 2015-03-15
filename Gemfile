@@ -15,6 +15,7 @@ gem 'bcrypt', require: 'bcrypt'
 gem 'backbone-on-rails'
 gem 'cancan'
 gem 'pg_search'
+gem 'kaminari'
 
 group :development do
   gem 'better_errors'

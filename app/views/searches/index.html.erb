@@ -1,0 +1,20 @@
+<header class="search-header">
+  <h1>Search
+  </h1>
+  <form class="search"  method="get" action="<%= search_url %>">
+    <input type="text" placeholder="Search Code Genius..." name="query" value="<%= params[:query] %>">
+  </form>
+</header>
+
+<main class="content">
+  <ul>
+  <% @search_results.map(&:searchable).each do |model| %>
+    <li>
+      <% url = model.class == User ? user_url(model) : phile_url(model) %>
+      <a href="<%= url %>"><%= model.name %></a>
+    </li>
+  <% end %>
+</main>
+
+<script type="text/javascript">
+</script>
