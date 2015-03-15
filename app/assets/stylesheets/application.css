@@ -83,6 +83,22 @@ button, .button {
   color: #333333;
 }
 
+.search {
+  position: relative;
+}
+
+.search > input {
+  border-radius: 3px;
+  padding-left: 28px;
+  width: 100%;
+}
+
+.search:before {
+  content: '\1F50D';
+  position: absolute;
+  left: 3px;
+}
+
 .site-footer {
   text-align: center;
   font-size: 14px;

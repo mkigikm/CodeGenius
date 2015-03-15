@@ -3,7 +3,7 @@
   border-bottom: 2px solid #808080;
 }
 
-.site-header > nav {
+.site-header-content {
   width: 1180px;
   padding: 10px 0;
   margin: 0 auto;
@@ -17,25 +17,29 @@
 
 .site-header-links {
   float: right;
-}
-
-.site-header-links > li {
-  float: left;
   padding-top: 15px;
 }
 
-.site-header-links > li:first-child {
-  padding-right: 20px;
+.site-header-links > * {
+  float: left;
+}
+
+.site-header-links > * {
+  margin-right: 10px;
+}
+
+.site-header-links > *:last-child {
+  margin-right: 0;
+  margin-top: -2px;
 }
 
 .site-header-links a {
   color: #bbbbbb;
 }
 
-.site-header-links a:hover {
-  color: #4183c4;
-}
-
-.site-header-links button {
-  cursor: pointer;
+.site-header-content > .search {
+  margin-top: 10px;
+  margin-left: 25px;
+  width: 650px;
+  float:left;
 }

@@ -7,8 +7,6 @@
 ## Minimum Viable Product
 Code Genius is a clone of Rap Genius built on Rails and Backbone. Users can:
 
-<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
-
 - [X] Create accounts
 - [X] Create sessions (log in)
 - [X] Upload files
