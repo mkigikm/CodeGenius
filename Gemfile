@@ -14,6 +14,7 @@ gem 'spring',        group: :development
 gem 'bcrypt', require: 'bcrypt'
 gem 'backbone-on-rails'
 gem 'cancan'
+gem 'pg_search'
 
 group :development do
   gem 'better_errors'
