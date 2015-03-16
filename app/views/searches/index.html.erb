@@ -1,12 +1,10 @@
-<header class="search-header">
-  <h1>Search
-  </h1>
+<header class="search-header clearfix">
   <form class="search"  method="get" action="<%= search_url %>">
     <input type="text" placeholder="Search Code Genius..." name="query" value="<%= params[:query] %>">
   </form>
 </header>
 
-<main class="content">
+<main class="search-results">
   <ul>
   <% @search_results.map(&:searchable).each do |model| %>
     <li>
@@ -16,6 +14,3 @@
   <% end %>
   <%= paginate @search_results %>
 </main>
-
-<script type="text/javascript">
-</script>
