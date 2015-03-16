@@ -12,6 +12,7 @@ CodeGenius.Views.NoteNew = Backbone.View.extend({
   initialize: function (options) {
     this.top = options.top;
     this.fileHeight = options.fileHeight;
+    this.$parentEl = options.$parentEl;
   },
 
   render: function () {
@@ -38,11 +39,13 @@ CodeGenius.Views.NoteNew = Backbone.View.extend({
     } else {
       this.$el.children().toggleClass("hidden");
       this.setTop();
+      this.$parentEl.trigger("notestarted")
     }
   },
 
   cancel: function (event) {
     event.preventDefault();
+    this.$parentEl.trigger("notecanceled");
     this.remove();
   },
 

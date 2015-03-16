@@ -1,0 +1,10 @@
+<%
+  var start = note.get("start"), finish = parseInt(note.get("finish")) + 1;
+%>
+<% if (note.isNew()) { %>
+  <a class="annotation" href="#notes/<%= note.id %>">
+<% } else { %>
+  <a class="annotation"
+<% } %>
+    <%= _.escape(body.slice(start, finish)) %>
+  </a>

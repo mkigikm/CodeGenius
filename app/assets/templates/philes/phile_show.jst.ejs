@@ -1,15 +1,22 @@
 <%
 notatedBody = phile.escape("body");
 var offset = 0, notatedBody = "", body = phile.get("body"),
+    notes = phile.notes(),
     start, finish;
 
+if (newNote) {
+  notes = notes.clone();
+  notes.add(newNote);
+}
+
 if (body) {
-  phile.notes().each(function (note) {
+  notes.each(function (note) {
     start = note.get("start"), finish = parseInt(note.get("finish")) + 1;
 
     notatedBody += _.escape(body.slice(offset, start)) +
-    "<a class='annotation' href='#notes/" + note.id + "'>" +
-        _.escape(body.slice(start, finish)) + "</a>";
+      "<a class='annotation'";
+    if (!note.isNew()) notatedBody += " href='#notes/" + note.id;
+    notatedBody += "'>" + _.escape(body.slice(start, finish)) + "</a>";
 
     offset = finish;
   });

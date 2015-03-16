@@ -10,6 +10,8 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.notes(), "add", this.render);
     this.$newNoteEl = options.$newNoteEl;
+    this.$el.bind("notestarted", this.render.bind(this));
+    this.$el.bind("notecanceled", this.canceledNote.bind(this));
   },
 
   render: function () {
@@ -20,26 +22,36 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
     return this;
   },
 
+  canceledNote: function () {
+    this.newNote = null;
+    this.render();
+  },
+
   newNote: function (event) {
     var selection = window.getSelection(),
         start, finish, newNote;
 
-    if (this.invalidSelection(selection)) return;
+    if (this.invalidSelection(selection)) {
+      this.newNote = null;
+      return;
+    }
+
     this.oldSelection = selection.toString();
 
     start = this.findSelectionStart(selection);
     finish = start + selection.toString().length - 1;
 
-    newNote = new CodeGenius.Models.Note({
+    this.newNote = new CodeGenius.Models.Note({
       start: start,
       finish: finish,
       phile_id: this.model.id
     });
 
     this.newNoteView = new CodeGenius.Views.NoteNew({
-      model: newNote,
+      model: this.newNote,
       collection: this.model.notes(),
       top: this.topOffset(selection),
+      $parentEl: this.$el,
       fileHeight: this.$("pre").height()
     });
     this.$newNoteEl.html(this.newNoteView.render().$el);
