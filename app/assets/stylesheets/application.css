@@ -121,7 +121,7 @@ button, .button {
 }
 
 .error-modal {
-  position: absolute;
+  position: fixed;
   background: #000;
   border: 1px solid #808080;
   margin: 0 auto;
