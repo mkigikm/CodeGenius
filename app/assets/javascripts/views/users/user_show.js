@@ -3,7 +3,9 @@ CodeGenius.Views.UserShow = Backbone.View.extend({
 
   events: {
     "click .sidebar > button.follow-user": "followUser",
-    "click .main-panel-tabs a": "changePanel"
+    "click .main-panel-tabs a": "changePanel",
+    "click button.change-avatar": "changeAvatar",
+    "change input.avatar-file-selector": "uploadAvatar"
   },
 
   initialize: function () {
@@ -39,5 +41,14 @@ CodeGenius.Views.UserShow = Backbone.View.extend({
     this.$(panel).removeClass("hidden");
     this.$(".main-panel-tabs > li").removeClass("activated");
     this.$(panel + "-tab").addClass("activated");
+  },
+
+  changeAvatar: function (event) {
+    event.preventDefault();
+    this.$(".avatar-file-selector").trigger("click");
+  },
+
+  uploadAvatar: function (event) {
+    event.preventDefault();
   }
 });
