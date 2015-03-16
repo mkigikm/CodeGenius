@@ -10,5 +10,9 @@ class Ability
     can :destroy, Note do |note|
       note.try(:phile).try(:owner) == user
     end
+
+    can :update, User do |luser|
+      user == luser
+    end
   end
 end
