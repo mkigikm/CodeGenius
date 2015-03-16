@@ -1,7 +1,7 @@
 <section class="sidebar">
   <h1><%= user.escape("name") %></h1>
 
-  <p>Avatar goes here</p>
+  <img src="<%= user.get("avatar_url") %>" alt="avatar">
 </section>
 
 <main class="main-panel">

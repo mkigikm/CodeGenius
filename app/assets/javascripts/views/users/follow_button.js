@@ -11,7 +11,6 @@ CodeGenius.Views.FollowButton = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template({user: this.model}));
-    debugger
     this.model.get("is_current_user") && this.$el.css("display", "none");
     return this;
   },
