@@ -1,5 +1,1 @@
-<% if (!user.get("is_current_user")) { %>
-  <button class="follow-user">
-    <%= user.get("following") ? "Unfollow" : "Follow" %>
-  </button>
-<% } %>
+<%= user.get("following") ? "Unfollow" : "Follow" %>

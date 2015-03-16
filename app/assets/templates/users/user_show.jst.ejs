@@ -2,14 +2,6 @@
   <h1><%= user.escape("name") %></h1>
 
   <p>Avatar goes here</p>
-
-  <% if (!user.get("is_current_user")) { %>
-    <% if (user.get("following")) { %>
-      <button class="follow-user" data-user-id="<%= user.id %>">Unfollow</button>
-    <% } else { %>
-      <button class="follow-user" data-user-id="<%= user.id %>">Follow</button>
-    <% } %>
-  <% } %>
 </section>
 
 <main class="main-panel">

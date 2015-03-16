@@ -9,6 +9,7 @@ CodeGenius.Views.UserShow = Backbone.View.extend({
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
 
+    this.followButton = new CodeGenius.Views.FollowButton({model: this.model});
     this.philesView = new CodeGenius.Views.PhilesPanel({model: this.model});
     this.followsView = new CodeGenius.Views.FollowsPanel({model: this.model});
     this.activePanel = ".file-panel";
@@ -17,26 +18,14 @@ CodeGenius.Views.UserShow = Backbone.View.extend({
   render: function () {
     this.$el.html(this.template({user: this.model}));
 
+    this.$(".sidebar").append(this.followButton.render().$el);
+
     this.$tabs = this.$(".main-panel");
     this.$tabs.append(this.philesView.render().$el);
     this.$tabs.append(this.followsView.render().$el);
     this.makeActive(this.activePanel);
 
     return this;
-  },
-
-  followUser: function (event) {
-    var url = "/api/users/" + this.model.id + "/follow",
-        method = this.model.get("following") ? "DELETE" : "POST";
-    event.preventDefault();
-
-    $.ajax(url, {
-      method: method,
-      success: function () {
-        this.model.set("following", !this.model.get("following"));
-        this.render();
-      }.bind(this)
-    });
   },
 
   changePanel: function (event) {
