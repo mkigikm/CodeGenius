@@ -10,24 +10,44 @@ CodeGenius.Views.FollowsPanel = Backbone.View.extend({
   },
 
   render: function () {
+    var listItem;
     this.$el.html(this.template({user: this.model}));
+
+    this.removeItems();
+    this.model.follows().each(function (user) {
+      listItem = new CodeGenius.Views.FollowsPanelItem({model: user});
+      this.$("ul").append(listItem.render().$el);
+      this._items.push(listItem);
+    }.bind(this));
+
+    this.listenForChanges();
     return this;
   },
 
-  followUser: function (event) {
-    var userId = $(event.currentTarget).data("user-id"),
-        url = "/api/users/" + userId + "/follow",
-        model = this.model.follows().get(userId),
-        method = model.get("following") ? "DELETE" : "POST";
-    event.preventDefault();
+  remove: function () {
+    this.removeItems();
+  },
 
-    $.ajax(url, {
-      method: method,
-      success: function () {
-        model.set("following", !model.get("following"));
-        this.model.get("is_current_user") && this.model.follows().remove(model);
-        this.render();
-      }.bind(this)
-    });
+  removeItems: function () {
+    if (this._items) {
+      this._items.forEach(function (item) {
+        item.remove();
+      });
+    }
+
+    this._items = [];
+  },
+
+  listenForChanges: function () {
+    if (!this.model.get("is_current_user")) return;
+
+    this.model.follows().each(function (user) {
+      this.listenTo(user, "change", this.updateFollowList);
+    }.bind(this));
+    this.listenTo(this.model.follows(), "remove", this.render);
+  },
+
+  updateFollowList: function (user) {
+    this.model.follows().remove(user);
   }
 });
