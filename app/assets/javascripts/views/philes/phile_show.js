@@ -3,7 +3,8 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
 
   events: {
     "mouseup pre": "newNote",
-    "click a.annotation": "toggleAnnotation"
+    "click a.annotation": "toggleAnnotation",
+    "click pre a": "canceledNote"
   },
 
   initialize: function (options) {
