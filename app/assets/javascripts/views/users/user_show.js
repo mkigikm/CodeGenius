@@ -49,6 +49,18 @@ CodeGenius.Views.UserShow = Backbone.View.extend({
   },
 
   uploadAvatar: function (event) {
+    var file, reader;
     event.preventDefault();
+
+    file = this.$(".avatar-file-selector")[0].files[0];
+
+    reader = new FileReader();
+		reader.onloadend = function () {
+			this.model.set("avatar", reader.result);
+      debugger
+      this.model.save({});
+		}.bind(this);
+
+		reader.readAsDataURL(file);
   }
 });

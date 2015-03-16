@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :philes, only: [:show, :create, :destroy]
     resources :notes, only: [:create, :update, :show, :destroy]
-    resources :users, only: :show do
+    resources :users, only: [:show, :update] do
       resource :follow, only: [:create, :destroy]
     end
     get "search", to: "searches#index"
