@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  has_attached_file :avatar, default_url: "default-avatar.png"
+  validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
+
   has_many(
     :philes,
     class_name: "Phile",

@@ -16,6 +16,7 @@ gem 'backbone-on-rails'
 gem 'cancan'
 gem 'pg_search'
 gem 'kaminari'
+gem 'figaro'
 
 group :development do
   gem 'better_errors'
