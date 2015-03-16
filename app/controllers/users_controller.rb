@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_signed_out, only: :new
+  before_action :require_signed_out, only: :new 
 
   def new
     @user = User.new
