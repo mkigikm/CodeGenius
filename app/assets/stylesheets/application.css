@@ -120,14 +120,26 @@ button, .button {
   filter: alpha(opacity=50);
 }
 
-.modal {
+.error-modal {
   position: absolute;
-  background: white;
-  border: 1px solid red;
+  background: #000;
+  border: 1px solid #808080;
   margin: 0 auto;
-  min-width: 500px;
-  min-height: 500px;
+  color: #ffc31c;
   left: 50%;
-  top: 100px;
+  top: 30%;
   transform: translateX(-50%);
+  text-transform: uppercase;
+  font-size: 24px;
+  padding: 20px;
+  font-weight: 700;
+  width: 400px;
+  text-align: center;
+}
+
+.modal-dismiss {
+  position: absolute;
+  left: 95%;
+  top: 0;
+  color: #bbbbbb;
 }

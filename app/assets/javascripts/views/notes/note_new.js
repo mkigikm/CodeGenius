@@ -33,9 +33,12 @@ CodeGenius.Views.NoteNew = Backbone.View.extend({
   },
 
   startAnnotation: function (event) {
+    var errorModal;
+
     event.preventDefault();
     if (this.collection.overlaps(this.model)) {
-      alert("annotations cannot overlap");
+      errorModal = new CodeGenius.Views.ErrorModal();
+      $("body").append(errorModal.render().$el);
     } else {
       this.$el.children().toggleClass("hidden");
       this.setTop();
