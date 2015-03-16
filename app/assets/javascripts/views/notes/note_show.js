@@ -17,6 +17,7 @@ CodeGenius.Views.NoteShow = Backbone.View.extend({
     this.fileHeight = options.fileHeight;
 
     this.editing = false;
+    this.model.fetch();
   },
 
   render: function () {

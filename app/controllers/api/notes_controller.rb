@@ -20,6 +20,10 @@ module Api
       end
     end
 
+    def show
+      @note = Note.find(params[:id])
+    end
+
     private
     def note_params
       params.require(:note).permit(:body, :phile_id, :start, :finish)

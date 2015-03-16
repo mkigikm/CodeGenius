@@ -31,6 +31,10 @@
   font-size: 14px;
 }
 
+.annotation-show > h2 {
+  margin-bottom: 1em;
+}
+
 .annotation-show p {
   margin-bottom: 1em;
 }
