@@ -10,6 +10,8 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
   initialize: function (options) {
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.notes(), "add", this.render);
+    this.listenTo(this.model.notes(), "remove", this.render);
+    
     this.$newNoteEl = options.$newNoteEl;
     this.$el.bind("notestarted", this.render.bind(this));
     this.$el.bind("notecanceled", this.canceledNote.bind(this));

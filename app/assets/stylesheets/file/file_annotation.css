@@ -56,12 +56,18 @@
   font-weight: 700;
 }
 
-.annotation-show > .annotation-edit-link {
-  display: block;
+.annotation-show > nav {
   padding: 5px 0;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
+}
+
+.annotation-show > nav > a {
   color: #cccccc;
+}
+
+.annotation-show > nav > a:hover {
+  color: #4183c4;
 }
 
 .annotation-start {

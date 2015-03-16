@@ -6,5 +6,9 @@ class Ability
     can :destroy, Phile do |phile|
       phile.try(:owner) == user
     end
+
+    can :destroy, Note do |note|
+      note.try(:phile).try(:owner) == user
+    end
   end
 end

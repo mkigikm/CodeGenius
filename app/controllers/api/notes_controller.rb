@@ -24,6 +24,13 @@ module Api
       @note = Note.find(params[:id])
     end
 
+    def destroy
+      @note = Note.find(params[:id])
+      authorize! :destroy, @note
+      @note.destroy!
+      render json: @note
+    end
+
     private
     def note_params
       params.require(:note).permit(:body, :phile_id, :start, :finish)

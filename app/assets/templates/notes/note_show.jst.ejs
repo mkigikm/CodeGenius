@@ -1,7 +1,12 @@
 <aside class="annotation-show">
   <h2>by <a href="/users/<%= note.get("author_id") %>"><%= note.escape("author_name") %></a></h2>
   <%= marked(note.escape("body")) %>
-  <a class="annotation-edit-link" href="#">propose an edit</a>
+  <nav class="annotation-show-links">
+    <a class="annotation-edit-link" href="javascript:void(0)">propose an edit</a>
+    <% if (note.get("is_phile_owner")) { %>
+      <a class="annotation-delete-link" href="javascript:void(0)">delete</a>
+    <% } %>
+  </nav>
 </aside>
 <form class="annotation-edit hidden">
   <textarea><%= note.escape("body") %></textarea>

@@ -6,7 +6,8 @@ CodeGenius.Views.NoteShow = Backbone.View.extend({
   events: {
     "click button.note-save": "save",
     "click button.note-cancel": "toggleEdit",
-    "click a.annotation-edit-link": "toggleEdit"
+    "click a.annotation-edit-link": "toggleEdit",
+    "click a.annotation-delete-link": "delete"
   },
 
   initialize: function (options) {
@@ -40,6 +41,16 @@ CodeGenius.Views.NoteShow = Backbone.View.extend({
     this.$("textarea").val(this.model.escape("body"));
     this.editing = !this.editing;
     this.render();
+  },
+
+  delete: function (event) {
+    event.preventDefault();
+    this.model.destroy({
+      success: function () {
+        this.remove();
+        Backbone.history.navigate("deleted");
+      }.bind(this)
+    });
   },
 
   save: function (event) {
