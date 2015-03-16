@@ -4,9 +4,7 @@
 
     <p>Avatar goes here</p>
 
-    <% if current_user != @user %>
-      <%= render "follows/form", user: @user %>
-    <% end %>
+    <%= render "follows/form", user: @user %>
   </section>
 
   <main class="main-panel">

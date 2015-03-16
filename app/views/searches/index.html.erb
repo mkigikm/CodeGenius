@@ -7,9 +7,10 @@
 <main class="search-results">
   <ul>
   <% @search_results.map(&:searchable).each do |model| %>
-    <li>
-      <% url = model.class == User ? user_url(model) : phile_url(model) %>
-      <a href="<%= url %>"><%= model.name %></a>
+    <li class="search-results-row clearfix">
+      <% if model.class == User %>
+        <%= render "user", user: model %>
+      <% end %>
     </li>
   <% end %>
   <%= paginate @search_results %>

@@ -90,7 +90,7 @@ button, .button {
 .search > input {
   border-radius: 3px;
   padding-left: 28px;
-  width: 100%;
+  width: calc(100% - 35px);
 }
 
 .search:before {
