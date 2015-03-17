@@ -3,7 +3,9 @@
     <input type="file" class="file-upload-selector">
 <% } %>
 
-<input class="file-search" type="text" placeholder="Find a file...">
+<form class="search file-search">
+  <input type="text" placeholder="Find a file...">
+</form>
 
 <ul class="file-list display-list">
   <% user.philes().each(function (phile) { %>

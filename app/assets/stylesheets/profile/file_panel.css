@@ -7,9 +7,8 @@
 }
 
 .file-search {
-  display: block;
-  clear: both;
-  margin-top: 20px;
+  margin-top: 10px;
+  width: 400px;
 }
 
 .file-list li a {
