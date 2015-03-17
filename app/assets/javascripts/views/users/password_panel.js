@@ -7,7 +7,7 @@ CodeGenius.Views.PasswordPanel = Backbone.View.extend({
 
   events: {
     "submit .email-form": "changeEmail",
-    "submit .password-form": "changePassword"
+    "submit .change-password": "changePassword"
   },
 
   render: function () {
@@ -24,7 +24,7 @@ CodeGenius.Views.PasswordPanel = Backbone.View.extend({
         alert("changed email");
       },
 
-      failure: function () {
+      error: function () {
         alert("fail");
       }
     });
@@ -32,5 +32,15 @@ CodeGenius.Views.PasswordPanel = Backbone.View.extend({
 
   changePassword: function (event) {
     event.preventDefault();
+
+    this.model.save($(event.currentTarget).serializeJSON(), {
+      success: function () {
+        alert("saved new password");
+      },
+
+      error: function () {
+        alert("fail");
+      }
+    });
   }
 });
