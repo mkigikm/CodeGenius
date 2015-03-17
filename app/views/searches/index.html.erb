@@ -17,3 +17,48 @@
 
   <%= paginate @search_results %>
 </main>
+
+<script>
+$.FollowToggle = function (el) {
+  this.$el       = $(el);
+  this.userId    = this.$el.data("user-id");
+  this.following = this.$el.data("following");
+  this.render();
+  this.$el.on("click", this.handleClick.bind(this));
+};
+
+$.FollowToggle.prototype.render = function () {
+  if (this.following) {
+    this.$el.text("Unfollow");
+  } else {
+    this.$el.text("Follow");
+  }
+};
+
+$.FollowToggle.prototype.handleClick = function (event) {
+  var url = "/api/users/" + this.userId + "/follow";
+  var type = this.following ? "DELETE" : "POST";
+  this.$el.prop("disabled", true);
+  event.preventDefault();
+  $.ajax({
+    url: url,
+    type: type,
+    dataType: "json",
+    success: function () {
+      this.following = !this.following;
+      this.render();
+      this.$el.prop("disabled", false);
+    }.bind(this)
+  });
+};
+
+$.fn.followToggle = function () {
+  return this.each(function () {
+    new $.FollowToggle(this);
+  });
+};
+
+$(function () {
+  $("button.follow-toggle").followToggle();
+});
+</script>
