@@ -48,6 +48,11 @@ a {
   color: #ffc31c;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 a:hover {
   color: #4183c4;
 }

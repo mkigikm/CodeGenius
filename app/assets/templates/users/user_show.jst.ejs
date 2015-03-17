@@ -1,7 +1,9 @@
 <section class="sidebar">
   <h1><%= user.escape("name") %></h1>
 
-  <img src="<%= user.get("avatar_url") %>" alt="avatar">
+  <a href="javascript:void(0)" class="avatar">
+    <img src="<%= user.get("avatar_url") %>" alt="avatar">
+  </a>
   <% if (user.get("is_current_user")) { %>
     <button class="change-avatar">Change Picture</button>
     <input type="file" class="hidden avatar-file-selector">

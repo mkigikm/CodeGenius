@@ -9,14 +9,50 @@
   text-align: center;
 }
 
-.sidebar > img {
+.avatar {
   width: 120px;
   height: 120px;
   margin: 20px auto;
   display: block;
+  position: relative;
 }
 
 .sidebar > button {
   display: block;
   margin: 0 auto;
+}
+
+.avatar:before {
+  content: 'Change Picture';
+  position: absolute;
+  display: none;
+  border: 1px solid #808080;
+  font-size: 12px;
+  padding: 5px 8px;
+  background: #333333;
+  color: #bbbbbb;
+  -webkit-transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  z-index: 100;
+}
+
+.avatar:after {
+  content: "";
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  background: #000;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  top: 0;
+  display: none;
+}
+
+.avatar:hover:before {
+  display: block;
+}
+
+.avatar:hover:after {
+  display: block;
 }
