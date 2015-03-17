@@ -15,6 +15,7 @@ CodeGenius.Views.UserShow = Backbone.View.extend({
     this.followButton = new CodeGenius.Views.FollowButton({model: this.model});
     this.philesView = new CodeGenius.Views.PhilesPanel({model: this.model});
     this.followsView = new CodeGenius.Views.FollowsPanel({model: this.model});
+    this.passwordPanel = new CodeGenius.Views.PasswordPanel({model: this.user});
     this.activePanel = ".file-panel";
   },
 
@@ -26,6 +27,9 @@ CodeGenius.Views.UserShow = Backbone.View.extend({
     this.$tabs = this.$(".main-panel");
     this.$tabs.append(this.philesView.render().$el);
     this.$tabs.append(this.followsView.render().$el);
+    this.model.get("is_current_user") &&
+        this.$tabs.append(this.passwordPanel.render().$el);
+        
     this.makeActive(this.activePanel);
 
     return this;

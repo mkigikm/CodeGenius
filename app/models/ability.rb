@@ -3,6 +3,7 @@ class Ability
 
   def initialize(user)
     user ||= User.new
+    
     can :destroy, Phile do |phile|
       phile.try(:owner) == user
     end
@@ -13,6 +14,10 @@ class Ability
 
     can :update, User do |luser|
       user == luser
+    end
+
+    can :follow, User do |luser|
+      user != luser
     end
   end
 end

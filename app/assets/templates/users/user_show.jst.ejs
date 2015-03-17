@@ -19,6 +19,9 @@
       <li class="file-panel-tab"><a data-tab=".file-panel">Files</a></li>
       <li class="follows-panel-tab"><a data-tab=".follows-panel">Follows</a></li>
       <li class="feed-panel-tab"><a data-tab=".feed-panel">Feed</a></li>
+      <% if (user.get("is_current_user")) { %>
+        <li class="password-panel-tab"><a data-tab=".password-panel">Password</a></li>
+      <% } %>
     </ul>
   </nav>
 </main>
