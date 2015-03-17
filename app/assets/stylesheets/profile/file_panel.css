@@ -2,22 +2,8 @@
   margin-top: 10px;
 }
 
-.file-input-button {
-  position: relative;
-  float: left;
-}
-
-.file-input-button > label {
-  position: absolute;
-  top: 3px;
-  left: 7px;
-  padding-left: 12px;
-  padding-right: 12px;
-}
-
-.file-upload {
-  margin-top: 3px;
-  margin-left: 2px;
+.file-upload-selector {
+  display: none;
 }
 
 .file-search {

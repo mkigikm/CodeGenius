@@ -6,7 +6,8 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
   className: "file-panel",
 
   events: {
-    "click button.file-upload": "createPhile",
+    "click button.file-upload": "choosePhile",
+    "change input.file-upload-selector": "uploadPhile",
     "click button.phile-delete": "deletePhile"
   },
 
@@ -21,24 +22,25 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
     return this;
   },
 
-  createPhile: function (event) {
+  choosePhile: function (event) {
+    event.preventDefault();
+    this.$(".file-upload-selector").trigger("click");
+  },
+
+  uploadPhile: function (event) {
     var file, reader, phile, philes = this.model.philes();
     event.preventDefault();
 
-    file = this.$("#phile-input")[0].files[0];
-    if (!file) return;
-
+    file = this.$(".file-upload-selector")[0].files[0];
     phile = new CodeGenius.Models.Phile({name: file.name});
 
     reader = new FileReader();
-    reader.onload = function (event) {
-      phile.set("body", event.target.result);
-
-      phile.save({}, {
+    reader.onloadend = function () {
+      phile.save({"body": reader.result}, {
         success: function (data) {
           philes.add(phile);
         }
-      })
+      });
     }
     reader.readAsText(file);
   },

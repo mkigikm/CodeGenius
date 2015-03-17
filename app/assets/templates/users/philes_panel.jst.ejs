@@ -1,11 +1,6 @@
 <% if (user.get("is_current_user")) { %>
-  <form enctype="multipart/form-data">
-    <div class="file-input-button">
-      <label class="button" for="phile-input">Choose File</label>
-      <input type="file" name="phile" id="phile-input">
-    </div>
-    <button class="file-upload">Upload a file</button>
-  </form>
+    <button class="file-upload">Upload a File</button>
+    <input type="file" class="file-upload-selector">
 <% } %>
 
 <input class="file-search" type="text" placeholder="Find a file...">

@@ -57,8 +57,7 @@ CodeGenius.Views.UserShow = Backbone.View.extend({
 
     reader = new FileReader();
 		reader.onloadend = function () {
-			this.model.set("avatar", reader.result);
-      this.model.save({});
+      this.model.save({"avatar": reader.result});
 		}.bind(this);
 
 		reader.readAsDataURL(file);
