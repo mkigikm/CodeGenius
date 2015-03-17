@@ -28,11 +28,7 @@ $.FollowToggle = function (el) {
 };
 
 $.FollowToggle.prototype.render = function () {
-  if (this.following) {
-    this.$el.text("Unfollow");
-  } else {
-    this.$el.text("Follow");
-  }
+  this.$el.text(this.following ? "Unfollow" : "Follow");
 };
 
 $.FollowToggle.prototype.handleClick = function (event) {
