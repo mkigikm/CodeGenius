@@ -4,7 +4,7 @@
     <h1>Sign In</h1>
     <%= auth_token %>
 
-    <%= render "users/fields", user: @user, errors: {} %>
+    <%= render "users/fields", user: @user, errors: {}, sign_in: true %>
 
     <button>Sign In</button>
     <a class="button-alt" href="<%= new_user_url %>">Register</a>

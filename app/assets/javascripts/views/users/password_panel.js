@@ -5,8 +5,32 @@ CodeGenius.Views.PasswordPanel = Backbone.View.extend({
 
   className: "password-panel",
 
+  events: {
+    "submit .email-form": "changeEmail",
+    "submit .password-form": "changePassword"
+  },
+
   render: function () {
-    this.$el.html(this.template());
+    console.log("rendering")
+    this.$el.html(this.template({user: this.model}));
     return this;
+  },
+
+  changeEmail: function (event) {
+    event.preventDefault();
+
+    this.model.save({email: this.$(".email-form > input").val()}, {
+      success: function () {
+        alert("changed email");
+      },
+
+      failure: function () {
+        alert("fail");
+      }
+    });
+  },
+
+  changePassword: function (event) {
+    event.preventDefault();
   }
 });

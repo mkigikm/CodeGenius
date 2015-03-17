@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_signed_out, only: :new 
+  before_action :require_signed_out, only: :new
 
   def new
     @user = User.new
@@ -24,6 +24,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :password)
+    params.require(:user).permit(:name, :password, :password_confirmation)
   end
 end

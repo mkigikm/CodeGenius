@@ -5,3 +5,9 @@
 <label for="user[password]">Password</label>
 <input type="password" name="user[password]">
 <%= error_messages user.errors, :password %>
+
+<% if !sign_in %>
+  <label for="user[password_confirmation]">Confirm Password</label>
+  <input type="password" name="user[password_confirmation]">
+  <%= error_messages user.errors, :password_confirmation %>
+<% end %>

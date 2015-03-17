@@ -148,3 +148,8 @@ button, .button {
   top: 0;
   color: #bbbbbb;
 }
+
+.error {
+  background: #f00;
+  border: 1px solid #f00;
+}

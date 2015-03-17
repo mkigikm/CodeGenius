@@ -10,26 +10,25 @@ CodeGenius.Views.UserShow = Backbone.View.extend({
   },
 
   initialize: function () {
-    this.listenTo(this.model, "sync", this.render);
+    this.listenToOnce(this.model, "sync", this.render);
+    this.sidebar = new CodeGenius.Views.Sidebar({model: this.model});
 
-    this.followButton = new CodeGenius.Views.FollowButton({model: this.model});
-    this.philesView = new CodeGenius.Views.PhilesPanel({model: this.model});
-    this.followsView = new CodeGenius.Views.FollowsPanel({model: this.model});
-    this.passwordPanel = new CodeGenius.Views.PasswordPanel({model: this.user});
     this.activePanel = ".file-panel";
+    this.philePanel = new CodeGenius.Views.PhilesPanel({model: this.model});
+    this.followsPanel = new CodeGenius.Views.FollowsPanel({model: this.model});
+    this.passwordPanel =
+        new CodeGenius.Views.PasswordPanel({model: this.model});
   },
 
   render: function () {
     this.$el.html(this.template({user: this.model}));
 
-    this.$(".sidebar").append(this.followButton.render().$el);
+    this.$el.prepend(this.sidebar.render().$el);
 
     this.$tabs = this.$(".main-panel");
-    this.$tabs.append(this.philesView.render().$el);
-    this.$tabs.append(this.followsView.render().$el);
-    this.model.get("is_current_user") &&
-        this.$tabs.append(this.passwordPanel.render().$el);
-        
+    this.$tabs.append(this.philePanel.render().$el);
+    this.$tabs.append(this.followsPanel.render().$el);
+    this.$tabs.append(this.passwordPanel.render().$el);
     this.makeActive(this.activePanel);
 
     return this;
@@ -46,24 +45,5 @@ CodeGenius.Views.UserShow = Backbone.View.extend({
     this.$(panel).removeClass("hidden");
     this.$(".main-panel-tabs > li").removeClass("activated");
     this.$(panel + "-tab").addClass("activated");
-  },
-
-  changeAvatar: function (event) {
-    event.preventDefault();
-    this.$(".avatar-file-selector").trigger("click");
-  },
-
-  uploadAvatar: function (event) {
-    var file, reader;
-    event.preventDefault();
-
-    file = this.$(".avatar-file-selector")[0].files[0];
-
-    reader = new FileReader();
-		reader.onloadend = function () {
-      this.model.save({"avatar": reader.result});
-		}.bind(this);
-
-		reader.readAsDataURL(file);
   }
 });

@@ -3,7 +3,7 @@
     <h1>Register</h1>
     <%= auth_token %>
 
-    <%= render "fields", user: @user %>
+    <%= render "fields", user: @user, sign_in: false %>
 
     <button>Register</button>
     <a class="button-alt" href="<%= new_session_url %>">Sign in</a>
