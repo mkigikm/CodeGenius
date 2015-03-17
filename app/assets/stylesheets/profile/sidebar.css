@@ -22,23 +22,16 @@
   margin: 0 auto;
 }
 
-.avatar:before {
-  content: 'Change Picture';
+.avatar-tooltip {
   position: absolute;
   display: none;
-  border: 1px solid #808080;
-  font-size: 12px;
-  padding: 5px 8px;
-  background: #333333;
-  color: #bbbbbb;
   -webkit-transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
   z-index: 1;
 }
 
-.avatar:after {
-  content: "";
+.avatar-blur {
   width: 120px;
   height: 120px;
   position: absolute;
@@ -49,10 +42,10 @@
   display: none;
 }
 
-.avatar:hover:before {
+.avatar:hover > * {
   display: block;
 }
 
-.avatar:hover:after {
-  display: block;
+.avatar-file-selector {
+  display: none;
 }

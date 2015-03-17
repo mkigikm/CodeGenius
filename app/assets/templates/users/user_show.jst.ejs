@@ -3,8 +3,11 @@
 
   <% if (user.get("is_current_user")) { %>
     <a href="javascript:void(0)" class="avatar">
+      <button class="avatar-tooltip">Change Picture</button>
       <img src="<%= user.get("avatar_url") %>" alt="avatar">
+      <div class="avatar-blur"></div>
     </a>
+    <input type="file" class="avatar-file-selector">
   <% } else { %>
     <img src="<%= user.get("avatar_url") %>" alt="avatar" class="avatar">
   <% } %>

@@ -29,5 +29,9 @@ CodeGenius.Models.User = Backbone.Model.extend({
     }
 
     return payload;
+  },
+
+  toJSON: function () {
+    return {user: _.clone(this.attributes)};
   }
 });

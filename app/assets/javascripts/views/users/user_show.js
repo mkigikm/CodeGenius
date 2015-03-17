@@ -4,7 +4,8 @@ CodeGenius.Views.UserShow = Backbone.View.extend({
   events: {
     "click .sidebar > button.follow-user": "followUser",
     "click .main-panel-tabs a": "changePanel",
-    "click button.change-avatar": "changeAvatar",
+    "click .avatar-tooltip": "changeAvatar",
+    "click .avatar-blur": "changeAvatar",
     "change input.avatar-file-selector": "uploadAvatar"
   },
 
@@ -57,7 +58,6 @@ CodeGenius.Views.UserShow = Backbone.View.extend({
     reader = new FileReader();
 		reader.onloadend = function () {
 			this.model.set("avatar", reader.result);
-      debugger
       this.model.save({});
 		}.bind(this);
 
