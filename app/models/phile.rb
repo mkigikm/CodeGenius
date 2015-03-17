@@ -1,7 +1,7 @@
 class Phile < ActiveRecord::Base
   include PgSearch
-  multisearchable against: :name
-  
+  multisearchable against: :body
+
   validates :owner, :name, :body, presence: true
 
   belongs_to(
