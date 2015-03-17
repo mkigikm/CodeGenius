@@ -9,7 +9,7 @@ module Api
       @user = User.find(params[:id])
       authorize! :update, @user
 
-      if !@user.is_password?(old_password)
+      if old_password && !@user.is_password?(old_password)
         render json: ["old password doesn't match"],
             status: :unprocessable_entity
         return
