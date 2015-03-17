@@ -19,7 +19,6 @@ gem 'kaminari'
 gem 'figaro'
 gem "paperclip", "~> 4.2"
 gem "aws-sdk"
-gem "figaro"
 
 group :development do
   gem 'better_errors'
