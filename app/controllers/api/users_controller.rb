@@ -22,6 +22,12 @@ module Api
       end
     end
 
+    def feed
+      user = User.find(params[:id])
+      @feed = user.page(params[:page]).per(10)
+      render :feed
+    end
+
     private
     def user_params
       strong_params = [:avatar, :email]

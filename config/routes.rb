@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :notes, only: [:create, :update, :show, :destroy]
     resources :users, only: [:show, :update] do
       resource :follow, only: [:create, :destroy]
+      get "feed", to: "users#feed"
     end
     get "search", to: "searches#index"
   end
