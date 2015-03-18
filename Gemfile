@@ -18,7 +18,8 @@ gem 'pg_search'
 gem 'kaminari'
 gem 'figaro'
 gem "paperclip", "~> 4.2"
-gem "aws-sdk"
+gem 'aws-sdk'
+gem 'paper_trail', '~> 4.0.0.beta'
 
 group :development do
   gem 'better_errors'

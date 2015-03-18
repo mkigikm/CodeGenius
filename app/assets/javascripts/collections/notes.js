@@ -3,12 +3,20 @@ CodeGenius.Collections.Notes = Backbone.Collection.extend({
 
   comparator: "start",
 
-  getOrAdd: function (id) {
+  getOrFetch: function (id, options) {
     var note = this.get(id);
 
     if (!note) {
       note = new CodeGenius.Models.Note({id: id});
-      this.add(note);
+      note.fetch({
+        success: function () {
+          this.add(note);
+        }.bind(this),
+
+        error: function () {
+          options.error();
+        }
+      });
     }
 
     return note;
