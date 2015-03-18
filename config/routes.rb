@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resource :follow, only: [:create, :destroy]
   end
   resource :session, only: [:new, :create, :destroy]
+  get "/auth/:provider/callback", to: "sessions#omniauth"
   resources :philes, only: [:create, :show]
   resources :notes, only: [:show]
   get "search", to: "searches#index"
