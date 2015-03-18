@@ -1,7 +1,14 @@
-<ul class="file-list display-list">
+<ul class="display-list">
   <% feed.each(function (item) { %>
-  <li class="clearfix">
-    <a href="#"><%= item.get("who_name") %></a>
+  <li>
+    <a href="/users/<%= item.get("who_id") %>"><%= item.get("who_name") %></a>
+    <% if (item.get("type") === "Follow") { %>
+      followed you.
+    <% } else if (item.get("type") === "Phile") { %>
+      added <a href="/philes/<%= item.get("phile_id") %>"><%= item.get("phile_name") %></a>.
+    <% } else { %>
+      notated <a href="/philes/<%= item.get("phile_id") %>"><%= item.get("phile_name") %></a>.
+    <% } %>
   </li>
   <% }) %>
 </ul>
