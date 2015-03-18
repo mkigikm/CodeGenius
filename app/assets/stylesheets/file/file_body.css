@@ -17,3 +17,7 @@
   background: #ffc31c;
   color: black;
 }
+
+.file-main {
+  border-left: 1px solid #808080;
+}

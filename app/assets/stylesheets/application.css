@@ -39,7 +39,7 @@ ul {
 }
 
 body {
-  background: #222222;
+  background: #141414;
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
 }
@@ -127,8 +127,8 @@ button, .button {
 
 .error-modal {
   position: fixed;
-  background: #000;
   border: 1px solid #808080;
+  background: #141414;
   margin: 0 auto;
   color: #ffc31c;
   left: 50%;
