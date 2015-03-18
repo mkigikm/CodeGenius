@@ -23,8 +23,8 @@ class Follow < ActiveRecord::Base
 
   has_many(
     :notifications,
-    class_name: "Notification",
-    inverse_of: :user,
+    as: :notifiable,
+    inverse_of: :notifiable,
     dependent: :destroy
   )
 

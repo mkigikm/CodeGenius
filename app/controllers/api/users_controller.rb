@@ -23,8 +23,8 @@ module Api
     end
 
     def feed
-      user = User.find(params[:id])
-      @feed = user.page(params[:page]).per(10)
+      user = User.find(params[:user_id])
+      @feed = user.notifications.page(params[:page]).per(10)
       render :feed
     end
 

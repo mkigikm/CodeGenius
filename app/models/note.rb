@@ -46,14 +46,6 @@ class Note < ActiveRecord::Base
     :notifications,
     as: :notifiable,
     inverse_of: :notifiable,
-    dependent: :destroy,
-    autosave: true
-  )
-
-  has_many(
-    :notifications,
-    as: :notifiable,
-    inverse_of: :notifiable,
     dependent: :destroy
   )
 
