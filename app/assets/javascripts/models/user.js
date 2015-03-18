@@ -33,5 +33,12 @@ CodeGenius.Models.User = Backbone.Model.extend({
 
   toJSON: function () {
     return {user: _.clone(this.attributes)};
+  },
+
+  feed: function () {
+    this._feed || (this._feed = new CodeGenius.Collections.Feed({
+      user_id: this.id
+    }));
+    return this._feed;
   }
 });

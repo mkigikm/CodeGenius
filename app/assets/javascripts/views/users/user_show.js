@@ -13,11 +13,15 @@ CodeGenius.Views.UserShow = Backbone.View.extend({
     this.listenToOnce(this.model, "sync", this.render);
     this.sidebar = new CodeGenius.Views.Sidebar({model: this.model});
 
-    this.activePanel = ".file-panel";
-    this.philePanel = new CodeGenius.Views.PhilesPanel({model: this.model});
+    this.activePanel  = ".file-panel";
+    this.philePanel   = new CodeGenius.Views.PhilesPanel({model: this.model});
     this.followsPanel = new CodeGenius.Views.FollowsPanel({model: this.model});
-    this.passwordPanel =
-        new CodeGenius.Views.PasswordPanel({model: this.model});
+    this.feedPanel    = new CodeGenius.Views.FeedPanel({
+      collection: this.model.feed()
+    });
+    this.passwordPanel = new CodeGenius.Views.PasswordPanel({
+      model: this.model
+    });
   },
 
   render: function () {
@@ -28,6 +32,7 @@ CodeGenius.Views.UserShow = Backbone.View.extend({
     this.$tabs = this.$(".main-panel");
     this.$tabs.append(this.philePanel.render().$el);
     this.$tabs.append(this.followsPanel.render().$el);
+    this.$tabs.append(this.feedPanel.render().$el);
     this.$tabs.append(this.passwordPanel.render().$el);
     this.makeActive(this.activePanel);
 
