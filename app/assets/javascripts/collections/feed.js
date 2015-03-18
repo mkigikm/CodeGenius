@@ -7,7 +7,7 @@ CodeGenius.Collections.Feed = Backbone.Collection.extend({
 
   initialize: function (options) {
     this.user_id = options.user_id;
-    this.page = 0;
+    this.page = 1;
   },
 
   nextpage: function () {
@@ -15,6 +15,6 @@ CodeGenius.Collections.Feed = Backbone.Collection.extend({
   },
 
   prevpage: function () {
-    this.page > 0 && this.page--;
+    this.page > 1 && this.page--;
   }
 });

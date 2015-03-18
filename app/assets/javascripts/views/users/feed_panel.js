@@ -5,6 +5,11 @@ CodeGenius.Views.FeedPanel = Backbone.View.extend({
 
   className: "feed-panel",
 
+  events: {
+    "click a.feed-prev": "prev",
+    "click a.feed-next": "next",
+  },
+
   initialize: function () {
     this.listenTo(this.collection, "sync", this.render);
     this.collection.fetch();
@@ -14,5 +19,15 @@ CodeGenius.Views.FeedPanel = Backbone.View.extend({
     this.$el.html(this.template({feed: this.collection}));
 
     return this;
+  },
+
+  prev: function () {
+    this.collection.prevpage();
+    this.collection.fetch();
+  },
+
+  next: function () {
+    this.collection.nextpage();
+    this.collection.fetch();
   }
 });
