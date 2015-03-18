@@ -28,8 +28,25 @@ class SessionsController < ApplicationController
     redirect_to new_session_url
   end
 
+  def omniauth
+    @user = User.find_or_create_by_auth_hash(auth_hash)
+
+    if @user
+      sign_in!(@user)
+      redirect_to user_url(@user)
+    else
+      @user = User.new
+      @error = "Sorry your twitter nickname has been taken"
+      render :new
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :password)
+  end
+
+  def auth_hash
+    request.env["omniauth.auth"]
   end
 end

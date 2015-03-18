@@ -25,8 +25,6 @@ class Note < ActiveRecord::Base
     inverse_of: :notes
   )
 
-  has_paper_trail
-
   def notes_cannot_overlap
     overlap_query = <<-SQL
     NOT (finish < :start OR start > :finish)

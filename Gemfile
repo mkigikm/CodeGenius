@@ -20,8 +20,8 @@ gem 'figaro'
 gem "paperclip", "~> 4.2"
 gem 'aws-sdk'
 gem 'paper_trail', '~> 4.0.0.beta'
-gem 'omniauth'
 gem 'omniauth-gplus', '~> 2.0'
+gem 'omniauth-twitter'
 
 group :development do
   gem 'better_errors'

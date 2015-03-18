@@ -84,6 +84,17 @@ class User < ActiveRecord::Base
     Follow.where(target_id: user.id).where(follower_id: id).count > 0
   end
 
+  def self.find_or_create_by_auth_hash(auth_hash)
+    user = User.find_by(provider: auth_hash[:provider], uid: auth_hash[:uid])
+
+    user || User.create(
+      provider: auth_hash[:provider],
+      uid: auth_hash[:uid],
+      name: auth_hash[:info][:nickname],
+      password: SecureRandom::urlsafe_base64
+    )
+  end
+
   private
   def self.used_token?(session_token)
     !!User.find_by(session_token: session_token)
