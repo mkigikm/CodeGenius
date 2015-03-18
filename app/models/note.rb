@@ -41,4 +41,28 @@ class Note < ActiveRecord::Base
 
     errors.add(:start, "notes cannot overlap") if overlaps > 0
   end
+
+  has_many(
+    :notifications,
+    as: :notifiable,
+    inverse_of: :notifiable,
+    dependent: :destroy,
+    autosave: true
+  )
+
+  has_many(
+    :notifications,
+    as: :notifiable,
+    inverse_of: :notifiable,
+    dependent: :destroy
+  )
+
+  after_commit :set_notification, on: [:create]
+
+  private
+  def set_notification
+    notification = self.notifications.new
+    notification.user = self.phile.owner
+    notification.save
+  end
 end

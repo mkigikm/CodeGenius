@@ -54,6 +54,12 @@ class User < ActiveRecord::Base
     source: :follower
   )
 
+  has_many(
+    :notifications,
+    inverse_of: :user,
+    dependent: :destroy
+  )
+
   def self.find_by_credentials(name, password)
     user = User.find_by(name: name)
 

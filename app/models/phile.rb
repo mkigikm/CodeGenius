@@ -21,4 +21,22 @@ class Phile < ActiveRecord::Base
   def length
     body.length
   end
+
+  has_many(
+    :notifications,
+    as: :notifiable,
+    inverse_of: :notifiable,
+    dependent: :destroy
+  )
+
+  after_commit :set_notifications, on: [:create]
+
+  private
+  def set_notifications
+    self.owner.followers.each do |follower|
+      notification = self.notifications.new
+      notification.user = follower
+      notification.save
+    end
+  end
 end

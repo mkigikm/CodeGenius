@@ -20,4 +20,20 @@ class Follow < ActiveRecord::Base
   def cant_follow_self
     errors.add(:target, "can't follow self") if target == follower
   end
+
+  has_many(
+    :notifications,
+    class_name: "Notification",
+    inverse_of: :user,
+    dependent: :destroy
+  )
+
+  after_commit :set_notification, on: [:create]
+
+  private
+  def set_notification
+    notification = self.notifications.new
+    notification.user = self.target
+    notification.save
+  end
 end
