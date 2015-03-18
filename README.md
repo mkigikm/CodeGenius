@@ -14,8 +14,8 @@ Code Genius is a clone of Rap Genius built on Rails and Backbone. Users can:
 - [X] Create annotations of files in Markdown
 - [X] View other user's files / annotations
 - [X] Follow other users
-- [ ] Get notifications of annotations added to their files
-- [ ] Get notifications when their followed users post files / annotations
+- [X] Get notifications of annotations added to their files
+- [X] Get notifications when their followed users post files / annotations
 - [X] Search for users by name
 
 ## Design Docs
