@@ -145,6 +145,10 @@ button, .button {
   text-align: center;
 }
 
+.file-modal {
+  
+}
+
 .modal-dismiss {
   position: absolute;
   left: 95%;

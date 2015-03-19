@@ -18,6 +18,8 @@ class Phile < ActiveRecord::Base
     inverse_of: :phile
   )
 
+  has_many :taggings
+
   def length
     body.length
   end

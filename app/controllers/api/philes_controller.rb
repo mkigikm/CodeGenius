@@ -8,12 +8,14 @@ module Api
     def create
       @phile = current_user.philes.new(phile_params)
       @phile.save!
+
       render json: @phile
     end
 
     def destroy
       @phile = Phile.find(params[:id])
       authorize! :destroy, @phile
+
       @phile.destroy!
       render json: @phile
     end

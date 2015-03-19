@@ -7,7 +7,6 @@ CodeGenius.Views.ErrorModal = Backbone.View.extend({
   },
 
   render: function () {
-    console.log("rendered")
     this.$el.html(this.template());
     return this;
   }
