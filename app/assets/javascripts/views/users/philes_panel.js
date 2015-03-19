@@ -22,9 +22,34 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
   },
 
   render: function () {
+    var itemView;
+    this.removeItemViews();
     this.$el.html(this.template({user: this.model}));
 
+    this.philes.each(function (phile) {
+      itemView = new CodeGenius.Views.PhilesPanelItem({
+        model: phile,
+        displayControls: this.model.get("is_current_user")
+      });
+      this.$(".file-list").append(itemView.render().$el);
+      this._itemViews.push(itemView);
+    }.bind(this));
+
     return this;
+  },
+
+  removeItemViews: function () {
+    if (this._itemViews) {
+      this._itemViews.forEach(function (itemView) {
+        itemView.remove();
+      });
+    }
+
+    this._itemViews = [];
+  },
+
+  remove: function () {
+    this.removeItemViews();
   },
 
   search: function (event) {

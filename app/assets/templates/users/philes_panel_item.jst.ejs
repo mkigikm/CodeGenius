@@ -1,0 +1,16 @@
+<a href="/philes/<%= phile.id %>"><%= phile.escape("name") %></a>
+<% if (displayControls) { %>
+  <ul class="file-controls clearfix">
+    <li><button class="phile-tag" data-phile-id="<%= phile.id %>">tag</button></li>
+    <li><button class="phile-delete" data-phile-id="<%= phile.id %>">delete</button></li>
+  </ul>
+<% } %>
+<% if (phile.taggings().length > 0) { %>
+  <strong class="tag-names">
+    (
+    <% phile.taggings().pluck("name").forEach(function (tagName) { %>
+      <span class="tag-search" data-tag="<%= tagName %>"><%= tagName %></span>
+    <% }) %>
+    )
+  </strong>
+<% } %>
