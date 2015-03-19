@@ -21,7 +21,7 @@
       <strong class="tag-names">
         (
         <% phile.taggings().pluck("name").forEach(function (tagName) { %>
-          <span class="tag-search" href="<%= tagName %>"><%= tagName %></span>
+          <span class="tag-search" data-tag="<%= tagName %>"><%= tagName %></span>
         <% }) %>
         )
       </strong>

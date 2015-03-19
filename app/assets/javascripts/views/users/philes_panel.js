@@ -17,6 +17,7 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
   initialize: function () {
     this.philes = this.model.philes();
     this.listenTo(this.philes, "sync", this.render);
+    this.listenTo(this.philes, "change", this.render);
     this.philes.fetch();
   },
 
@@ -34,7 +35,8 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
 
   tagSearch: function (event) {
     event.preventDefault();
-    this.philes.search("tag:" + this.$("file-search > input").val())
+    this.philes.search("tag:" + $(event.currentTarget).data("tag"));
+    this.philes.fetch();
   },
 
   choosePhile: function (event) {
@@ -52,9 +54,12 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
     reader = new FileReader();
     reader.onloadend = function () {
       phile.save({"body": reader.result}, {
-        success: philes.fetch.bind(philes)
+        success: function () {
+          this.philes.search("");
+          this.philes.fetch();
+        }.bind(this)
       });
-    }
+    }.bind(this)
     reader.readAsText(file);
   },
 
