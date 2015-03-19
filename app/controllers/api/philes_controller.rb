@@ -1,10 +1,19 @@
 module Api
   class PhilesController < ApplicationController
     def index
+      tag, prefix = parse_query(params[:query])
+
       @philes = User
         .find(params[:user_id])
         .philes
-        .where("philes.name LIKE ?", "#{params[:prefix]}%")
+        .where("philes.name LIKE ?", "#{prefix}%")
+
+      if tag
+        @philes = @philes
+          .joins(:tags)
+          .where("tags.name = ?", tag)
+      end
+
       render :index
     end
 
@@ -31,6 +40,11 @@ module Api
     private
     def phile_params
       params.require(:phile).permit(:name, :body)
+    end
+
+    def parse_query(query)
+      tag, prefix = query.match(/^(tag:[^ ]+)?(.*)/)[1..-1]
+      [tag.try(:slice, 4..-1), prefix]
     end
   end
 end

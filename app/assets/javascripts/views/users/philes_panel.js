@@ -10,7 +10,8 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
     "change input.file-upload-selector": "uploadPhile",
     "click button.phile-delete": "deletePhile",
     "click button.phile-tag": "tagPhile",
-    "submit .file-search": "search"
+    "submit .file-search": "search",
+    "click .tag-search": "tagSearch"
   },
 
   initialize: function () {
@@ -29,6 +30,11 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
     event.preventDefault();
     this.philes.search(this.$(".file-search > input").val());
     this.philes.fetch();
+  },
+
+  tagSearch: function (event) {
+    event.preventDefault();
+    this.philes.search("tag:" + this.$("file-search > input").val())
   },
 
   choosePhile: function (event) {

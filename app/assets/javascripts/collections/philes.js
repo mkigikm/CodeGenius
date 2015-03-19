@@ -3,13 +3,13 @@ CodeGenius.Collections.Philes = Backbone.Collection.extend({
 
   url: function () {
     return "/api/users/" + this.user_id + "/philes?page=" + this.page +
-        "&prefix=" + this.prefix;
+        "&query=" + this.query;
   },
 
   initialize: function (options) {
     this.user_id = options.user_id;
     this.page = 1;
-    this.prefix = "";
+    this.query = "";
   },
 
   nextpage: function () {
@@ -20,8 +20,8 @@ CodeGenius.Collections.Philes = Backbone.Collection.extend({
     this.page > 1 && this.page--;
   },
 
-  search: function (prefix) {
-    this.prefix = prefix;
+  search: function (query) {
+    this.query = query;
     this.page = 1;
   }
 });

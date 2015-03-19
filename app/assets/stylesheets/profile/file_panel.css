@@ -44,7 +44,23 @@
   float: left;
 }
 
+.tag-names {
+  display: block;
+  font-size: 12px;
+  clear: both;
+}
+
 .tag-delete {
   display: block;
   float: right;
+}
+
+.tag-names > .tag-search {
+  display: inline;
+  color: #fff;
+}
+
+.tag-names > .tag-search:hover {
+  color: #4183c4;
+  cursor: pointer;
 }

@@ -18,7 +18,16 @@ class Phile < ActiveRecord::Base
     inverse_of: :phile
   )
 
-  has_many :taggings
+  has_many(
+    :taggings,
+    inverse_of: :phile
+  )
+
+  has_many(
+    :tags,
+    through: :taggings,
+    inverse_of: :philes
+  )
 
   default_scope { order("created_at DESC") }
 
