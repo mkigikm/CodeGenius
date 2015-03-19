@@ -6,8 +6,9 @@ CodeGenius.Models.Phile = Backbone.Model.extend({
     return this._notes;
   },
 
-  tags: function () {
-    return [];
+  taggings: function () {
+    this._taggings || (this._taggings = new CodeGenius.Collections.Taggings());
+    return this._taggings;
   },
 
   parse: function (payload) {
@@ -17,6 +18,14 @@ CodeGenius.Models.Phile = Backbone.Model.extend({
       }), {merge: true});
 
       delete payload.notes;
+    }
+
+    if (payload.taggings) {
+      this.taggings().add(payload.taggings.map(function (tagging) {
+        return new CodeGenius.Models.Tagging(tagging)
+      }), {merge: true});
+
+      delete payload.taggings;
     }
 
     return payload;
