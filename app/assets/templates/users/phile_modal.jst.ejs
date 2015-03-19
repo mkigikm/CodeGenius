@@ -10,8 +10,11 @@
   </form>
 
   <ul>
-    <% phile.tags().forEach(function (tag) { %>
-      <li><%= tag.name %><button>delete</button></li>
+    <% phile.taggings().each(function (tag) { %>
+      <li class="clearfix">
+        <strong class="tag-name"><%= tag.get("name") %></strong>
+        <button class="tag-delete" data-tag-id="<%= tag.id %>">delete</button>
+      </li>
     <% }) %>
   </ul>
 </article>

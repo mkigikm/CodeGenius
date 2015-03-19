@@ -9,19 +9,26 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
     "click button.file-upload": "choosePhile",
     "change input.file-upload-selector": "uploadPhile",
     "click button.phile-delete": "deletePhile",
-    "click button.phile-tag": "tagPhile"
+    "click button.phile-tag": "tagPhile",
+    "submit .file-search": "search"
   },
 
   initialize: function () {
-    this.listenTo(this.model.philes(), "add", this.render);
-    this.listenTo(this.model.philes(), "remove", this.render);
-    this.model.philes().fetch();
+    this.philes = this.model.philes();
+    this.listenTo(this.philes, "sync", this.render);
+    this.philes.fetch();
   },
 
   render: function () {
     this.$el.html(this.template({user: this.model}));
 
     return this;
+  },
+
+  search: function (event) {
+    event.preventDefault();
+    this.philes.search(this.$(".file-search > input").val());
+    this.philes.fetch();
   },
 
   choosePhile: function (event) {
@@ -39,7 +46,7 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
     reader = new FileReader();
     reader.onloadend = function () {
       phile.save({"body": reader.result}, {
-        success: this.model.philes().fetch.bind(this.model.philes())
+        success: philes.fetch.bind(philes)
       });
     }
     reader.readAsText(file);
@@ -49,9 +56,9 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
     var phile;
     event.preventDefault();
 
-    phile = this.model.philes().get($(event.currentTarget).data("phile-id"));
+    phile = philes.get($(event.currentTarget).data("phile-id"));
     phile.destroy({
-      success: this.model.philes().fetch.bind(this.model.philes())
+      success: philes.fetch.bind(philes)
     });
   },
 
@@ -60,7 +67,7 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
     event.preventDefault();
 
     phileModal = new CodeGenius.Views.PhileModal({
-      model: this.model.philes().get($(event.currentTarget).data("phile-id"))
+      model: this.philes.get($(event.currentTarget).data("phile-id"))
     });
     $("body").append(phileModal.render().$el);
   }

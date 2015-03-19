@@ -11,7 +11,6 @@ CodeGenius.Views.PasswordPanel = Backbone.View.extend({
   },
 
   render: function () {
-    console.log("rendering")
     this.$el.html(this.template({user: this.model}));
     return this;
   },

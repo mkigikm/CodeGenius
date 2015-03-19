@@ -22,5 +22,6 @@ CodeGenius.Collections.Philes = Backbone.Collection.extend({
 
   search: function (prefix) {
     this.prefix = prefix;
+    this.page = 1;
   }
 });

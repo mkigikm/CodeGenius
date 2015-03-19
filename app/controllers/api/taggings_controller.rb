@@ -3,7 +3,7 @@ class Api::TaggingsController < ApplicationController
     @phile = Phile.find(params[:phile_id])
     authorize! :tag, @phile
 
-    tag_name = params[:tag]
+    tag_name = params[:tag_name]
     tag = Tag.find_by(name: tag_name) || Tag.create!(name: tag_name)
     @tagging = @phile.taggings.create!(tag: tag)
 

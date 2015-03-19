@@ -26,7 +26,25 @@
   margin-left: 5px;
 }
 
-.file-controls > li > button {
+.file-controls > li > button, .tag-delete {
   font-size: 10px;
   padding: 5px;
+}
+
+.file-modal {
+  padding: 20px;
+}
+
+.file-modal > h2, .file-modal > form {
+  margin-bottom: 10px;
+}
+
+.tag-name {
+  display: block;
+  float: left;
+}
+
+.tag-delete {
+  display: block;
+  float: right;
 }

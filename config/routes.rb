@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :philes, only: [:show, :create, :destroy] do
       resource :tagging, only: :create
     end
-    resources :tagging, only: :destroy
+    resources :taggings, only: :destroy
 
     resources :notes, only: [:create, :update, :show, :destroy]
 
