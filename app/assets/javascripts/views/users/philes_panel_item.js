@@ -9,6 +9,7 @@ CodeGenius.Views.PhilesPanelItem = Backbone.View.extend({
     this.displayControls = options.displayControls;
     this.listenTo(this.model, "change", this.render);
     this.listenTo(this.model.taggings(), "add", this.render);
+    this.listenTo(this.model.taggings(), "remove", this.render);
   },
 
   render: function () {
