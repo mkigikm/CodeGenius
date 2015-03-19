@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="74px" height="52px">
+  <defs>
+    <style type="text/css">@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);</style>
+  </defs>
+  <rect x="0" y="0" width="74px" height="52px" fill="#141414" fill-opacity="1.0"/>
+
+  <rect x="1" y="1" width="72px" height="50px" stroke="#ffc31c"
+    stroke-width="3px" fill="#141414" fill-opacity="0" rx="5" ry="5"/>
+
+  <g transform="translate(5, 5)">
+    <rect x="0" y="0" width="12px" height="12px" fill="#ffc31c" fill-opacity="1.0"/>
+    <rect x="16" y="0" width="12px" height="12px" fill="#ffc31c" fill-opacity="1.0"/>
+    <rect x="32" y="0" width="12px" height="12px" fill="#ffc31c" fill-opacity="1.0"/>
+    <rect x="48" y="0" width="12px" height="12px" fill="#ffc31c" fill-opacity="1.0"/>
+  </g>
+
+  <g transform="translate(8, 20)">
+    <rect x="0" y="0" width="12px" height="12px" fill="#ffc31c" fill-opacity="1.0"/>
+    <rect x="16" y="0" width="12px" height="12px" fill="#ffc31c" fill-opacity="1.0"/>
+    <rect x="32" y="0" width="12px" height="12px" fill="#ffc31c" fill-opacity="1.0"/>
+    <rect x="48" y="0" width="12px" height="12px" fill="#ffc31c" fill-opacity="1.0"/>
+
+    <text x="18" y="11" font-family="Inconsolata" fill="#141414" font-size="14" font-weight="700">C</text>
+    <text x="34" y="11" font-family="Inconsolata" fill="#141414" font-size="14" font-weight="700">G</text>
+  </g>
+
+  <g transform="translate(16, 35)">
+    <rect x="0" y="0" width="12px" height="12px" fill="#ffc31c" fill-opacity="1.0"/>
+    <rect x="16" y="0" width="12px" height="12px" fill="#ffc31c" fill-opacity="1.0"/>
+    <rect x="32" y="0" width="12px" height="12px" fill="#ffc31c" fill-opacity="1.0"/>
+  </g>
+</svg>

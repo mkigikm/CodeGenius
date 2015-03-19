@@ -46,7 +46,7 @@
     <text x="146" y="11" font-family="Inconsolata" fill="#141414" font-size="14" font-weight="700">s</text>
   </g>
 
-  <g transform="translate(11, 35)">
+  <g transform="translate(16, 35)">
     <rect x="0" y="0" width="12px" height="12px" fill="#ffc31c" fill-opacity="1.0"/>
     <rect x="16" y="0" width="12px" height="12px" fill="#ffc31c" fill-opacity="1.0"/>
     <rect x="32" y="0" width="12px" height="12px" fill="#ffc31c" fill-opacity="1.0"/>
