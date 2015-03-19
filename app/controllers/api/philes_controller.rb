@@ -1,5 +1,10 @@
 module Api
   class PhilesController < ApplicationController
+    def index
+      @philes = User.find(params[:user_id]).philes
+      render :index
+    end
+
     def show
       @phile = Phile.find(params[:id])
       render :show

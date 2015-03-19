@@ -2,8 +2,17 @@ CodeGenius.Models.User = Backbone.Model.extend({
   urlRoot: "/api/users",
 
   philes: function () {
-    this._philes || (this._philes = new CodeGenius.Collections.Philes());
+    this._philes || (this._philes = new CodeGenius.Collections.Philes({
+      user_id: this.id
+    }));
     return this._philes;
+  },
+  
+  feed: function () {
+    this._feed || (this._feed = new CodeGenius.Collections.Feed({
+      user_id: this.id
+    }));
+    return this._feed;
   },
 
   follows: function () {
@@ -12,14 +21,6 @@ CodeGenius.Models.User = Backbone.Model.extend({
   },
 
   parse: function (payload) {
-    if (payload.philes) {
-      this.philes().add(payload.philes.map(function (phile) {
-        return new CodeGenius.Models.Phile(phile)
-      }), {merge: true});
-
-      delete payload.philes;
-    }
-
     if (payload.follows) {
       this.follows().add(payload.follows.map(function (user) {
         return new CodeGenius.Models.User(user)
@@ -33,12 +34,5 @@ CodeGenius.Models.User = Backbone.Model.extend({
 
   toJSON: function () {
     return {user: _.clone(this.attributes)};
-  },
-
-  feed: function () {
-    this._feed || (this._feed = new CodeGenius.Collections.Feed({
-      user_id: this.id
-    }));
-    return this._feed;
   }
 });

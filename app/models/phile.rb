@@ -20,6 +20,8 @@ class Phile < ActiveRecord::Base
 
   has_many :taggings
 
+  default_scope { order("created_at DESC") }
+
   def length
     body.length
   end

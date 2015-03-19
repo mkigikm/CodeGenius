@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
     resources :users, only: [:show, :update] do
       resource :follow, only: [:create, :destroy]
+      resources :philes, only: :index
       get "feed", to: "users#feed"
     end
 

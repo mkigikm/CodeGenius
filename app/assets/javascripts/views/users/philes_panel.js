@@ -15,6 +15,7 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
   initialize: function () {
     this.listenTo(this.model.philes(), "add", this.render);
     this.listenTo(this.model.philes(), "remove", this.render);
+    this.model.philes().fetch();
   },
 
   render: function () {
@@ -38,9 +39,7 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
     reader = new FileReader();
     reader.onloadend = function () {
       phile.save({"body": reader.result}, {
-        success: function (data) {
-          philes.add(phile);
-        }
+        success: this.model.philes().fetch.bind(this.model.philes())
       });
     }
     reader.readAsText(file);
@@ -52,10 +51,7 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
 
     phile = this.model.philes().get($(event.currentTarget).data("phile-id"));
     phile.destroy({
-      success: function () {
-        debugger
-        this.model.philes().remove(phile);
-      }.bind(this)
+      success: this.model.philes().fetch.bind(this.model.philes())
     });
   },
 

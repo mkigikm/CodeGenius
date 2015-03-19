@@ -1,4 +1,4 @@
-CodeGenius.Collections.Tagging = Backbone.Collection.extend({
+CodeGenius.Collections.Taggings = Backbone.Collection.extend({
   model: CodeGenius.Models.Tagging,
 
   comparator: "name"
