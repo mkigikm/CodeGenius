@@ -25,10 +25,10 @@
         <% if signed_in? %>
           <a class="site-header-user-name" href="<%= user_url(current_user) %>"><%= current_user.name %></a>
 
-          <form action="<%= session_url %>" method="post">
+          <form class="signout-form" action="<%= session_url %>" method="post">
             <input type="hidden" name="_method" value="delete">
             <%= auth_token %>
-            <button>Sign Out</button>
+            <img class="signout-button" src="/signout.svg">
           </form>
 
         <% else %>
@@ -43,5 +43,13 @@
 <footer class="site-footer">
   by <a href="http://mkigikm.github.io">matt</a>
 </footer>
+
+<script>
+$(function () {
+  $(".signout-button").on("click", function () {
+    $(".signout-form").trigger("submit");
+  })
+});
+</script>
 </body>
 </html>

@@ -26,6 +26,7 @@ form, input, textarea, a, button, pre, p, strong, div, img {
   text-align: inherit;
   text-decoration: inherit;
   font: inherit;
+  outline: none;
 }
 
 ul {
@@ -53,6 +54,13 @@ img {
   /*height: 100%;*/
 }
 
+.signout-button {
+  width: 40px;
+  border: 1px solid #808080;
+  padding: 5px;
+  cursor: pointer;
+}
+
 a:hover {
   color: #4183c4;
 }
@@ -69,6 +77,11 @@ button, .button {
   background: #333333;
   color: #bbbbbb;
   cursor: pointer;
+}
+
+button:focus, .button:focus, .button-alt:focus, .signout-button:active,
+.signout-button:active:focus, input:focus, textarea:focus {
+  box-shadow: 0 0 1px 2px #4195fc;
 }
 
 .button:hover {
