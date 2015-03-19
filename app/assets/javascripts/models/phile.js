@@ -6,6 +6,10 @@ CodeGenius.Models.Phile = Backbone.Model.extend({
     return this._notes;
   },
 
+  tags: function () {
+    return [];
+  },
+
   parse: function (payload) {
     if (payload.notes) {
       this.notes().add(payload.notes.map(function (note) {

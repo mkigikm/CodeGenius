@@ -1,0 +1,11 @@
+<div class="modal-overlay"></div>
+<article class="modal file-modal">
+  <a href="javascript:void(0)" class="modal-dismiss">X</a>
+  <h2><%= phile.get("name") %></h2>
+  <input type="text" placeholder="New tag">
+  <ul>
+    <% phile.tags().forEach(function (tag) { %>
+      <li><%= tag.name %><button>delete</button></li>
+    <% }) %>
+  </ul>
+</article>

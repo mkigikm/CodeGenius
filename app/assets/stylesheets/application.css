@@ -125,15 +125,18 @@ button, .button {
   filter: alpha(opacity=50);
 }
 
-.error-modal {
+.modal {
   position: fixed;
   border: 1px solid #808080;
   background: #141414;
-  margin: 0 auto;
-  color: #ffc31c;
   left: 50%;
-  top: 30%;
+  top: 50%;
   transform: translateX(-50%);
+}
+
+.error-modal {
+  color: #ffc31c;
+  top: 30%;
   text-transform: uppercase;
   font-size: 24px;
   padding: 20px;
