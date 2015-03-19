@@ -1,0 +1,13 @@
+<div class="panel-controls">
+  <a href="javascript:void(0)"
+    <% if (paginated.page === 1) { %>
+      class="inactive-link"
+    <% } else { %>
+      class="panel-prev"
+    <% } %>
+    >
+    ‹ Prev
+  </a>
+  Page <%= paginated.page %>
+  <a href="javascript:void(0)">Next ›</a>
+</div>
