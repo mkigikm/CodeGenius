@@ -67,9 +67,9 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
     var phile;
     event.preventDefault();
 
-    phile = philes.get($(event.currentTarget).data("phile-id"));
+    phile = this.philes.get($(event.currentTarget).data("phile-id"));
     phile.destroy({
-      success: philes.fetch.bind(philes)
+      success: this.philes.fetch.bind(this.philes)
     });
   },
 

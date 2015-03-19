@@ -44,7 +44,7 @@ module Api
 
     def parse_query(query)
       tag, prefix = query.match(/^(tag:[^ ]+)?(.*)/)[1..-1]
-      [tag.try(:slice, 4..-1), prefix]
+      [tag.try(:slice, 4..-1), prefix.strip]
     end
   end
 end
