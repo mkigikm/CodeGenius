@@ -1,7 +1,10 @@
 module Api
   class PhilesController < ApplicationController
     def index
-      @philes = User.find(params[:user_id]).philes
+      @philes = User
+        .find(params[:user_id])
+        .philes
+        .where("philes.name LIKE ?", "#{params[:prefix]}%")
       render :index
     end
 
