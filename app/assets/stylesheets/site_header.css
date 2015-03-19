@@ -10,9 +10,8 @@
 }
 
 .site-header-logo {
-  font-size: 40px;
-  color: #ffc31c;
   float: left;
+  width: 182px;
 }
 
 .site-header-links {

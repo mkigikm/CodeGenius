@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="182px" height="52px">
+  <defs>
+    <style type="text/css">@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);</style>
+  </defs>
+  <rect x="0" y="0" width="200px" height="200px" fill="#141414" fill-opacity="0.0"/>
+
+  <rect x="1" y="1" width="180px" height="50px" stroke="#ffc31c"
+    stroke-width="3px" fill="#141414" fill-opacity="0" rx="5" ry="5"/>
+
+  <g transform="translate(5, 5)">
+    <rect x="0" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="16" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="32" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="48" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="64" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="80" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="96" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="112" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="128" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="144" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="160" y="0" width="12px" height="12px" fill="#ffc31c"/>
+  </g>
+
+  <g transform="translate(8, 20)">
+    <rect x="0" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="16" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="32" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="48" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="64" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="80" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="96" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="112" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="128" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="144" y="0" width="12px" height="12px" fill="#ffc31c"/>
+
+    <text x="2" y="11" font-family="Inconsolata" fill="#141414" font-size="14" font-weight="700">C</text>
+    <text x="18" y="11" font-family="Inconsolata" fill="#141414" font-size="14" font-weight="700">o</text>
+    <text x="34" y="11" font-family="Inconsolata" fill="#141414" font-size="14" font-weight="700">d</text>
+    <text x="50" y="11" font-family="Inconsolata" fill="#141414" font-size="14" font-weight="700">e</text>
+    <text x="66" y="11" font-family="Inconsolata" fill="#141414" font-size="14" font-weight="700">G</text>
+    <text x="82" y="11" font-family="Inconsolata" fill="#141414" font-size="14" font-weight="700">e</text>
+    <text x="98" y="11" font-family="Inconsolata" fill="#141414" font-size="14" font-weight="700">n</text>
+    <text x="114" y="11" font-family="Inconsolata" fill="#141414" font-size="14" font-weight="700">i</text>
+    <text x="130" y="11" font-family="Inconsolata" fill="#141414" font-size="14" font-weight="700">u</text>
+    <text x="146" y="11" font-family="Inconsolata" fill="#141414" font-size="14" font-weight="700">s</text>
+  </g>
+
+  <g transform="translate(11, 35)">
+    <rect x="0" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="16" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="32" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="48" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="64" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="80" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="96" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="112" y="0" width="12px" height="12px" fill="#ffc31c"/>
+    <rect x="128" y="0" width="12px" height="12px" fill="#ffc31c"/>
+  </g>
+</svg>
