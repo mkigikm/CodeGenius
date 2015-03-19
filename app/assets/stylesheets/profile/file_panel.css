@@ -48,6 +48,7 @@
   display: block;
   font-size: 12px;
   clear: both;
+  color: #bbbbbb;
 }
 
 .tag-delete {
@@ -57,7 +58,6 @@
 
 .tag-names > .tag-search {
   display: inline;
-  color: #fff;
 }
 
 .tag-names > .tag-search:hover {
