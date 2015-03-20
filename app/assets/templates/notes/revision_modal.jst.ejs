@@ -1,0 +1,23 @@
+<div class="modal-overlay"></div>
+<article class="revision-modal modal">
+  <a href="javascript:void(0)" class="modal-dismiss">X</a>
+  <ul>
+    <li>
+      <h2>
+        by <a href="/users/<%= note.get("author_id") %>"><%= note.escape("author_name") %></a>
+      </h2>
+      <%= marked(note.escape("body")) %>
+    </li>
+    <% note.revisions().each(function (revision) { %>
+      <li class="hidden">
+        <h2>
+          by <a href="/users/<%= revision.get("author_id") %>"><%= revision.escape("author_name") %></a>
+        </h2>
+        <%= marked(revision.escape("body")) %>
+      </li>
+    <% }) %>
+  </ul>
+  <a href="javascript:void()">Prev</a>
+  <a href="javascript:void()">revert</a>
+  <a href="javascript:void()">Next</a>
+</article>

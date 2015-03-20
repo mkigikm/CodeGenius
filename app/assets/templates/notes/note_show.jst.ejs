@@ -2,9 +2,10 @@
   <h2>by <a href="/users/<%= note.get("author_id") %>"><%= note.escape("author_name") %></a></h2>
   <%= marked(note.escape("body")) %>
   <nav class="annotation-show-links">
-    <a class="annotation-edit-link" href="javascript:void(0)">propose an edit</a>
+    <a class="annotation-edit-link" href="javascript:void(0)">edit</a> |
+    <a class="annotation-edits-view-link" href="javascript:void(0)">view all edits</a>
     <% if (note.get("is_phile_owner")) { %>
-      <a class="annotation-delete-link" href="javascript:void(0)">delete</a>
+      | <a class="annotation-delete-link" href="javascript:void(0)">delete</a>
     <% } %>
   </nav>
 </aside>
