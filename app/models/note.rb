@@ -25,6 +25,12 @@ class Note < ActiveRecord::Base
     inverse_of: :notes
   )
 
+  has_many(
+    :revisions,
+    class_name: "NoteRevision",
+    inverse_of: :note
+  )
+
   def notes_cannot_overlap
     overlap_query = <<-SQL
     NOT (finish < :start OR start > :finish)
@@ -51,10 +57,28 @@ class Note < ActiveRecord::Base
 
   after_commit :set_notification, on: [:create]
 
+  before_save :make_revision, if: :persisted?
+
+  def revert(revision)
+    self.author = revision.author
+    self.body = revision.body
+    ActiveRecord::Base.transaction do
+      self.save!
+      self.revisions
+        .where("created_at >= ?", revision.created_at)
+        .delete_all
+    end
+  end
+
   private
   def set_notification
     notification = self.notifications.new
     notification.user = self.phile.owner
     notification.save
+  end
+
+  def make_revision
+    old_self = Note.find(self)
+    self.revisions.create!(author: old_self.author, body: old_self.body)
   end
 end
