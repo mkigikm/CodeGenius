@@ -10,22 +10,28 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
     "change input.file-upload-selector": "uploadPhile",
     "click button.phile-delete": "deletePhile",
     "click button.phile-tag": "tagPhile",
-    "submit .file-search": "search",
+    "submit .file-search": "void",
+    "keydown .file-search > input": "searchPress",
     "click .tag-search": "tagSearch"
   },
 
   initialize: function () {
     this.philes = this.model.philes();
-    this.listenTo(this.philes, "sync", this.render);
-    this.listenTo(this.philes, "change", this.render);
+    this.listenTo(this.philes, "sync", this.renderPhileList);
+    this.listenTo(this.philes, "change", this.renderPhileList);
     this.philes.fetch();
   },
 
   render: function () {
-    var itemView;
-    this.removeItemViews();
     this.$el.html(this.template({user: this.model}));
+    this.renderPhileList();
+    return this;
+  },
 
+  renderPhileList: function () {
+    var itemView;
+
+    this.removeItemViews();
     this.philes.each(function (phile) {
       itemView = new CodeGenius.Views.PhilesPanelItem({
         model: phile,
@@ -34,8 +40,6 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
       this.$(".file-list").append(itemView.render().$el);
       this._itemViews.push(itemView);
     }.bind(this));
-
-    return this;
   },
 
   removeItemViews: function () {
@@ -52,16 +56,26 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
     this.removeItemViews();
   },
 
-  search: function (event) {
-    event.preventDefault();
+  search: function () {
     this.philes.search(this.$(".file-search > input").val());
     this.philes.fetch();
   },
 
-  tagSearch: function (event) {
+  void: function (event) {
     event.preventDefault();
-    this.philes.search("tag:" + $(event.currentTarget).data("tag"));
-    this.philes.fetch();
+  },
+
+  searchPress: function (event) {
+    clearInterval(this.searchTimeout)
+    this.searchTimeout = setTimeout(this.search.bind(this), 200);
+  },
+
+  tagSearch: function (event) {
+    var tagText = "tag:" + $(event.currentTarget).data("tag");
+    event.preventDefault();
+
+    this.$(".file-search > input").val(tagText);
+    this.search();
   },
 
   choosePhile: function (event) {
