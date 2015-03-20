@@ -10,7 +10,6 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
     "change input.file-upload-selector": "uploadPhile",
     "click button.phile-delete": "deletePhile",
     "click button.phile-tag": "tagPhile",
-    "submit .file-search": "void",
     "keydown .file-search > input": "searchPress",
     "click .tag-search": "tagSearch"
   },
@@ -42,6 +41,10 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
     }.bind(this));
   },
 
+  remove: function () {
+    this.removeItemViews();
+  },
+
   removeItemViews: function () {
     if (this._itemViews) {
       this._itemViews.forEach(function (itemView) {
@@ -52,17 +55,11 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
     this._itemViews = [];
   },
 
-  remove: function () {
-    this.removeItemViews();
-  },
+  search: function (query) {
+    typeof query !== "undefined" && this.$(".file-search > input").val(query);
 
-  search: function () {
     this.philes.search(this.$(".file-search > input").val());
     this.philes.fetch();
-  },
-
-  void: function (event) {
-    event.preventDefault();
   },
 
   searchPress: function (event) {
@@ -71,11 +68,8 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
   },
 
   tagSearch: function (event) {
-    var tagText = "tag:" + $(event.currentTarget).data("tag");
     event.preventDefault();
-
-    this.$(".file-search > input").val(tagText);
-    this.search();
+    this.search("tag:" + $(event.currentTarget).data("tag"));
   },
 
   choosePhile: function (event) {
@@ -93,10 +87,7 @@ CodeGenius.Views.PhilesPanel = Backbone.View.extend({
     reader = new FileReader();
     reader.onloadend = function () {
       phile.save({"body": reader.result}, {
-        success: function () {
-          this.philes.search("");
-          this.philes.fetch();
-        }.bind(this)
+        success: this.search.bind(this, "")
       });
     }.bind(this)
     reader.readAsText(file);
