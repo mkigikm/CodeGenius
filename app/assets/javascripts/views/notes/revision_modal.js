@@ -54,7 +54,6 @@ CodeGenius.Views.NoteRevisionModal = Backbone.View.extend({
       method: "POST",
       success: function (data) {
         this.model.set(data);
-        debugger
         this.render();
       }.bind(this)
     });

@@ -37,6 +37,7 @@ module Api
       authorize! :destroy, @note
       @revision = NoteRevision.find(params[:revision_id])
       @note.revert(@revision)
+      @note = Note.find(params[:note_id])
       render :show
     end
 
