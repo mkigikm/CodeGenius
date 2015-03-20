@@ -18,7 +18,9 @@ Rails.application.routes.draw do
     end
     resources :taggings, only: :destroy
 
-    resources :notes, only: [:create, :update, :show, :destroy]
+    resources :notes, only: [:create, :update, :show, :destroy] do
+      post "revert/:revision_id", to: "notes#revert"
+    end
 
     resources :users, only: [:show, :update] do
       resource :follow, only: [:create, :destroy]

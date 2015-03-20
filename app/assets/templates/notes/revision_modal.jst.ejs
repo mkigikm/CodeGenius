@@ -1,23 +1,23 @@
 <div class="modal-overlay"></div>
 <article class="revision-modal modal">
   <a href="javascript:void(0)" class="modal-dismiss">X</a>
-  <ul>
+  <ul class="revision-list">
     <li>
       <h2>
         by <a href="/users/<%= note.get("author_id") %>"><%= note.escape("author_name") %></a>
       </h2>
       <%= marked(note.escape("body")) %>
     </li>
-    <% note.revisions().forEach(function (revision) { %>
-      <li class="hidden">
+    <% note.get("revisions").forEach(function (revision) { %>
+      <li data-revision-id="<%= revision.id %>">
         <h2>
-          by <a href="/users/<%= revision.get("author_id") %>"><%= revision.escape("author_name") %></a>
+          by <a href="/users/<%= revision.author_id %>"><%= revision.author_name %></a>
         </h2>
-        <%= marked(revision.escape("body")) %>
+        <%= marked(revision.body) %>
       </li>
     <% }) %>
   </ul>
-  <a href="javascript:void()">Prev</a>
-  <a href="javascript:void()">revert</a>
-  <a href="javascript:void()">Next</a>
+  <a href="javascript:void()" class="revision-prev">Prev</a>
+  <a href="javascript:void()" class="revision-revert">revert</a>
+  <a href="javascript:void()" class="revision-next">Next</a>
 </article>

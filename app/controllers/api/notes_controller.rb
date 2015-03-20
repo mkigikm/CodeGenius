@@ -22,6 +22,7 @@ module Api
 
     def show
       @note = Note.find(params[:id])
+      render :show
     end
 
     def destroy
@@ -29,6 +30,14 @@ module Api
       authorize! :destroy, @note
       @note.destroy!
       render json: @note
+    end
+
+    def revert
+      @note = Note.find(params[:note_id])
+      authorize! :destroy, @note
+      @revision = NoteRevision.find(params[:revision_id])
+      @note.revert(@revision)
+      render :show
     end
 
     private
