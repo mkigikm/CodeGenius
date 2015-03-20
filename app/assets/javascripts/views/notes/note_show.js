@@ -7,7 +7,8 @@ CodeGenius.Views.NoteShow = Backbone.View.extend({
     "click button.note-save": "save",
     "click button.note-cancel": "toggleEdit",
     "click a.annotation-edit-link": "toggleEdit",
-    "click a.annotation-delete-link": "delete"
+    "click a.annotation-delete-link": "delete",
+    "click a.annotation-edits-view-link": "editRevisions"
   },
 
   initialize: function (options) {
@@ -62,6 +63,14 @@ CodeGenius.Views.NoteShow = Backbone.View.extend({
         this.render();
       }.bind(this)
     });
+  },
+
+  editRevisions: function (event) {
+    var revisionModal;
+    event.preventDefault();
+
+    revisionModal = new CodeGenius.Views.NoteRevisionModal({model: this.model});
+    $("body").append(revisionModal.render().$el);
   },
 
   positionNote: function () {

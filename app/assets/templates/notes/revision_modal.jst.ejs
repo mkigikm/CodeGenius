@@ -8,7 +8,7 @@
       </h2>
       <%= marked(note.escape("body")) %>
     </li>
-    <% note.revisions().each(function (revision) { %>
+    <% note.revisions().forEach(function (revision) { %>
       <li class="hidden">
         <h2>
           by <a href="/users/<%= revision.get("author_id") %>"><%= revision.escape("author_name") %></a>
