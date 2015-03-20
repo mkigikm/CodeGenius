@@ -1,15 +1,15 @@
 <div class="modal-overlay"></div>
-<article class="revision-modal modal">
+<section class="revision-modal modal">
   <a href="javascript:void(0)" class="modal-dismiss">X</a>
   <ul class="revision-list">
-    <li>
+    <li class="annotation-show">
       <h2>
         by <a href="/users/<%= note.get("author_id") %>"><%= note.escape("author_name") %></a>
       </h2>
       <%= marked(note.escape("body")) %>
     </li>
     <% note.get("revisions").forEach(function (revision) { %>
-      <li data-revision-id="<%= revision.id %>">
+      <li data-revision-id="<%= revision.id %>" class="annotation-show">
         <h2>
           by <a href="/users/<%= revision.author_id %>"><%= revision.author_name %></a>
         </h2>

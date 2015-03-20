@@ -82,3 +82,9 @@
   padding: 5px 40px;
   border: 1px solid #808080
 }
+
+.revision-modal {
+  color: #ffc31c;
+  padding: 20px;
+  width: 400px;
+}
