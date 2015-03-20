@@ -3,7 +3,7 @@ module Api
     def update
       @note = Note.find(params[:id])
 
-      if @note.update(note_params)
+      if @note.update(note_params.merge({author: current_user}))
         render json: @note
       else
         render json: @note.errors.full_messages, status: :unprocessable_entity
