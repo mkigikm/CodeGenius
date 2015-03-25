@@ -1,6 +1,6 @@
 class HomePagesController < ApplicationController
   def index
-    @philes = Phile.all.order("created_at DESC").limit(20)
+    @philes = Phile.most_active
     render :index
   end
 end

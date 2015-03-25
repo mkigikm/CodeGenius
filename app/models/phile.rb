@@ -29,7 +29,7 @@ class Phile < ActiveRecord::Base
     inverse_of: :philes
   )
 
-  default_scope { order("created_at DESC") }
+  default_scope { order("philes.created_at DESC") }
 
   def length
     body.length
@@ -43,6 +43,18 @@ class Phile < ActiveRecord::Base
   )
 
   after_commit :set_notifications, on: [:create]
+
+  def self.most_active
+    Phile.find_by_sql(<<-SQL
+      SELECT philes.*, COUNT(notes.id)
+      FROM philes
+      JOIN notes ON philes.id = notes.phile_id
+      GROUP BY philes.id
+      ORDER BY COUNT(notes.id)
+      LIMIT 20
+      SQL
+    )
+  end
 
   private
   def set_notifications
