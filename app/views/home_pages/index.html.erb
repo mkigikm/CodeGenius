@@ -1,0 +1,13 @@
+<main class="content homepage">
+  <h1>Code Genius</h1>
+  <p>Annotate your code.</p>
+  <p><a href="<%= new_user_url %>" class="button">Register</a></p>
+  <ul>
+    <% @philes.each do |phile| %>
+      <li>
+        <p><a href="<%= phile_url(phile) %>"><%= phile.name %></a></p>
+        <p>by <a href="<%= user_url(phile.owner) %>"><%= phile.owner.name %></a></p>
+      </li>
+    <% end %>
+  </ul>
+</main>

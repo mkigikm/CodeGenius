@@ -31,5 +31,5 @@ Rails.application.routes.draw do
     get "search", to: "searches#index"
   end
 
-  root to: "users#new"
+  root to: "home_pages#index"
 end
