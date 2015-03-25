@@ -7,11 +7,11 @@
 <main class="search-results">
   <ul>
   <% @search_results.map(&:searchable).each do |model| %>
-    <li class="search-results-row clearfix">
-      <% if model.class == User %>
-        <%= render "user", user: model %>
-      <% end %>
-    </li>
+    <% if model.class == User %>
+      <li class="search-results-row clearfix">
+          <%= render "user", user: model %>
+      </li>
+    <% end %>
   <% end %>
   </ul>
 

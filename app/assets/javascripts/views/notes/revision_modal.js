@@ -17,6 +17,8 @@ CodeGenius.Views.NoteRevisionModal = Backbone.View.extend({
   render: function () {
     this.$el.html(this.template({note: this.model}));
     this.revision = 0;
+    this.prevLink = this.$("a.revision-prev");
+    this.nextLink = this.$("a.revision-next");
     this.activateRevision();
     return this;
   },
@@ -40,6 +42,11 @@ CodeGenius.Views.NoteRevisionModal = Backbone.View.extend({
   activateRevision: function () {
     this.$(".revision-list > li").addClass("hidden");
     $(this.$(".revision-list > li").get(this.revision)).removeClass("hidden");
+    this.prevLink.removeClass("inactive-link");
+    this.nextLink.removeClass("inactive-link");
+    if (this.revision === 0) this.nextLink.addClass("inactive-link");
+    if (this.revision === this.model.get("revisions").length)
+      this.prevLink.addClass("inactive-link");
   },
 
   revert: function (event) {

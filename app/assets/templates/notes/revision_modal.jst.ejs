@@ -18,6 +18,8 @@
     <% }) %>
   </ul>
   <a href="javascript:void()" class="revision-prev">Prev</a>
-  <a href="javascript:void()" class="revision-revert">revert</a>
+  <% if (note.get("is_phile_owner")) { %>
+    <a href="javascript:void()" class="revision-revert">revert</a>
+  <% } %>
   <a href="javascript:void()" class="revision-next">Next</a>
 </article>
