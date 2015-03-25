@@ -11,6 +11,13 @@
   margin: 20px;
 }
 
+.homepage > h2 {
+  text-align: center;
+  font-size: 40px;
+  color: #ffc31c;
+  margin: 100px 0 20px 0;
+}
+
 .homepage > ul {
   width: 500px;
   margin: 0 auto;
