@@ -1,13 +1,13 @@
+<%= error_messages user.errors, :name %>
 <label for="user[name]">Username</label>
 <input type="text" name="user[name]" value="<%= user.name %>">
-<%= error_messages user.errors, :name %>
 
+<%= error_messages user.errors, :password %>
 <label for="user[password]">Password</label>
 <input type="password" name="user[password]">
-<%= error_messages user.errors, :password %>
 
 <% if !sign_in %>
+  <%= error_messages user.errors, :password_confirmation %>
   <label for="user[password_confirmation]">Confirm Password</label>
   <input type="password" name="user[password_confirmation]">
-  <%= error_messages user.errors, :password_confirmation %>
 <% end %>

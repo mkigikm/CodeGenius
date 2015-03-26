@@ -23,7 +23,7 @@ module ApplicationHelper
   def error_messages(errors, field)
     if errors.has_key?(field)
       <<-HTML.html_safe
-      <strong>#{errors.full_messages_for(field).join(" ")}</strong>
+      <strong class="signin-error">#{errors.full_messages_for(field).join(" ")}</strong>
       HTML
     end
   end
