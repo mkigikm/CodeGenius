@@ -20,3 +20,9 @@
 .signin > strong {
   font-size: 14px;
 }
+
+.signin-error {
+  color: #f00;
+  display: block;
+  margin-bottom: 10px;
+}

@@ -1,8 +1,10 @@
 <main class="content">
-  <strong><%= @error %></strong>
   <form class="signin" action="<%= session_url %>" method="post">
     <h1>Sign In</h1>
+
     <%= auth_token %>
+
+    <strong class="signin-error"><%= @error %></strong>
 
     <%= render "users/fields", user: @user, errors: {}, sign_in: true %>
 
