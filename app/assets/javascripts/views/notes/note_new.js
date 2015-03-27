@@ -57,7 +57,7 @@ CodeGenius.Views.NoteNew = Backbone.View.extend({
   },
 
   maxTop: function () {
-    return Math.min(this.top, this.fileHeight -
-        this.$("> :not(.hidden)").height());
+    return Math.max(0, Math.min(this.top, this.fileHeight -
+        this.$("> :not(.hidden)").height()));
   }
 });
