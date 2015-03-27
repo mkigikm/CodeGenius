@@ -50,7 +50,7 @@ class Phile < ActiveRecord::Base
       FROM philes
       JOIN notes ON philes.id = notes.phile_id
       GROUP BY philes.id
-      ORDER BY COUNT(notes.id)
+      ORDER BY COUNT(notes.id) DESC
       LIMIT 20
       SQL
     )
