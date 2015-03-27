@@ -20,7 +20,6 @@ gem 'kaminari'
 gem 'figaro'
 gem "paperclip", "~> 4.2"
 gem 'aws-sdk'
-gem 'omniauth-gplus', '~> 2.0'
 gem 'omniauth-twitter'
 
 group :development do
