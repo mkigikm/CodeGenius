@@ -1,5 +1,5 @@
 <a href="<%= user_url(user) %>"><%= user.name %></a>
-<% if user != current_user %>
+<% if user != current_user && signed_in? %>
   <button data-user-id="<%= user.id %>" data-following="<%= current_user.following?(user) %>" class="follow-toggle">
     <%= current_user.following?(user) ? "Unfollow" : "Follow" %>
   </button>

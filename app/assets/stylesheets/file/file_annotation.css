@@ -88,3 +88,9 @@
   padding: 20px;
   width: 400px;
 }
+
+.sigin-header {
+  text-transform: none;
+  color: #bbbbbb;
+  margin-bottom: 10px;
+}

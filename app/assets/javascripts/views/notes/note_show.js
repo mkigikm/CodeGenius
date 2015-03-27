@@ -38,10 +38,17 @@ CodeGenius.Views.NoteShow = Backbone.View.extend({
   },
 
   toggleEdit: function (event) {
+    var signInModal;
     event.preventDefault();
-    this.$("textarea").val(this.model.escape("body"));
-    this.editing = !this.editing;
-    this.render();
+
+    if (!this.model.get("is_signed_in")) {
+      signInModal = new CodeGenius.Views.SignInModal();
+      $("body").append(signInModal.render().$el);
+    } else {
+      this.$("textarea").val(this.model.escape("body"));
+      this.editing = !this.editing;
+      this.render();
+    }
   },
 
   delete: function (event) {

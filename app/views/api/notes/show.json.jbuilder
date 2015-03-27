@@ -1,5 +1,6 @@
 json.extract! @note, :id, :body, :author_id
 json.is_phile_owner @note.phile.owner == current_user
+json.is_signed_in signed_in?
 json.author_name @note.author.name
 json.revisions do
   json.array! @note.revisions do |revision|
