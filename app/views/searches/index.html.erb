@@ -5,6 +5,9 @@
 </header>
 
 <main class="search-results">
+  <% if @search_results.length == 0 %>
+    <h1>No Results Found</h1>
+  <% end %>
   <ul>
   <% @search_results.map(&:searchable).each do |model| %>
     <% if model.class == User %>
