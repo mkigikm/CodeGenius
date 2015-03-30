@@ -11,7 +11,7 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.notes(), "add", this.render);
     this.listenTo(this.model.notes(), "remove", this.render);
-    
+
     this.$newNoteEl = options.$newNoteEl;
     this.$el.bind("notestarted", this.render.bind(this));
     this.$el.bind("notecanceled", this.canceledNote.bind(this));
@@ -56,7 +56,8 @@ CodeGenius.Views.PhileShow = Backbone.View.extend({
       collection: this.model.notes(),
       top: this.topOffset(selection),
       $parentEl: this.$el,
-      fileHeight: this.$("pre").height()
+      fileHeight: this.$("pre").height(),
+      isSignedIn: this.model.get("is_signed_in")
     });
     this.$newNoteEl.html(this.newNoteView.render().$el);
 
