@@ -2,6 +2,10 @@
   <h1>Code Genius</h1>
   <p>Annotate your code.</p>
   <p><a href="<%= new_user_url %>" class="button">Register</a></p>
+  <form action="<%= guest_session_url %>" method="post">
+    <%= auth_token %>
+    <button>Guest Sign In</button>
+  </form>
   <h2>Most Active Files</h2>
   <ul>
     <% @philes.each do |phile| %>

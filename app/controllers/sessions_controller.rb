@@ -6,6 +6,12 @@ class SessionsController < ApplicationController
     render :new
   end
 
+  def guest
+    @user = User.find_by(name: "guest")
+    sign_in!(@user)
+    redirect_to user_url(@user)
+  end
+
   def create
     credentials = user_params
     @user = User.find_by_credentials(

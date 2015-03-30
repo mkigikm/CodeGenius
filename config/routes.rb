@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     resource :follow, only: [:create, :destroy]
   end
 
-  resource :session, only: [:new, :create, :destroy]
+  resource :session, only: [:new, :create, :destroy] do
+    post "guest", to: "sessions#guest"
+  end
   get "/auth/:provider/callback", to: "sessions#omniauth"
 
   resources :philes, only: [:create, :show]
