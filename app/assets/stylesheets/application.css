@@ -172,5 +172,5 @@ button:focus, .button:focus, .button-alt:focus, .signout-button:active,
 .twitter-sign-in {
   width: 160px;
   display: block;
-  margin-top: 10px;
+  margin: 10px 0;
 }

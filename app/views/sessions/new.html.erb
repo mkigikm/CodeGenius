@@ -9,7 +9,19 @@
     <%= render "users/fields", user: @user, errors: {}, sign_in: true %>
 
     <button>Sign In</button>
+    <button class="guest-button">Guest Account</button>
     <a class="button-alt" href="<%= new_user_url %>">Register</a>
     <a href="/auth/twitter"><img class="twitter-sign-in" src="/images/sign-in-with-twitter-gray.png"></a>
   </form>
 </main>
+
+<script>
+$(function () {
+  $(".guest-button").click(function (event) {
+    event.preventDefault();
+    $(".user-name").val("guest");
+    $(".user-password").val("guest_password");
+    $(".signin").trigger("submit");
+  });
+});
+</script>
