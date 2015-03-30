@@ -13,6 +13,7 @@ CodeGenius.Views.NoteNew = Backbone.View.extend({
     this.top = options.top;
     this.fileHeight = options.fileHeight;
     this.$parentEl = options.$parentEl;
+    this.isSignedIn = options.isSignedIn;
   },
 
   render: function () {
@@ -33,11 +34,14 @@ CodeGenius.Views.NoteNew = Backbone.View.extend({
   },
 
   startAnnotation: function (event) {
-    var errorModal;
+    var modal;
 
     event.preventDefault();
-    if (this.collection.overlaps(this.model)) {
-      errorModal = new CodeGenius.Views.ErrorModal();
+    if (!this.isSignedIn) {
+      modal = new CodeGenius.Views.SignInModal();
+      $("body").append(modal.render().$el);
+    } else if (this.collection.overlaps(this.model)) {
+      modal = new CodeGenius.Views.ErrorModal();
       $("body").append(errorModal.render().$el);
     } else {
       this.$el.children().toggleClass("hidden");
