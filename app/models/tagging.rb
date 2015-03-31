@@ -3,8 +3,5 @@ class Tagging < ActiveRecord::Base
   validates :tag, uniqueness: { scope: :phile }
 
   belongs_to :tag
-  belongs_to(
-    :phile,
-    dependent: :destroy
-  )
+  belongs_to :phile,
 end

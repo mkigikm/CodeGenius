@@ -5,8 +5,7 @@ class Notification < ActiveRecord::Base
   belongs_to(
     :notifiable,
     inverse_of: :notifications,
-    polymorphic: true,
-    dependent: :destroy
+    polymorphic: true
   )
 
   default_scope { order("created_at DESC") }

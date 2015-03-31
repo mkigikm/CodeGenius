@@ -22,14 +22,14 @@ class Note < ActiveRecord::Base
     :phile,
     class_name: "Phile",
     foreign_key: :phile_id,
-    inverse_of: :notes,
-    dependent: :destroy
+    inverse_of: :notes
   )
 
   has_many(
     :revisions,
     class_name: "NoteRevision",
-    inverse_of: :note
+    inverse_of: :note,
+    dependent: :destroy
   )
 
   def notes_cannot_overlap

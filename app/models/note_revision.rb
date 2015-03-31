@@ -3,10 +3,7 @@ class NoteRevision < ActiveRecord::Base
 
   default_scope { order("created_at DESC") }
 
-  belongs_to(
-    :note,
-    dependent: :destroy
-  )
+  belongs_to :note
   
   belongs_to(
     :author,

@@ -12,7 +12,8 @@ class Phile < ActiveRecord::Base
     :notes,
     class_name: "Note",
     foreign_key: :phile_id,
-    inverse_of: :phile
+    inverse_of: :phile,
+    dependent: :destroy
   )
 
   has_many(
