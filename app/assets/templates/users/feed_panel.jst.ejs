@@ -24,5 +24,11 @@
     ‹ Prev
   </a>
   Page <%= feed.page %>
-  <a class="feed-next" href="javascript:void(0)">Next ›</a>
+  <a href="javascript:void(0)"
+    <% if ((feed.page - 1) * 10 + feed.length === feedLength) { %>
+    class="inactive-link"
+    <% } else { %>
+    class="feed-next"
+    <% } %>
+      >Next ›</a>
 </div>
